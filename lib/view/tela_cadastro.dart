@@ -67,7 +67,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Já possui uma conta?'),
+          Text('Já possui uma conta? '),
           TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, 'telaLogin');
