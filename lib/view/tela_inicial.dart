@@ -29,7 +29,7 @@ class TelaInicial extends StatelessWidget {
             ],
           ),
 
-//Subtitulo
+          //Subtitulo
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -38,79 +38,25 @@ class TelaInicial extends StatelessWidget {
             ],
           ),
 
-//botões
-          Row(
-            children: [
-              ElevatedButton(
+          //botões
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    minimumSize: Size(147, 50),
+                    minimumSize: Size(157, 70),
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
+                      borderRadius: BorderRadius.circular(16),
                     )),
                 onPressed: () {},
-                child: // botao cadastrar
-                    Container(
-                        width: 157,
-                        height: 70,
-                        child: Stack(children: <Widget>[
-                          Positioned(
-                              top: 24,
-                              left: 39,
-                              child: Text(
-                                'Cadastrar',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontFamily: 'Open Sans',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                    height: 1),
-                              )),
-                        ])),
-              ),
-              ElevatedButton(
-                  onPressed: () {},
-                  child: // Botão entrar
-                      Container(
-                          width: 157,
-                          height: 70,
-                          child: Stack(children: <Widget>[
-                            Positioned(
-                                top: 0,
-                                left: 0,
-                                child: Container(
-                                    width: 157,
-                                    height: 70,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(16),
-                                        topRight: Radius.circular(16),
-                                        bottomLeft: Radius.circular(16),
-                                        bottomRight: Radius.circular(16),
-                                      ),
-                                      color: Color.fromRGBO(246, 244, 247, 1),
-                                      border: Border.all(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                        width: 1,
-                                      ),
-                                    ))),
-                            Positioned(
-                                top: 24,
-                                left: 57,
-                                child: Text(
-                                  'Entrar',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(0, 0, 0, 1),
-                                      fontFamily: 'Open Sans',
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.normal,
-                                      height: 1),
-                                )),
-                          ])))
-            ],
-          )
+                child: Text(
+                  'Cadastrar',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Color.fromRGBO(84, 51, 99, 1),
+                  ),
+                ) // botao cadastrar
+                ),
+          ])
         ]));
   }
 }
