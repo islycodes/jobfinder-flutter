@@ -39,7 +39,7 @@ class TelaInicial extends StatelessWidget {
           ),
 
           //botões
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: Size(157, 70),
@@ -51,11 +51,28 @@ class TelaInicial extends StatelessWidget {
                 child: Text(
                   'Cadastrar',
                   style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromRGBO(84, 51, 99, 1),
+                    fontSize: 16,
+                    color: Colors.black,
                   ),
                 ) // botao cadastrar
                 ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: Size(157, 70),
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    )),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'telaLogin');
+                },
+                child: Text(
+                  'Entrar',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
+                )),
           ])
         ]));
   }

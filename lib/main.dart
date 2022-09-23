@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'view/tela_inicial.dart';
+import 'view/tela_login.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -12,6 +13,6 @@ void main() {
       routes: {
         'telaInicial': (context) => TelaInicial(),
         // 'telaCadastro': (context) => TelaCadastro(),
-        // 'telaLogin': (context) => TelaLogin(),
+        'telaLogin': (context) => TelaLogin(),
       }));
 }
