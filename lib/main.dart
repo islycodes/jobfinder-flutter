@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'view/tela_cadastro.dart';
 import 'view/tela_inicial.dart';
 import 'view/tela_login.dart';
 
@@ -12,7 +13,7 @@ void main() {
       initialRoute: 'telaInicial',
       routes: {
         'telaInicial': (context) => TelaInicial(),
-        // 'telaCadastro': (context) => TelaCadastro(),
+        'telaCadastro': (context) => TelaCadastro(),
         'telaLogin': (context) => TelaLogin(),
       }));
 }

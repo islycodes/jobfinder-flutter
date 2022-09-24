@@ -74,19 +74,22 @@ class _TelaLoginState extends State<TelaLogin> {
     return Container(
       margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: TextFormField(
+        cursorColor: Color.fromRGBO(84, 51, 99, 1),
         controller: variavel,
         style: TextStyle(
           fontSize: 16,
           color: Colors.black,
         ),
-        decoration: InputDecoration(
-          labelText: rotulo,
-          labelStyle: TextStyle(
-            fontSize: 16,
-            color: Colors.grey,
+        decoration: new InputDecoration(
+          floatingLabelStyle: TextStyle(color: Color.fromRGBO(84, 51, 99, 1)),
+          fillColor: Colors.white,
+          enabledBorder: new OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(16),
+            borderSide: BorderSide(color: Colors.grey),
           ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+          focusedBorder: new OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(16),
+            borderSide: BorderSide(color: Color.fromRGBO(84, 51, 99, 1)),
           ),
         ),
       ),

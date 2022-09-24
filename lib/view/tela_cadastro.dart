@@ -17,82 +17,104 @@ class _TelaCadastroState extends State<TelaCadastro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Text(
-        'Crie sua conta',
-        style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Color.fromRGBO(134, 134, 134, 1)),
+        body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment(-1, 6.123234262925839e-17),
+            end: Alignment(6.123234262925839e-17, 1),
+            colors: [
+              Color.fromRGBO(234, 224, 241, 1),
+              Color.fromRGBO(224, 236, 247, 1)
+            ]),
       ),
-      Form(
-        child: (Column(
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        Text(
+          'Crie sua conta',
+          style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(134, 134, 134, 1)),
+        ),
+        Padding(
+          padding: EdgeInsets.all(20),
+          child: Form(
+              child: (Column(
+            children: [
+              campoTexto('Nome', txtNome),
+              campoTexto('Email', txtEmail),
+              campoSenha('Senha', txtSenha),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Checkbox(
+                      value: valCheck,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          valCheck = value!;
+                        });
+                      }),
+                  Text('Declaro que li e aceito os termos & condições'),
+                ],
+              ),
+            ],
+          ))),
+        ),
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                minimumSize: Size(370, 65),
+                backgroundColor: Color.fromRGBO(84, 51, 99, 1),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                )),
+            onPressed: () {},
+            child: Text(
+              'Cadastrar',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+            ) // botao cadastrar
+            ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            campoTexto('Nome', txtNome),
-            campoTexto('Email', txtEmail),
-            campoSenha('Senha', txtSenha),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Checkbox(
-                    value: valCheck,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        valCheck = value!;
-                      });
-                    }),
-                Text('Declaro que li e aceito os termos & condições'),
-              ],
-            ),
+            Text('Já possui uma conta? '),
+            TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, 'telaLogin');
+                },
+                child: Text('Entrar'))
           ],
-        )),
-      ),
-      ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              minimumSize: Size(370, 65),
-              primary: Color.fromRGBO(84, 51, 99, 1),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              )),
-          onPressed: () {},
-          child: Text(
-            'Cadastrar',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.white,
-            ),
-          ) // botao cadastrar
-          ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Já possui uma conta? '),
-          TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, 'telaLogin');
-              },
-              child: Text('Entrar'))
-        ],
-      )
-    ]));
+        )
+      ]),
+    ));
   }
 
   campoSenha(rotulo, variavel) {
     return Container(
         margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
         child: TextFormField(
-          obscureText: true,
-          enableSuggestions: false,
-          autocorrect: false,
-          controller: variavel,
-          style: TextStyle(fontSize: 20, color: Colors.blue.shade900),
-          decoration: InputDecoration(
+            cursorColor: Color.fromRGBO(84, 51, 99, 1),
+            obscureText: true,
+            enableSuggestions: false,
+            autocorrect: false,
+            controller: variavel,
+            style: TextStyle(fontSize: 16, color: Colors.black),
+            decoration: new InputDecoration(
+              floatingLabelStyle:
+                  TextStyle(color: Color.fromRGBO(84, 51, 99, 1)),
               labelText: rotulo,
-              labelStyle: const TextStyle(fontSize: 20, color: Colors.grey),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
-        ));
+              fillColor: Colors.white,
+              enabledBorder: new OutlineInputBorder(
+                borderRadius: new BorderRadius.circular(16),
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+              focusedBorder: new OutlineInputBorder(
+                borderRadius: new BorderRadius.circular(16),
+                borderSide: BorderSide(color: Color.fromRGBO(84, 51, 99, 1)),
+              ),
+            )));
   }
 
   //
@@ -100,15 +122,28 @@ class _TelaCadastroState extends State<TelaCadastro> {
   //
   campoTexto(rotulo, variavel) {
     return Container(
-        margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-        child: TextFormField(
-          controller: variavel,
-          style: TextStyle(fontSize: 20, color: Colors.blue.shade900),
-          decoration: InputDecoration(
-              labelText: rotulo,
-              labelStyle: const TextStyle(fontSize: 20, color: Colors.grey),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
-        ));
+      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      child: TextFormField(
+        cursorColor: Color.fromRGBO(84, 51, 99, 1),
+        controller: variavel,
+        style: TextStyle(
+          fontSize: 16,
+          color: Colors.black,
+        ),
+        decoration: new InputDecoration(
+          floatingLabelStyle: TextStyle(color: Color.fromRGBO(84, 51, 99, 1)),
+          labelText: rotulo,
+          fillColor: Colors.white,
+          enabledBorder: new OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(16),
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          focusedBorder: new OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(16),
+            borderSide: BorderSide(color: Color.fromRGBO(84, 51, 99, 1)),
+          ),
+        ),
+      ),
+    );
   }
 }

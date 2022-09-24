@@ -47,7 +47,9 @@ class TelaInicial extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     )),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, 'telaCadastro');
+                },
                 child: Text(
                   'Cadastrar',
                   style: TextStyle(
