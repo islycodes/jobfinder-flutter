@@ -17,18 +17,8 @@ class _TelaCadastroState extends State<TelaCadastro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment(-1, 6.123234262925839e-17),
-            end: Alignment(6.123234262925839e-17, 1),
-            colors: [
-              Color.fromRGBO(234, 224, 241, 1),
-              Color.fromRGBO(224, 236, 247, 1)
-            ]),
-      ),
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      backgroundColor: const Color.fromRGBO(251, 244, 255, 1),
+      body: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         Text(
           'Crie sua conta',
           style: TextStyle(
@@ -88,7 +78,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
           ],
         )
       ]),
-    ));
+    );
   }
 
   campoSenha(rotulo, variavel) {

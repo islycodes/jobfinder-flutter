@@ -15,52 +15,41 @@ class _TelaLoginState extends State<TelaLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfffbf4ff),
+      backgroundColor: const Color.fromRGBO(251, 244, 255, 1),
       //CORPO
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment(-1, 6.123234262925839e-17),
-              end: Alignment(6.123234262925839e-17, 1),
-              colors: [
-                Color.fromRGBO(234, 224, 241, 1),
-                Color.fromRGBO(224, 236, 247, 1)
-              ]),
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Form(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Olá Novamente!',
-                      style: TextStyle(
-                        color: Color(0xff858585),
-                        fontSize: 24,
-                        fontFamily: "Open Sans",
-                      ),
+      body: Padding(
+        padding: EdgeInsets.all(20),
+        child: Form(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    'Olá Novamente!',
+                    style: TextStyle(
+                      color: Color(0xff858585),
+                      fontSize: 24,
+                      fontFamily: "Open Sans",
                     ),
-                    Text('Seja bem vindo, entre para continuar!'),
+                  ),
+                  Text('Seja bem vindo, entre para continuar!'),
+                ],
+              ),
+              Column(children: [
+                campoTexto('Digite seu email', txtEmail),
+                campoSenha('Senha', txtSenha),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                        child: Text('Redefinir sua senha'), onPressed: () {}),
                   ],
-                ),
-                Column(children: [
-                  campoTexto('Digite seu email', txtEmail),
-                  campoSenha('Senha', txtSenha),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                          child: Text('Redefinir sua senha'), onPressed: () {}),
-                    ],
-                  )
-                ]),
-                botao('Entrar'),
-              ],
-            ),
+                )
+              ]),
+              botao('Entrar'),
+            ],
           ),
         ),
       ),

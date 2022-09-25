@@ -8,7 +8,7 @@ class TelaInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xfffbf4ff),
+        backgroundColor: const Color.fromRGBO(251, 244, 255, 1),
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           //Título
