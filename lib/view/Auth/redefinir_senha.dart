@@ -1,6 +1,28 @@
+import 'package:estagiotec/components/campoTexto.dart';
 import 'package:flutter/material.dart';
 
 class RedefinirSenha extends StatelessWidget {
+  botao(rotulo) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          minimumSize: Size(371, 66),
+          backgroundColor: Color.fromRGBO(84, 51, 99, 1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          )),
+
+      //COMPORTAMENTO
+      onPressed: () {},
+      //CONTEÚDO
+      child: Text(
+        rotulo,
+        style: TextStyle(
+          fontSize: 16,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +40,7 @@ class RedefinirSenha extends StatelessWidget {
                       SizedBox(
                         width: 299,
                         height: 260,
-                        child: Image.asset("assets/reset-password-icon.png"),
+                        child: Image.asset("lib/image/reset-password-icon.png"),
                       ),
                       SizedBox(height: 20),
                       Text(
@@ -47,14 +69,8 @@ class RedefinirSenha extends StatelessWidget {
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      TextFormField(
-                        cursorColor: Color.fromRGBO(84, 51, 99, 1),
-                        obscureText: true,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        style: TextStyle(fontSize: 16, color: Colors.black),
-                      ),
+                    children: [
+                      campoTexto('Digite seu email', null),
                       SizedBox(height: 40),
                     ],
                   ),
@@ -63,27 +79,6 @@ class RedefinirSenha extends StatelessWidget {
               ],
             )
           ],
-        ),
-      ),
-    );
-  }
-
-  botao(rotulo) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          minimumSize: Size(371, 66),
-          backgroundColor: Color.fromRGBO(84, 51, 99, 1),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          )),
-
-      //COMPORTAMENTO
-      onPressed: () {},
-      //CONTEÚDO
-      child: Text(
-        rotulo,
-        style: TextStyle(
-          fontSize: 16,
         ),
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../components/botao.dart';
+
 class AlteraSenha extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -55,27 +57,6 @@ class AlteraSenha extends StatelessWidget {
               ],
             )
           ],
-        ),
-      ),
-    );
-  }
-
-  botao(rotulo) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          minimumSize: Size(371, 66),
-          backgroundColor: Color.fromRGBO(84, 51, 99, 1),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          )),
-
-      //COMPORTAMENTO
-      onPressed: () {},
-      //CONTEÚDO
-      child: Text(
-        rotulo,
-        style: TextStyle(
-          fontSize: 16,
         ),
       ),
     );

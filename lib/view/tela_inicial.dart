@@ -17,7 +17,7 @@ class TelaInicial extends StatelessWidget {
               SizedBox(
                 width: 200,
                 height: 200,
-                child: Image.asset("lib/image/telainicial-icon.png"),
+                child: Image.asset("lib/image/telainicial_icon.png"),
               ),
               Text(
                 'Estagiotec',
