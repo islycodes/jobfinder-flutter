@@ -34,7 +34,7 @@ class _TelaLoginState extends State<TelaLogin> {
                       fontFamily: "Open Sans",
                     ),
                   ),
-                  Text('Seja bem vindo, entre para continuar!'),
+                  Text('Seja bem vindo, entre para continuar.'),
                 ],
               ),
               Column(children: [
@@ -44,7 +44,10 @@ class _TelaLoginState extends State<TelaLogin> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
-                        child: Text('Redefinir sua senha'), onPressed: () {}),
+                        child: Text('Redefinir sua senha'),
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'redefinirSenha');
+                        }),
                   ],
                 )
               ]),

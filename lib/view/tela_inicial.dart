@@ -8,12 +8,17 @@ class TelaInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(251, 244, 255, 1),
+        backgroundColor: Colors.white,
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           //Título
           Column(
             children: [
+              SizedBox(
+                width: 200,
+                height: 200,
+                child: Image.asset("lib/image/telainicial-icon.png"),
+              ),
               Text(
                 'Estagiotec',
                 style: TextStyle(
