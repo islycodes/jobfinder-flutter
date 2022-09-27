@@ -4,7 +4,7 @@ botao(rotulo) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
         minimumSize: Size(371, 66),
-        backgroundColor: Color.fromRGBO(84, 51, 99, 1),
+        backgroundColor: Color.fromRGBO(78, 79, 249, 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         )),

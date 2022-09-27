@@ -13,15 +13,6 @@ campoTexto(rotulo, variavel) {
       decoration: new InputDecoration(
         floatingLabelStyle: TextStyle(color: Color.fromRGBO(78, 79, 249, 1)),
         labelText: rotulo,
-        fillColor: Colors.white,
-        enabledBorder: new OutlineInputBorder(
-          borderRadius: new BorderRadius.circular(16),
-          borderSide: BorderSide(color: Colors.grey),
-        ),
-        focusedBorder: new OutlineInputBorder(
-          borderRadius: new BorderRadius.circular(16),
-          borderSide: BorderSide(color: Color.fromRGBO(78, 79, 249, 1)),
-        ),
       ),
     ),
   );
