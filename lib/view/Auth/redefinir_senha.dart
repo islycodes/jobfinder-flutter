@@ -1,28 +1,8 @@
 import 'package:estagiotec/components/campoTexto.dart';
+import 'package:estagiotec/components/elevatedButtonGenerator.dart';
 import 'package:flutter/material.dart';
 
 class RedefinirSenha extends StatelessWidget {
-  botao(rotulo) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          minimumSize: Size(371, 66),
-          backgroundColor: Color.fromRGBO(84, 51, 99, 1),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          )),
-
-      //COMPORTAMENTO
-      onPressed: () {},
-      //CONTEÚDO
-      child: Text(
-        rotulo,
-        style: TextStyle(
-          fontSize: 16,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +55,7 @@ class RedefinirSenha extends StatelessWidget {
                     ],
                   ),
                 ),
-                botao('Enviar'),
+                elevatedButtonGenerator(context, 'Enviar', 'telaLogin'),
               ],
             )
           ],
