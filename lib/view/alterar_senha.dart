@@ -18,7 +18,7 @@ class AlteraSenha extends StatelessWidget {
                       SizedBox(
                         width: 299,
                         height: 260,
-                        child: Image.asset("image/change-password-icon.png"),
+                        child: Image.asset("lib/image/change-password-icon.png"),
                       ),
                       SizedBox(height: 20),
                       Text(
