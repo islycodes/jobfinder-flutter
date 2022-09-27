@@ -22,7 +22,7 @@ class _TelaLoginState extends State<TelaLogin> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           minimumSize: Size(371, 66),
-          backgroundColor: Color.fromRGBO(84, 51, 99, 1),
+          backgroundColor: Color.fromRGBO(78, 79, 249, 1),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           )),
@@ -43,8 +43,16 @@ class _TelaLoginState extends State<TelaLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(251, 244, 255, 1),
-      //CORPO
+      backgroundColor: Colors.white,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Form(
@@ -54,15 +62,25 @@ class _TelaLoginState extends State<TelaLogin> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(
-                    'Olá Novamente!',
-                    style: TextStyle(
-                      color: Color(0xff858585),
-                      fontSize: 24,
-                      fontFamily: "Open Sans",
-                    ),
+                  SizedBox(
+                    width: 300,
+                    height: 300,
+                    child: Image.asset("lib/image/login-icon.png"),
                   ),
-                  Text('Seja bem vindo, entre para continuar.'),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Login',
+                        style: TextStyle(
+                          color: Color.fromRGBO(78, 79, 249, 1),
+                          fontSize: 24,
+                          fontFamily: "Open Sans",
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
               Column(children: [
@@ -80,6 +98,14 @@ class _TelaLoginState extends State<TelaLogin> {
                 )
               ]),
               botao('Entrar', 'MenuInicial'),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text("Novo aqui?"),
+                TextButton(
+                    child: Text('Cadastre-se.'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'telaCadastro');
+                    })
+              ])
             ],
           ),
         ),

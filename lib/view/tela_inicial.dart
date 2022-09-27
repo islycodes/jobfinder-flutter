@@ -9,6 +9,11 @@ class TelaInicial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+        ),
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           //Título
@@ -18,23 +23,31 @@ class TelaInicial extends StatelessWidget {
                 'Estagiotec',
                 style: TextStyle(
                   fontSize: 64,
-                  fontWeight: FontWeight.bold,
                   color: Color.fromRGBO(78, 79, 249, 1),
+                  fontWeight: FontWeight.w900,
+                  fontFamily: 'NotoSansDisplay',
                 ),
               ),
               Text('Criado para alunos por alunos',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 20,
+                    fontFamily: 'OpenSans',
+                    fontWeight: FontWeight.w400,
                   ))
             ],
           ),
 
           //Subtitulo
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                  'Explore as melhores vagas baseadas\n baseada na sua área de interesse.')
+                  'Explore as melhores vagas baseadas\n baseada na sua área de interesse.',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'OpenSans',
+                    fontWeight: FontWeight.w400,
+                  ))
             ],
           ),
 
@@ -55,13 +68,14 @@ class TelaInicial extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black,
+                    fontFamily: 'OpenSans',
                   ),
                 ) // botao cadastrar
                 ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: Size(157, 70),
-                    backgroundColor: Colors.white,
+                    backgroundColor: Color.fromRGBO(78, 79, 249, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     )),
@@ -71,9 +85,9 @@ class TelaInicial extends StatelessWidget {
                 child: Text(
                   'Entrar',
                   style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                  ),
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontFamily: 'OpenSans'),
                 )),
           ])
         ]));

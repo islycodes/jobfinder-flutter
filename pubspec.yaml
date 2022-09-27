@@ -62,6 +62,14 @@ flutter:
   assets:
     - lib/image/
 
+    - family: NotoSansDisplay
+      fonts:
+        - asset: lib/fonts/NotoSansDisplay.ttf
+
+    - family: OpenSans
+      fonts:
+        - assets: lib/fonts/OpenSans.ttf
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
