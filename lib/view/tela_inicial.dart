@@ -14,13 +14,6 @@ class TelaInicial extends StatelessWidget {
           //Título
           Column(
             children: [
-              // Container(
-              //   width: 299,
-              //   height: 299,
-              //   child: Image.asset("lib/image/telainicial_icon.png"),
-              //   decoration:
-              //       BoxDecoration(borderRadius: BorderRadius.circular(16)),
-              // ),
               Text(
                 'Estagiotec',
                 style: TextStyle(

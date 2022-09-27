@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../components/campoSenha.dart';
+import '../../components/campoTexto.dart';
+
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({Key? key}) : super(key: key);
 
@@ -57,7 +60,9 @@ class _TelaCadastroState extends State<TelaCadastro> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 )),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, 'telaLogin');
+            },
             child: Text(
               'Cadastrar',
               style: TextStyle(
@@ -69,7 +74,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Já possui uma conta? '),
+            Text('Já possui uma conta?'),
             TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, 'telaLogin');
@@ -78,62 +83,6 @@ class _TelaCadastroState extends State<TelaCadastro> {
           ],
         )
       ]),
-    );
-  }
-
-  campoSenha(rotulo, variavel) {
-    return Container(
-        margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-        child: TextFormField(
-            cursorColor: Color.fromRGBO(84, 51, 99, 1),
-            obscureText: true,
-            enableSuggestions: false,
-            autocorrect: false,
-            controller: variavel,
-            style: TextStyle(fontSize: 16, color: Colors.black),
-            decoration: new InputDecoration(
-              floatingLabelStyle:
-                  TextStyle(color: Color.fromRGBO(84, 51, 99, 1)),
-              labelText: rotulo,
-              fillColor: Colors.white,
-              enabledBorder: new OutlineInputBorder(
-                borderRadius: new BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.grey),
-              ),
-              focusedBorder: new OutlineInputBorder(
-                borderRadius: new BorderRadius.circular(16),
-                borderSide: BorderSide(color: Color.fromRGBO(84, 51, 99, 1)),
-              ),
-            )));
-  }
-
-  //
-  // CAMPO DE TEXTO
-  //
-  campoTexto(rotulo, variavel) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-      child: TextFormField(
-        cursorColor: Color.fromRGBO(84, 51, 99, 1),
-        controller: variavel,
-        style: TextStyle(
-          fontSize: 16,
-          color: Colors.black,
-        ),
-        decoration: new InputDecoration(
-          floatingLabelStyle: TextStyle(color: Color.fromRGBO(84, 51, 99, 1)),
-          labelText: rotulo,
-          fillColor: Colors.white,
-          enabledBorder: new OutlineInputBorder(
-            borderRadius: new BorderRadius.circular(16),
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-          focusedBorder: new OutlineInputBorder(
-            borderRadius: new BorderRadius.circular(16),
-            borderSide: BorderSide(color: Color.fromRGBO(84, 51, 99, 1)),
-          ),
-        ),
-      ),
     );
   }
 }

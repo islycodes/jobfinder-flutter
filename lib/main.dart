@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'view/redefinir_senha.dart';
-import 'view/tela_cadastro.dart';
+
+import 'view/Auth/redefinir_senha.dart';
+import 'view/Auth/tela_cadastro.dart';
+import 'view/Auth/tela_login.dart';
 import 'view/tela_inicial.dart';
-import 'view/tela_login.dart';
 
 void main() {
   runApp(MaterialApp(
