@@ -1,3 +1,4 @@
+import 'package:estagiotec/components/elevatedButtonGenerator.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/campoSenha.dart';
@@ -18,27 +19,6 @@ class _TelaLoginState extends State<TelaLogin> {
   //
   // BOTAO
   //
-  botao(rotulo, pagina) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          minimumSize: Size(371, 66),
-          backgroundColor: Color.fromRGBO(78, 79, 249, 1),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          )),
-      //COMPORTAMENTO
-      onPressed: () {
-        Navigator.pushNamed(context, pagina);
-      },
-      //CONTEÚDO
-      child: Text(
-        rotulo,
-        style: TextStyle(
-          fontSize: 16,
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +77,13 @@ class _TelaLoginState extends State<TelaLogin> {
                   ],
                 )
               ]),
-              botao('Entrar', 'MenuInicial'),
+              elevatedButtonGenerator(context, 'Entrar', 'telaMenuInicial',
+                  buttonStyle: ElevatedButton.styleFrom(
+                      minimumSize: Size(371, 66),
+                      backgroundColor: Color.fromRGBO(78, 79, 249, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ))),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Text("Novo aqui?"),
                 TextButton(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/botao.dart';
+import '../../components/elevatedButtonGenerator.dart';
 
 class AlteraSenha extends StatelessWidget {
   @override
@@ -20,7 +20,8 @@ class AlteraSenha extends StatelessWidget {
                       SizedBox(
                         width: 299,
                         height: 260,
-                        child: Image.asset("lib/image/change-password-icon.png"),
+                        child:
+                            Image.asset("lib/image/change-password-icon.png"),
                       ),
                       SizedBox(height: 20),
                       Text(
@@ -53,7 +54,7 @@ class AlteraSenha extends StatelessWidget {
                     ],
                   ),
                 ),
-                botao('Enviar'),
+                elevatedButtonGenerator(context, 'Enviar', 'telaLogin'),
               ],
             )
           ],

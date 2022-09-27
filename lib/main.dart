@@ -1,3 +1,4 @@
+import 'package:estagiotec/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
 
 import 'view/Auth/redefinir_senha.dart';
@@ -16,7 +17,8 @@ void main() {
       routes: {
         'telaInicial': (context) => TelaInicial(),
         'telaCadastro': (context) => TelaCadastro(),
+        'telaMenuInicial': (context) => TelaMenuInicial(),
         'telaLogin': (context) => TelaLogin(),
-        'redefinirSenha': (context) => RedefinirSenha(),
+        'telaRedefinirSenha': (context) => RedefinirSenha(),
       }));
 }
