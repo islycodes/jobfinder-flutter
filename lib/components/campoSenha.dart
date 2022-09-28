@@ -12,7 +12,7 @@ class CampoSenha extends StatefulWidget {
 
 class _CampoSenhaState extends State<CampoSenha> {
   final textFieldFocusNode = FocusNode();
-  bool _obscured = false;
+  bool _obscured = true;
 
   void _toggleObscured() {
     setState(() {

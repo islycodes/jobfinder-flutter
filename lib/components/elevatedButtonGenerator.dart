@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 elevatedButtonGenerator(BuildContext context, String rotulo, String rota,
-    {TextStyle textStyle = const TextStyle(
-        fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+    {TextStyle textStyle = const TextStyle(fontSize: 16, color: Colors.white),
     ButtonStyle buttonStyle = const ButtonStyle(
         minimumSize: MaterialStatePropertyAll(
           Size(371, 66),
         ),
-        backgroundColor:
-            MaterialStatePropertyAll(Color.fromRGBO(84, 51, 99, 1)),
+        backgroundColor: MaterialStatePropertyAll(
+          Color.fromRGBO(78, 79, 249, 1),
+        ),
         shape: MaterialStatePropertyAll(RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(16)))))}) {
   return ElevatedButton(

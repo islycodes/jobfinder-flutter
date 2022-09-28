@@ -73,18 +73,16 @@ class _TelaLoginState extends State<TelaLogin> {
                     TextButton(
                         child: Text('Redefinir sua senha'),
                         onPressed: () {
-                          Navigator.pushNamed(context, 'redefinirSenha');
+                          Navigator.pushNamed(context, 'telaRedefinirSenha');
                         }),
                   ],
                 )
               ]),
-              elevatedButtonGenerator(context, 'Entrar', 'telaMenuInicial',
-                  buttonStyle: ElevatedButton.styleFrom(
-                      minimumSize: Size(371, 66),
-                      backgroundColor: Color.fromRGBO(78, 79, 249, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ))),
+              elevatedButtonGenerator(
+                context,
+                'Entrar',
+                'telaMenuInicial',
+              ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Text("Novo aqui?"),
                 TextButton(

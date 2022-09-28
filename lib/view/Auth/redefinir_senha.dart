@@ -6,9 +6,18 @@ class RedefinirSenha extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(251, 244, 255, 1),
+      backgroundColor: Colors.white,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: Container(
-        padding: EdgeInsets.only(top: 60, left: 40, right: 40),
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: ListView(
           children: <Widget>[
             Column(
@@ -18,20 +27,26 @@ class RedefinirSenha extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        width: 299,
-                        height: 260,
+                        width: 300,
+                        height: 300,
                         child: Image.asset("lib/image/reset-password-icon.png"),
                       ),
-                      SizedBox(height: 20),
-                      Text(
-                        "Esqueceu \n a senha?",
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Esqueceu sua senha?",
+                            style: TextStyle(
+                              color: Color.fromRGBO(78, 79, 249, 1),
+                              fontSize: 24,
+                              fontFamily: "Open Sans",
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         "Não se preocupe! isso acontece. Por favor, digite o e-mail associado a sua conta.",
@@ -39,7 +54,7 @@ class RedefinirSenha extends StatelessWidget {
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
                         ),
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.start,
                       )
                     ],
                   ),
@@ -51,11 +66,11 @@ class RedefinirSenha extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       campoTexto('Digite seu email', null),
-                      SizedBox(height: 40),
+                      SizedBox(height: 15),
                     ],
                   ),
                 ),
-                elevatedButtonGenerator(context, 'Enviar', 'telaLogin'),
+                elevatedButtonGenerator(context, 'Enviar', 'telaOtp'),
               ],
             )
           ],

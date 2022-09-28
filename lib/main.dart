@@ -2,6 +2,7 @@ import 'package:estagiotec/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
 
 import 'view/Auth/redefinir_senha.dart';
+import 'view/Auth/tela_Otp.dart';
 import 'view/Auth/tela_cadastro.dart';
 import 'view/Auth/tela_login.dart';
 import 'view/tela_inicial.dart';
@@ -20,5 +21,6 @@ void main() {
         'telaMenuInicial': (context) => TelaMenuInicial(),
         'telaLogin': (context) => TelaLogin(),
         'telaRedefinirSenha': (context) => RedefinirSenha(),
+        'telaOtp': (context) => TelaOtp(),
       }));
 }
