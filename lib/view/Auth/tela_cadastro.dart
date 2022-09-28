@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../components/campoSenha.dart';
 import '../../components/campoTexto.dart';
+import '../../components/campoSenha.dart';
 
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({Key? key}) : super(key: key);
@@ -60,19 +60,24 @@ class _TelaCadastroState extends State<TelaCadastro> {
                       children: [
                         campoTexto('Nome', txtNome),
                         campoTexto('Email', txtEmail),
-                        campoSenha('Senha', txtSenha),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        CampoSenha(rotulo: 'Senha', variavel: txtSenha),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Checkbox(
-                                value: valCheck,
-                                onChanged: (bool? value) {
-                                  setState(() {
-                                    valCheck = value!;
-                                  });
-                                }),
-                            Text(
-                                'Declaro que li e aceito os termos & condições'),
+                            SizedBox(height: 20),
+                            Row(
+                              children: [
+                                Checkbox(
+                                    value: valCheck,
+                                    onChanged: (bool? value) {
+                                      setState(() {
+                                        valCheck = value!;
+                                      });
+                                    }),
+                                Text(
+                                    'Declaro que li e aceito os termos & condições'),
+                              ],
+                            ),
                           ],
                         ),
                       ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/campoSenha.dart';
 import '../../components/campoTexto.dart';
+import '../../components/campoSenha.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class _TelaLoginState extends State<TelaLogin> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(30),
         child: Form(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -65,7 +66,7 @@ class _TelaLoginState extends State<TelaLogin> {
               ),
               Column(children: [
                 campoTexto('Digite seu email', txtEmail),
-                campoSenha('Senha', txtSenha),
+                CampoSenha(rotulo: 'Senha', variavel: txtSenha),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
