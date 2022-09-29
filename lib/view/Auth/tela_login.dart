@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../components/campoSenha.dart';
 import '../../components/campoTexto.dart';
-import '../../components/campoSenha.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({Key? key}) : super(key: key);
