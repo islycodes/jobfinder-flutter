@@ -64,7 +64,7 @@ class _TelaLoginState extends State<TelaLogin> {
                 ],
               ),
               Column(children: [
-                campoTexto('Digite seu email', txtEmail),
+                campoTexto('Digite seu email', txtEmail, Icons.email),
                 CampoSenha(rotulo: 'Senha', variavel: txtSenha),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,

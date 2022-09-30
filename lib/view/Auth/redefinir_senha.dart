@@ -65,7 +65,7 @@ class RedefinirSenha extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      campoTexto('Digite seu email', null),
+                      campoTexto('Digite seu email', null, Icons.email),
                       SizedBox(height: 15),
                     ],
                   ),

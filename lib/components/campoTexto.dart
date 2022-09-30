@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-campoTexto(rotulo, variavel) {
+campoTexto(String rotulo, variavel, IconData icone) {
   return Container(
     margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
     child: TextFormField(
@@ -16,7 +16,7 @@ campoTexto(rotulo, variavel) {
         floatingLabelStyle: TextStyle(color: Color.fromRGBO(78, 79, 249, 1)),
         labelText: rotulo,
         prefixIcon: Icon(
-          Icons.alternate_email,
+          icone,
           size: 24,
         ),
       ),
