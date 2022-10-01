@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/campoTexto.dart';
+import '../../components/campoTexto.dart';
 
 class TelaMenuInicial extends StatelessWidget {
   const TelaMenuInicial({super.key});

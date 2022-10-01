@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../components/campoTexto.dart';
-import '../../components/campoSenha.dart';
+import '../../../components/campoTexto.dart';
+import '../../../components/campoSenha.dart';
 
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({Key? key}) : super(key: key);

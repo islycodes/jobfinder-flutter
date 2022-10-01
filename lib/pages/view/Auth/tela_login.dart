@@ -1,8 +1,8 @@
 import 'package:estagiotec/components/elevatedButtonGenerator.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/campoSenha.dart';
-import '../../components/campoTexto.dart';
+import '../../../components/campoSenha.dart';
+import '../../../components/campoTexto.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({Key? key}) : super(key: key);

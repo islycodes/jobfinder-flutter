@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/elevatedButtonGenerator.dart';
+import '../../../components/elevatedButtonGenerator.dart';
 
 class AlteraSenha extends StatelessWidget {
   @override

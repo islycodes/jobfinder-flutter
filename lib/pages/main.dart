@@ -1,4 +1,4 @@
-import 'package:estagiotec/view/tela_menu_inicial.dart';
+import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
 
 import 'view/Auth/redefinir_senha.dart';
