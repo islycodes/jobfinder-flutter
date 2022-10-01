@@ -116,58 +116,65 @@ class TelaMenuInicial extends StatelessWidget {
                               SizedBox(
                                 height: 185,
                                 child: ListView.separated(
-                                  scrollDirection: Axis.horizontal,
-                                  padding: const EdgeInsets.all(12),
-                                  itemCount: 10,
-                                  separatorBuilder: (context, index) {
-                                    return const SizedBox(width: 12);
-                                  },
-                                  itemBuilder: (context, index) {
-                                    return Container(
-                                      width: 150,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(16),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.5),
-                                            spreadRadius: 1,
-                                            blurRadius: 7,
-                                            offset: Offset(0,
-                                                3), // changes position of shadow
-                                          ),
-                                        ],
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.all(10),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text('Nome da vaga',
-                                                    style: TextStyle(
-                                                        fontSize: 18,
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.bold)),
-                                                Text('Nome da empresa',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        color: Colors.black)),
-                                                Text('Local da vaga',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        color: Colors.black)),
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                ),
+                                    scrollDirection: Axis.horizontal,
+                                    padding: const EdgeInsets.all(12),
+                                    itemCount: 10,
+                                    clipBehavior: Clip.none,
+                                    separatorBuilder: (context, index) {
+                                      return const SizedBox(width: 12);
+                                    },
+                                    itemBuilder: (context, index) {
+                                      return Container(
+                                          width: 150,
+                                          child: Ink(
+                                              decoration: BoxDecoration(
+                                                color: Colors.grey.shade100,
+                                                borderRadius:
+                                                    BorderRadius.circular(16),
+                                              ),
+                                              child: InkWell(
+                                                borderRadius:
+                                                    BorderRadius.circular(16),
+                                                onTap: () {
+                                                  Navigator.pushNamed(
+                                                      context, 'telaVaga');
+                                                },
+                                                child: Column(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.all(10),
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text('Nome da vaga',
+                                                              style: TextStyle(
+                                                                  fontSize: 18,
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold)),
+                                                          Text(
+                                                              'Nome da empresa',
+                                                              style: TextStyle(
+                                                                  fontSize: 14,
+                                                                  color: Colors
+                                                                      .black)),
+                                                          Text('Local da vaga',
+                                                              style: TextStyle(
+                                                                  fontSize: 14,
+                                                                  color: Colors
+                                                                      .black)),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              )));
+                                    }),
                               ),
                               SizedBox(
                                 height: 40,
@@ -189,40 +196,51 @@ class TelaMenuInicial extends StatelessWidget {
                   ),
                   Column(
                     children: ['asd', 'asd', 'asdas', 'asd'].map((e) {
-                      return Card(
-                        shadowColor: Colors.black54,
-                        elevation: 5,
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
+                      return Container(
+                        margin: EdgeInsets.only(bottom: 20),
+                        child: Card(
+                          // shadowColor: Colors.black54,
+                          // elevation: 5,
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(5),
+                            onTap: () {
+                              Navigator.pushNamed(context, 'telaVaga');
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Icon(Icons.square_rounded,
-                                        size: 48,
-                                        color:
-                                            Color.fromRGBO(217, 217, 217, 1)),
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                    Column(
+                                    Row(
                                       children: [
-                                        Text('Nome da vaga',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold)),
-                                        Text('Nome da empresa',
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                color: Colors.black)),
+                                        Icon(Icons.square_rounded,
+                                            size: 48,
+                                            color: Color.fromRGBO(
+                                                217, 217, 217, 1)),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text('Nome da vaga',
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            Text('Nome da empresa',
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
                                       ],
                                     ),
-                                  ],
-                                ),
-                                Icon(Icons.arrow_forward_ios)
-                              ]),
+                                    Icon(Icons.arrow_forward_ios)
+                                  ]),
+                            ),
+                          ),
                         ),
                       );
                     }).toList(),
