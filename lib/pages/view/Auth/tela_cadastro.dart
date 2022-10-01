@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/campoTexto.dart';
-import '../../../components/campoSenha.dart';
+import '../../components/campoSenha.dart';
+import '../../components/campoTexto.dart';
 
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({Key? key}) : super(key: key);
@@ -58,8 +58,8 @@ class _TelaCadastroState extends State<TelaCadastro> {
                     child: Form(
                         child: (Column(
                       children: [
-                        campoTexto('Nome', txtNome),
-                        campoTexto('Email', txtEmail),
+                        campoTexto('Nome', txtNome, Icons.email),
+                        campoTexto('Email', txtEmail, Icons.email),
                         CampoSenha(rotulo: 'Senha', variavel: txtSenha),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
