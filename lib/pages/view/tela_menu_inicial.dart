@@ -27,225 +27,209 @@ class TelaMenuInicial extends StatelessWidget {
             constraints: BoxConstraints(
               minHeight: MediaQuery.of(context).size.height,
             ),
-            child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    // height: MediaQuery.of(context).size.height / 2,
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(children: [
+              Container(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.account_circle,
-                                      size: 40, color: Colors.black),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 10),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Nome do usuário',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.black)),
-                                        Text('Curso do usuário - período',
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.black)),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                              SizedBox(
-                                height: 55,
-                              ),
-                              Text('Encontre seu Emprego',
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                height: 25,
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Flexible(
-                                    child: campoTexto(
-                                        'Pesquisar', controller, Icons.search),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 10),
-                                    child: ElevatedButton(
-                                      onPressed: () {},
-                                      style: ElevatedButton.styleFrom(
-                                          minimumSize: Size(74, 74),
-                                          backgroundColor:
-                                              Color.fromRGBO(78, 79, 249, 1),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                          )),
-                                      child: SvgPicture.string(svgCode),
-                                    ),
-                                  )
-
-                                  // ElevatedButton(
-                                  //     onPressed: () {},
-                                  //     child: )
-                                ],
-                              ),
-                              SizedBox(
-                                height: 45,
-                              ),
-                              Text('Vagas em destaque',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              SizedBox(
-                                height: 185,
-                                child: ListView.separated(
-                                    scrollDirection: Axis.horizontal,
-                                    padding: const EdgeInsets.all(12),
-                                    itemCount: 10,
-                                    clipBehavior: Clip.none,
-                                    separatorBuilder: (context, index) {
-                                      return const SizedBox(width: 12);
-                                    },
-                                    itemBuilder: (context, index) {
-                                      return Container(
-                                          width: 150,
-                                          child: Ink(
-                                              decoration: BoxDecoration(
-                                                color: Colors.grey.shade100,
-                                                borderRadius:
-                                                    BorderRadius.circular(16),
-                                              ),
-                                              child: InkWell(
-                                                borderRadius:
-                                                    BorderRadius.circular(16),
-                                                onTap: () {
-                                                  Navigator.pushNamed(
-                                                      context, 'telaVaga');
-                                                },
-                                                child: Column(
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.all(10),
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text('Nome da vaga',
-                                                              style: TextStyle(
-                                                                  fontSize: 18,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold)),
-                                                          Text(
-                                                              'Nome da empresa',
-                                                              style: TextStyle(
-                                                                  fontSize: 14,
-                                                                  color: Colors
-                                                                      .black)),
-                                                          Text('Local da vaga',
-                                                              style: TextStyle(
-                                                                  fontSize: 14,
-                                                                  color: Colors
-                                                                      .black)),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              )));
-                                    }),
-                              ),
-                              SizedBox(
-                                height: 40,
-                              ),
-                              Text('Relacionado ao seu curso',
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
+                              Icon(Icons.account_circle,
+                                  size: 40, color: Colors.black),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Nome do usuário',
+                                        style: TextStyle(
+                                            fontSize: 18, color: Colors.black)),
+                                    Text('Curso do usuário - período',
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.black)),
+                                  ],
+                                ),
+                              )
                             ],
                           ),
-                          // ['asd','kj','asd','asdasd'].map((item) {
-                          //   return Container(child: Text(item));
-                          // }).toList(),
-                        ]),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Column(
-                    children: ['asd', 'asd', 'asdas', 'asd'].map((e) {
-                      return Container(
-                        margin: EdgeInsets.only(bottom: 20),
-                        child: Card(
-                          // shadowColor: Colors.black54,
-                          // elevation: 5,
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () {
-                              Navigator.pushNamed(context, 'telaVaga');
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
-                              child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                          SizedBox(
+                            height: 55,
+                          ),
+                          Text('Encontre seu Emprego',
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold)),
+                          SizedBox(
+                            height: 25,
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Flexible(
+                                child: campoTexto(
+                                    'Pesquisar', controller, Icons.search),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 10),
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                      minimumSize: Size(74, 74),
+                                      backgroundColor:
+                                          Color.fromRGBO(78, 79, 249, 1),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(16),
+                                      )),
+                                  child: SvgPicture.string(svgCode),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 45,
+                          ),
+                          Text('Vagas em destaque',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold)),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox(
+                            height: 185,
+                            child: ListView.separated(
+                                scrollDirection: Axis.horizontal,
+                                padding: const EdgeInsets.all(12),
+                                itemCount: 10,
+                                clipBehavior: Clip.none,
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(width: 12);
+                                },
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                      width: 150,
+                                      child: Ink(
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey.shade100,
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                          ),
+                                          child: InkWell(
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                            onTap: () {
+                                              Navigator.pushNamed(
+                                                  context, 'telaVaga');
+                                            },
+                                            child: Column(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text('Nome da vaga',
+                                                          style: TextStyle(
+                                                              fontSize: 18,
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold)),
+                                                      Text('Nome da empresa',
+                                                          style: TextStyle(
+                                                              fontSize: 14,
+                                                              color: Colors
+                                                                  .black)),
+                                                      Text('Local da vaga',
+                                                          style: TextStyle(
+                                                              fontSize: 14,
+                                                              color: Colors
+                                                                  .black)),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          )));
+                                }),
+                          ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Text('Relacionado ao seu curso',
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                      // ['asd','kj','asd','asdasd'].map((item) {
+                      //   return Container(child: Text(item));
+                      // }).toList(),
+                    ]),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Column(
+                children: ['asd', 'asd', 'asdas', 'asd'].map((e) {
+                  return Container(
+                    margin: EdgeInsets.only(bottom: 20),
+                    child: Card(
+                      // shadowColor: Colors.black54,
+                      // elevation: 5,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(5),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'telaVaga');
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
                                   children: [
-                                    Row(
+                                    Icon(Icons.square_rounded,
+                                        size: 48,
+                                        color:
+                                            Color.fromRGBO(217, 217, 217, 1)),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Column(
                                       children: [
-                                        Icon(Icons.square_rounded,
-                                            size: 48,
-                                            color: Color.fromRGBO(
-                                                217, 217, 217, 1)),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Column(
-                                          children: [
-                                            Text('Nome da vaga',
-                                                style: TextStyle(
-                                                    fontSize: 18,
-                                                    color: Colors.black,
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                            Text('Nome da empresa',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    color: Colors.black)),
-                                          ],
-                                        ),
+                                        Text('Nome da vaga',
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold)),
+                                        Text('Nome da empresa',
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.black)),
                                       ],
                                     ),
-                                    Icon(Icons.arrow_forward_ios)
-                                  ]),
-                            ),
-                          ),
+                                  ],
+                                ),
+                                Icon(Icons.arrow_forward_ios)
+                              ]),
                         ),
-                      );
-                    }).toList(),
-                  ),
-                ]),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ]),
           )),
     );
   }
