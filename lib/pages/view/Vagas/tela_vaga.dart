@@ -139,7 +139,7 @@ class TelaVaga extends StatelessWidget {
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         minimumSize: Size(74, 74),
-                        backgroundColor: Color.fromRGBO(78, 79, 249, 1),
+                        backgroundColor: Color.fromRGBO(205, 121, 106, 1),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         )),
