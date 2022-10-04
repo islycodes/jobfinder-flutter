@@ -7,7 +7,7 @@ class CampoSenha extends StatefulWidget {
   const CampoSenha({super.key, required this.rotulo, required this.variavel});
 
   @override
-  State<CampoSenha> createState() => _CampoSenhaState(rotulo: this.rotulo);
+  State<CampoSenha> createState() => _CampoSenhaState();
 }
 
 class _CampoSenhaState extends State<CampoSenha> {
@@ -26,7 +26,6 @@ class _CampoSenhaState extends State<CampoSenha> {
 
   @override
   Widget build(BuildContext context) {
-    var rotulo;
     return TextField(
       keyboardType: TextInputType.visiblePassword,
       obscureText: _obscured,
@@ -40,7 +39,7 @@ class _CampoSenhaState extends State<CampoSenha> {
       decoration: InputDecoration(
         floatingLabelBehavior:
             FloatingLabelBehavior.never, //Hides label on focus or if filled
-        labelText: this.rotulo,
+        labelText: 'rotulo',
         prefixIcon: Icon(
           Icons.lock,
           size: 24,
