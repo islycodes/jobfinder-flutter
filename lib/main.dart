@@ -1,11 +1,11 @@
 import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
-
-import 'view/Auth/redefinir_senha.dart';
-import 'view/Auth/tela_Otp.dart';
-import 'view/Auth/tela_cadastro.dart';
-import 'view/Auth/tela_login.dart';
-import 'view/tela_inicial.dart';
+import 'pages/view/Auth/mudar_senha.dart';
+import 'pages/view/Auth/redefinir_senha.dart';
+import 'pages/view/Auth/tela_Otp.dart';
+import 'pages/view/Auth/tela_cadastro.dart';
+import 'pages/view/Auth/tela_login.dart';
+import 'pages/view/tela_inicial.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -20,7 +20,8 @@ void main() {
         'telaCadastro': (context) => TelaCadastro(),
         'telaMenuInicial': (context) => TelaMenuInicial(),
         'telaLogin': (context) => TelaLogin(),
-        'telaRedefinirSenha': (context) => RedefinirSenha(),
+        'telaEsqueceuSenha': (context) => EsqueceuSenha(),
         'telaOtp': (context) => TelaOtp(),
+        'telaMudarSenha': (context) => TelaMudarSenha(),
       }));
 }

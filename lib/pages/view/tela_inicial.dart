@@ -15,15 +15,18 @@ class TelaInicial extends StatelessWidget {
           elevation: 0,
         ),
         body:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           //Título
           Column(
             children: [
+              SizedBox(
+                height: 100,
+              ),
               Text(
                 'Estagiotec',
                 style: TextStyle(
                   fontSize: 64,
-                  color: Color.fromRGBO(78, 79, 249, 1),
+                  color: Color.fromRGBO(85, 97, 250, 1),
                   fontWeight: FontWeight.w900,
                   fontFamily: 'NotoSansDisplay',
                 ),
@@ -41,6 +44,9 @@ class TelaInicial extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              SizedBox(
+                height: 160,
+              ),
               Text(
                   'Explore as melhores vagas baseadas\n baseada na sua área de interesse.',
                   style: TextStyle(
@@ -56,7 +62,7 @@ class TelaInicial extends StatelessWidget {
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: Size(157, 70),
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.grey.shade100,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     )),
@@ -75,7 +81,7 @@ class TelaInicial extends StatelessWidget {
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: Size(157, 70),
-                    backgroundColor: Color.fromRGBO(78, 79, 249, 1),
+                    backgroundColor: Color.fromRGBO(30, 40, 107, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     )),

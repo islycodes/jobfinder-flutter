@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../components/campoSenha.dart';
-import '../../components/campoTexto.dart';
+import '../../../components/campoSenha.dart';
+import '../../../components/campoTexto.dart';
 
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        extendBodyBehindAppBar: true,
+        extendBodyBehindAppBar: false,
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
@@ -32,7 +32,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -46,47 +46,44 @@ class _TelaCadastroState extends State<TelaCadastro> {
                     children: [
                       Text('Cadastro',
                           style: TextStyle(
-                            color: Color.fromRGBO(78, 79, 249, 1),
+                            color: Color.fromRGBO(85, 97, 250, 1),
                             fontSize: 24,
                             fontFamily: "Open Sans",
                             fontWeight: FontWeight.w700,
                           )),
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Form(
-                        child: (Column(
-                      children: [
-                        campoTexto('Nome', txtNome, Icons.email),
-                        campoTexto('Email', txtEmail, Icons.email),
-                        CampoSenha(rotulo: 'Senha', variavel: txtSenha),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 20),
-                            Row(
-                              children: [
-                                Checkbox(
-                                    value: valCheck,
-                                    onChanged: (bool? value) {
-                                      setState(() {
-                                        valCheck = value!;
-                                      });
-                                    }),
-                                Text(
-                                    'Declaro que li e aceito os termos & condições'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ))),
-                  ),
+                  Form(
+                      child: (Column(
+                    children: [
+                      campoTexto('Nome', txtNome, Icons.email),
+                      campoTexto('Email', txtEmail, Icons.email),
+                      CampoSenha(rotulo: 'Senha', variavel: txtSenha),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 20),
+                          Row(
+                            children: [
+                              Checkbox(
+                                  value: valCheck,
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      valCheck = value!;
+                                    });
+                                  }),
+                              Text(
+                                  'Declaro que li e aceito os termos & condições'),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ))),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           minimumSize: Size(371, 66),
-                          backgroundColor: Color.fromRGBO(78, 79, 249, 1),
+                          backgroundColor: Color.fromRGBO(30, 40, 107, 1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           )),

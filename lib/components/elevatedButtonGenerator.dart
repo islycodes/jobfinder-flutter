@@ -7,7 +7,7 @@ elevatedButtonGenerator(BuildContext context, String rotulo, String rota,
           Size(371, 66),
         ),
         backgroundColor: MaterialStatePropertyAll(
-          Color.fromRGBO(78, 79, 249, 1),
+          Color.fromRGBO(30, 40, 107, 1),
         ),
         shape: MaterialStatePropertyAll(RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(16)))))}) {

@@ -2,7 +2,7 @@ import 'package:estagiotec/components/campoTexto.dart';
 import 'package:estagiotec/components/elevatedButtonGenerator.dart';
 import 'package:flutter/material.dart';
 
-class RedefinirSenha extends StatelessWidget {
+class EsqueceuSenha extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class RedefinirSenha extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
         child: ListView(
           children: <Widget>[
             Column(
@@ -37,7 +37,7 @@ class RedefinirSenha extends StatelessWidget {
                           Text(
                             "Esqueceu sua senha?",
                             style: TextStyle(
-                              color: Color.fromRGBO(78, 79, 249, 1),
+                              color: Color.fromRGBO(85, 97, 250, 1),
                               fontSize: 24,
                               fontFamily: "Open Sans",
                               fontWeight: FontWeight.w700,
