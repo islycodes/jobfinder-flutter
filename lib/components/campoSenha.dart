@@ -33,7 +33,6 @@ class _CampoSenhaState extends State<CampoSenha> {
       decoration: InputDecoration(
         floatingLabelBehavior:
             FloatingLabelBehavior.never, //Hides label on focus or if filled
-        labelText: 'rotulo',
         labelText: this.rotulo,
         prefixIcon: Icon(
           Icons.lock,
