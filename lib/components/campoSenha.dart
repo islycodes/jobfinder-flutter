@@ -7,22 +7,16 @@ class CampoSenha extends StatefulWidget {
   const CampoSenha({super.key, required this.rotulo, required this.variavel});
 
   @override
-  State<CampoSenha> createState() => _CampoSenhaState();
+  State<CampoSenha> createState() => _CampoSenhaState(rotulo: this.rotulo);
 }
 
 class _CampoSenhaState extends State<CampoSenha> {
-  final textFieldFocusNode = FocusNode();
-  bool _obscured = true;
+  var rotulo;
 
-  void _toggleObscured() {
-    setState(() {
-      _obscured = !_obscured;
-      if (textFieldFocusNode.hasPrimaryFocus)
-        return; // If focus is on text field, dont unfocus
-      textFieldFocusNode.canRequestFocus =
-          false; // Prevents focus if tap on eye
-    });
-  }
+  final textFieldFocusNode = FocusNode();
+
+  bool _obscured = true;
+  _CampoSenhaState({required this.rotulo});
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +34,7 @@ class _CampoSenhaState extends State<CampoSenha> {
         floatingLabelBehavior:
             FloatingLabelBehavior.never, //Hides label on focus or if filled
         labelText: 'rotulo',
+        labelText: this.rotulo,
         prefixIcon: Icon(
           Icons.lock,
           size: 24,
@@ -54,5 +49,15 @@ class _CampoSenhaState extends State<CampoSenha> {
         ),
       ),
     );
+  }
+
+  void _toggleObscured() {
+    setState(() {
+      _obscured = !_obscured;
+      if (textFieldFocusNode.hasPrimaryFocus)
+        return; // If focus is on text field, dont unfocus
+      textFieldFocusNode.canRequestFocus =
+          false; // Prevents focus if tap on eye
+    });
   }
 }
