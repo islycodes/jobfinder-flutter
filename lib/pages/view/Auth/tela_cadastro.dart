@@ -56,7 +56,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
                   Form(
                       child: (Column(
                     children: [
-                      campoTexto('Nome', txtNome, Icons.email),
+                      campoTexto('Nome', txtNome, Icons.alternate_email),
                       campoTexto('Email', txtEmail, Icons.email),
                       CampoSenha(rotulo: 'Senha', variavel: txtSenha),
                       Column(

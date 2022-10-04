@@ -65,7 +65,8 @@ class EsqueceuSenha extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      campoTexto('Digite seu email', null, Icons.email),
+                      campoTexto(
+                          'Digite seu email', null, Icons.alternate_email),
                       SizedBox(height: 15),
                     ],
                   ),
