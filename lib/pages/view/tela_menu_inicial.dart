@@ -22,46 +22,41 @@ class TelaMenuInicial extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(27, 40, 20, 27),
+          padding: EdgeInsets.all(10),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               minHeight: MediaQuery.of(context).size.height,
             ),
             child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                // crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    // height: MediaQuery.of(context).size.height / 2,
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          SizedBox(height: 40),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.account_circle,
-                                      size: 40, color: Colors.black),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 10),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Nome do usuário',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.black)),
-                                        Text('Curso do usuário - período',
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.black)),
-                                      ],
-                                    ),
-                                  )
+                                  Icon(Icons.person,
+                                      size: 40, color: Colors.grey.shade400),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Nome do usuário',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black)),
+                                      Text('Curso do usuário - período',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
                                 ],
                               ),
                               SizedBox(
@@ -88,7 +83,7 @@ class TelaMenuInicial extends StatelessWidget {
                                       style: ElevatedButton.styleFrom(
                                           minimumSize: Size(74, 74),
                                           backgroundColor:
-                                              Color.fromRGBO(78, 79, 249, 1),
+                                              Color.fromRGBO(30, 40, 107, 1),
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(16),
