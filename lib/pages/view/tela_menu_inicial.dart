@@ -22,7 +22,7 @@ class TelaMenuInicial extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               minHeight: MediaQuery.of(context).size.height,
@@ -108,7 +108,7 @@ class TelaMenuInicial extends StatelessWidget {
                             return Container(
                               width: 150,
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(248, 246, 249, 1),
+                                color: Color.fromRGBO(245, 242, 248, 1),
                                 borderRadius: BorderRadius.circular(16),
                               ),
                               child: InkWell(
@@ -165,7 +165,7 @@ class TelaMenuInicial extends StatelessWidget {
               Column(
                 children: ['asd', 'asd', 'asdas', 'asd'].map((e) {
                   return Card(
-                    color: Color.fromRGBO(248, 246, 249, 1),
+                    color: Color.fromRGBO(245, 242, 248, 1),
                     margin: EdgeInsets.only(bottom: 20),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(5),

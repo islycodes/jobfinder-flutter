@@ -7,6 +7,7 @@ import 'pages/view/Auth/redefinir_senha.dart';
 import 'pages/view/Auth/tela_Otp.dart';
 import 'pages/view/Auth/tela_cadastro.dart';
 import 'pages/view/Auth/tela_login.dart';
+import 'pages/view/perfil.dart';
 import 'pages/view/tela_inicial.dart';
 
 void main() {
@@ -26,5 +27,6 @@ void main() {
         'telaOtp': (context) => TelaOtp(),
         'telaMudarSenha': (context) => TelaMudarSenha(),
         'telaVaga': (context) => TelaVaga(),
+        'telaPerfil': (context) => TelaPerfil(),
       }));
 }
