@@ -26,7 +26,14 @@ void main() {
         'telaEsqueceuSenha': (context) => EsqueceuSenha(),
         'telaOtp': (context) => TelaOtp(),
         'telaMudarSenha': (context) => TelaMudarSenha(),
-        'telaVaga': (context) => TelaVaga(),
         'telaPerfil': (context) => TelaPerfil(),
+        'telaVaga1': (context) => TelaVaga(),
+        'telaVaga2': (context) => TelaVaga(),
+        'telaVaga3': (context) => TelaVaga(),
+        'telaVaga4': (context) => TelaVaga(),
+        'telaVaga5': (context) => TelaVaga(),
+        'telaVaga6': (context) => TelaVaga(),
+        'telaVaga7': (context) => TelaVaga(),
+        'telaVaga8': (context) => TelaVaga(),
       }));
 }
