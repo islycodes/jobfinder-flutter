@@ -22,7 +22,7 @@ class TelaMenuInicial extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(27, 40, 20, 27),
+          padding: EdgeInsets.fromLTRB(27, 40, 20, 28),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               minHeight: MediaQuery.of(context).size.height,
