@@ -1,5 +1,7 @@
+import 'package:estagiotec/pages/view/Vagas/tela_vaga.dart';
 import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
+
 import 'pages/view/Auth/mudar_senha.dart';
 import 'pages/view/Auth/redefinir_senha.dart';
 import 'pages/view/Auth/tela_Otp.dart';
@@ -23,5 +25,6 @@ void main() {
         'telaEsqueceuSenha': (context) => EsqueceuSenha(),
         'telaOtp': (context) => TelaOtp(),
         'telaMudarSenha': (context) => TelaMudarSenha(),
+        'telaVaga': (context) => TelaVaga(),
       }));
 }
