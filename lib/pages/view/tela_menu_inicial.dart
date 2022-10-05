@@ -49,11 +49,11 @@ class TelaMenuInicial extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text('Nome do usuário',
+                                      Text('  Nome do usuário',
                                           style: TextStyle(
                                               fontSize: 18,
                                               color: Colors.black)),
-                                      Text('Curso do usuário - período',
+                                      Text('   Curso do usuário - período',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Colors.black)),
@@ -174,7 +174,16 @@ class TelaMenuInicial extends StatelessWidget {
                 height: 25,
               ),
               Column(
-                children: ['asd', 'asd', 'asdas', 'asd'].map((e) {
+                children: [
+                  'um',
+                  'dois',
+                  'tres',
+                  'quatro',
+                  'cinco',
+                  'seis',
+                  'sete',
+                  'oito'
+                ].map((e) {
                   return Card(
                     color: Color.fromRGBO(245, 242, 248, 1),
                     margin: EdgeInsets.only(bottom: 20),

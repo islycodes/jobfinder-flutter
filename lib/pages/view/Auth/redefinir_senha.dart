@@ -11,6 +11,7 @@ class EsqueceuSenha extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        toolbarHeight: 80,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
           onPressed: () => Navigator.of(context).pop(),

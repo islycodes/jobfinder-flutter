@@ -12,6 +12,7 @@ class TelaInicial extends StatelessWidget {
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: Colors.white,
+          toolbarHeight: 80,
           elevation: 0,
         ),
         body:

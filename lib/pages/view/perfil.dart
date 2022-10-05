@@ -12,6 +12,7 @@ class TelaPerfil extends StatelessWidget {
           title: Text('Perfil'),
           backgroundColor: Colors.white,
           elevation: 0,
+          toolbarHeight: 80,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
             onPressed: () => Navigator.of(context).pop(),
@@ -21,7 +22,7 @@ class TelaPerfil extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsets.all(20),
                 child: Container(
-                  height: (MediaQuery.of(context).size.height) - 96,
+                  height: (MediaQuery.of(context).size.height) - 150,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -79,6 +80,7 @@ class TelaPerfil extends StatelessWidget {
                             child: Icon(
                               Icons.settings,
                               color: Colors.white,
+                              size: 48,
                             ),
                           )
                         ],
