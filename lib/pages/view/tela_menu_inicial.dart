@@ -35,7 +35,7 @@ class TelaMenuInicial extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Icon(Icons.person,
                               size: 40, color: Colors.grey.shade400),
