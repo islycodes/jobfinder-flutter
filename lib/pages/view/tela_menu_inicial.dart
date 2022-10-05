@@ -37,19 +37,30 @@ class TelaMenuInicial extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(Icons.person,
-                              size: 40, color: Colors.grey.shade400),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Nome do usuário',
-                                  style: TextStyle(
-                                      fontSize: 18, color: Colors.black)),
-                              Text('Curso do usuário - período',
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.black)),
-                            ],
-                          ),
+                          InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, 'telaPerfil');
+                              },
+                              child: Row(
+                                children: [
+                                  Icon(Icons.person,
+                                      size: 40, color: Colors.grey.shade400),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Nome do usuário',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black)),
+                                      Text('Curso do usuário - período',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
+                                ],
+                              ))
                         ],
                       ),
                       SizedBox(
