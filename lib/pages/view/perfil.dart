@@ -20,44 +20,77 @@ class TelaPerfil extends StatelessWidget {
         body: SingleChildScrollView(
             child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                child: Column(
-                  children: [
-                    'Meus dados',
-                    'Meu curriculo',
-                    'Minhas candidaturas',
-                    'Vagas salvas'
-                  ].map(
-                    (text) {
-                      return Card(
-                        color: Color.fromRGBO(248, 246, 249, 1),
-                        margin: EdgeInsets.only(bottom: 20),
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(5),
-                          onTap: () {
-                            Navigator.pushNamed(context, 'telaDados');
+                child: Container(
+                  constraints: BoxConstraints(
+                      minHeight: 100,
+                      minWidth: double.infinity,
+                      maxHeight: 400),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          'Meus dados',
+                          'Meu curriculo',
+                          'Minhas candidaturas',
+                          'Vagas salvas'
+                        ].map(
+                          (text) {
+                            return Card(
+                              color: Color.fromRGBO(248, 246, 249, 1),
+                              margin: EdgeInsets.only(bottom: 20),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(5),
+                                onTap: () {
+                                  Navigator.pushNamed(context, 'telaDados');
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(text,
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ],
+                                        ),
+                                        Icon(Icons.arrow_forward_ios),
+                                      ]),
+                                ),
+                              ),
+                            );
                           },
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(text,
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold)),
-                                    ],
-                                  ),
-                                  Icon(Icons.arrow_forward_ios),
-                                ]),
-                          ),
-                        ),
-                      );
-                    },
-                  ).toList(),
+                        ).toList(),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                minimumSize: Size(74, 74),
+                                backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                )),
+                            child: Icon(
+                              Icons.settings,
+                              color: Colors.white,
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ))));
   }
 }
