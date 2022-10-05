@@ -14,29 +14,6 @@ class TelaMenuInicial extends StatelessWidget {
 </svg>
 ''';
 
-  static List<Vaga> vagasList = [
-    Vaga(
-        nomeVaga: "Desenvolvedor Flutter",
-        nomeEmpresa: "Empresa 1",
-        caminhoVaga: "vaga1"),
-    Vaga(
-        nomeVaga: "Desenvolvedor React",
-        nomeEmpresa: "Empresa 2",
-        caminhoVaga: "vaga2"),
-    Vaga(
-        nomeVaga: "Desenvolvedor Angular",
-        nomeEmpresa: "Empresa 3",
-        caminhoVaga: "vaga3"),
-    Vaga(
-        nomeVaga: "Desenvolvedor SAP",
-        nomeEmpresa: "Empresa 4",
-        caminhoVaga: "vaga4"),
-    Vaga(
-        nomeVaga: "Desenvolvedor NodeJS",
-        nomeEmpresa: "Empresa 5",
-        caminhoVaga: "vaga5"),
-  ];
-
   const TelaMenuInicial({super.key});
 
   @override
@@ -197,14 +174,14 @@ class TelaMenuInicial extends StatelessWidget {
                 height: 25,
               ),
               Column(
-                children: vagasList.map((vaga) {
+                children: ['asd', 'asd', 'asdas', 'asd'].map((e) {
                   return Card(
                     color: Color.fromRGBO(245, 242, 248, 1),
                     margin: EdgeInsets.only(bottom: 20),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(5),
                       onTap: () {
-                        Navigator.pushNamed(context, vaga.caminhoVaga);
+                        Navigator.pushNamed(context, 'telaVaga');
                       },
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
@@ -220,15 +197,13 @@ class TelaMenuInicial extends StatelessWidget {
                                     width: 20,
                                   ),
                                   Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text(vaga.nomeVaga,
+                                      Text('Nome da vaga',
                                           style: TextStyle(
                                               fontSize: 18,
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold)),
-                                      Text(vaga.nomeEmpresa,
+                                      Text('Nome da empresa',
                                           style: TextStyle(
                                               fontSize: 14,
                                               color: Colors.black)),
@@ -247,14 +222,4 @@ class TelaMenuInicial extends StatelessWidget {
           )),
     );
   }
-}
-
-class Vaga {
-  String nomeVaga, nomeEmpresa, caminhoVaga;
-
-  Vaga({
-    required this.nomeVaga,
-    required this.nomeEmpresa,
-    required this.caminhoVaga,
-  });
 }
