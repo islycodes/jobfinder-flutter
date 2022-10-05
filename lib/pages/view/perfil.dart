@@ -22,7 +22,7 @@ class TelaPerfil extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                 child: Container(
                   constraints: BoxConstraints(
-                      minHeight: 100,
+                      minHeight: 200,
                       minWidth: double.infinity,
                       maxHeight: 400),
                   decoration: BoxDecoration(
