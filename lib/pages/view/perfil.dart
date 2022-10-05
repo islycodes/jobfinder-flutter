@@ -19,15 +19,9 @@ class TelaPerfil extends StatelessWidget {
         ),
         body: SingleChildScrollView(
             child: Padding(
-                padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                padding: EdgeInsets.all(20),
                 child: Container(
-                  constraints: BoxConstraints(
-                      minHeight: 200,
-                      minWidth: double.infinity,
-                      maxHeight: 400),
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                  ),
+                  height: (MediaQuery.of(context).size.height) - 96,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -48,7 +42,7 @@ class TelaPerfil extends StatelessWidget {
                                   Navigator.pushNamed(context, 'telaDados');
                                 },
                                 child: Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                                  padding: EdgeInsets.all(20),
                                   child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
