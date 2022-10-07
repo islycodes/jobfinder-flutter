@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../components/campoTexto2.dart';
-import 'datePicker.dart';
 
 class TelaDados extends StatefulWidget {
   const TelaDados({super.key});
@@ -12,7 +11,6 @@ class TelaDados extends StatefulWidget {
 
 class _TelaDadosState extends State<TelaDados> {
   var txtNome = TextEditingController();
-  var txtNasc = TextEditingController();
   var txtCidade = TextEditingController();
   var txtTel = TextEditingController();
   var txtEmail = TextEditingController();
@@ -34,76 +32,124 @@ class _TelaDadosState extends State<TelaDados> {
       body: SingleChildScrollView(
         child: Container(
           child: Padding(
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.all(20),
             child: Form(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Nome',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "Open Sans",
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Column(children: [
-                    campoTexto2('Digite seu nome', txtEmail),
-                  ]),
-//
-// Campo Nascimento
-//
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+              child: Column(children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Data de Nascimento',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontFamily: "Open Sans",
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          'Nome',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontFamily: "Open Sans",
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                                decoration: BoxDecoration(
-                                  filled: true,
-                                  fillColor: Colors.grey.shade100,
-                                  prefix: DatePicker(data: DateTime(2022)),
-                                  floatingLabelBehavior:
-                                      FloatingLabelBehavior.never,
-                                  floatingLabelStyle: TextStyle(
-                                      color: Color.fromRGBO(78, 79, 249, 1)),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide.none,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10),
-                                    ),
-                                  ),
-                                ))),
-                      ]),
-                ],
-              ),
+                      ],
+                    ),
+                    campoTexto2('Digite seu nome', txtEmail),
+                    SizedBox(height: 20),
+                  ],
+                ),
+
+                //Cidade
+                Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Cidade',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontFamily: "Open Sans",
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                    campoTexto2('Digite sua cidade', txtCidade),
+                    SizedBox(height: 20),
+                  ],
+                ),
+
+                //Telefone
+                Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Telefone',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontFamily: "Open Sans",
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                    campoTexto2('Digite seu Telefone', txtTel),
+                    SizedBox(height: 20),
+                  ],
+                ),
+
+                //Email
+                Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Email',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontFamily: "Open Sans",
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                    campoTexto2('Digite seu email', txtEmail),
+                    SizedBox(height: 20),
+                  ],
+                ),
+
+                SizedBox(
+                  height: 165,
+                ),
+
+                //botao
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(74, 74),
+                          backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          )),
+                      child: Icon(
+                        Icons.done_all,
+                        color: Colors.white,
+                        size: 48,
+                      ),
+                    )
+                  ],
+                )
+              ]),
             ),
           ),
         ),

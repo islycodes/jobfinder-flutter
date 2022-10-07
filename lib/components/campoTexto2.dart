@@ -4,7 +4,7 @@ campoTexto2(String rotulo, variavel) {
   return Container(
       margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: TextFormField(
-          cursorColor: Color.fromRGBO(78, 79, 249, 1),
+          cursorColor: Colors.black,
           textAlignVertical: TextAlignVertical.center,
           controller: variavel,
           style: TextStyle(

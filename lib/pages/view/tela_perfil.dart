@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
 
+class OpcoesPerfil {
+  String nomeOpcao, caminhoOpcao;
+
+  OpcoesPerfil({
+    required this.nomeOpcao,
+    required this.caminhoOpcao,
+  });
+}
+
 class TelaPerfil extends StatelessWidget {
   const TelaPerfil({super.key});
+
+  static List<OpcoesPerfil> opcoesPerfil = [
+    OpcoesPerfil(nomeOpcao: 'Meus dados', caminhoOpcao: 'telaDados'),
+    OpcoesPerfil(nomeOpcao: 'Meus currículo', caminhoOpcao: 'telaCV'),
+    OpcoesPerfil(nomeOpcao: 'Minhas candidaturas', caminhoOpcao: 'telaCandidaturas'),
+    OpcoesPerfil(nomeOpcao: 'Vagas Salvas', caminhoOpcao: 'telaVagaSalva'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +43,16 @@ class TelaPerfil extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
-                        children: [
-                          'Meus dados',
-                          'Meu curriculo',
-                          'Minhas candidaturas',
-                          'Vagas salvas'
-                        ].map(
-                          (text) {
+                        children: 
+                          opcoesPerfil.map(
+                          (opcao) {
                             return Card(
                               color: Color.fromRGBO(248, 246, 249, 1),
                               margin: EdgeInsets.only(bottom: 20),
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(5),
                                 onTap: () {
-                                  Navigator.pushNamed(context, 'telaDados');
+                                  Navigator.pushNamed(context, opcao.caminhoOpcao);
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.all(20),
@@ -50,7 +62,7 @@ class TelaPerfil extends StatelessWidget {
                                       children: [
                                         Row(
                                           children: [
-                                            Text(text,
+                                            Text(opcao.nomeOpcao,
                                                 style: TextStyle(
                                                     fontSize: 16,
                                                     color: Colors.black,
