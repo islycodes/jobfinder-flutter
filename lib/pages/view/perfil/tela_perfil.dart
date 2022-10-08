@@ -14,8 +14,9 @@ class TelaPerfil extends StatelessWidget {
 
   static List<OpcoesPerfil> opcoesPerfil = [
     OpcoesPerfil(nomeOpcao: 'Meus dados', caminhoOpcao: 'telaDados'),
-    OpcoesPerfil(nomeOpcao: 'Meus currículo', caminhoOpcao: 'telaCV'),
-    OpcoesPerfil(nomeOpcao: 'Minhas candidaturas', caminhoOpcao: 'telaCandidaturas'),
+    OpcoesPerfil(nomeOpcao: 'Meu currículo', caminhoOpcao: 'telaCV'),
+    OpcoesPerfil(
+        nomeOpcao: 'Minhas candidaturas', caminhoOpcao: 'telaCandidaturas'),
     OpcoesPerfil(nomeOpcao: 'Vagas Salvas', caminhoOpcao: 'telaVagaSalva'),
   ];
 
@@ -43,8 +44,7 @@ class TelaPerfil extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
-                        children: 
-                          opcoesPerfil.map(
+                        children: opcoesPerfil.map(
                           (opcao) {
                             return Card(
                               color: Color.fromRGBO(248, 246, 249, 1),
@@ -52,7 +52,8 @@ class TelaPerfil extends StatelessWidget {
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(5),
                                 onTap: () {
-                                  Navigator.pushNamed(context, opcao.caminhoOpcao);
+                                  Navigator.pushNamed(
+                                      context, opcao.caminhoOpcao);
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.all(20),
