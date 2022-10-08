@@ -2,13 +2,16 @@ import 'package:estagiotec/pages/view/Vagas/tela_vaga.dart';
 import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
 
-import 'pages/view/tela_dados.dart';
+import 'pages/view/perfil/tela_candidaturas.dart';
+import 'pages/view/perfil/tela_cv.dart';
+import 'pages/view/perfil/tela_dados.dart';
 import 'pages/view/Auth/mudar_senha.dart';
 import 'pages/view/Auth/redefinir_senha.dart';
 import 'pages/view/Auth/tela_Otp.dart';
 import 'pages/view/Auth/tela_cadastro.dart';
 import 'pages/view/Auth/tela_login.dart';
-import 'pages/view/tela_perfil.dart';
+import 'pages/view/perfil/tela_perfil.dart';
+import 'pages/view/perfil/tela_vgsalva.dart';
 import 'pages/view/tela_inicial.dart';
 
 void main() {
@@ -29,6 +32,9 @@ void main() {
         'telaMudarSenha': (context) => TelaMudarSenha(),
         'telaPerfil': (context) => TelaPerfil(),
         'telaDados': (context) => TelaDados(),
+        'telaCV': (context) => TelaCV(),
+        'telaCandidaturas': (context) => TelaCandidaturas(),
+        'telaVagaSalva': (context) => TelaVagaSalva(),
         'telaVaga1': (context) => TelaVaga(),
         'telaVaga2': (context) => TelaVaga(),
         'telaVaga3': (context) => TelaVaga(),
