@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/elevatedButtonGenerator.dart';
 
 class TelaCV extends StatefulWidget {
   const TelaCV({super.key});
@@ -84,7 +83,7 @@ class _TelaCVState extends State<TelaCV> {
                                 style: ElevatedButton.styleFrom(
                                     minimumSize: Size(74, 74),
                                     backgroundColor:
-                                        Color.fromRGBO(233, 74, 71, 1),
+                                        Color.fromRGBO(205, 121, 106, 1),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(16),
                                     )),

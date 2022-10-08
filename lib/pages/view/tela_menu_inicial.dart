@@ -28,7 +28,7 @@ class TelaMenuInicial extends StatelessWidget {
         nomeEmpresa: "Empresa 3",
         caminhoVaga: "telaVaga3"),
     Vaga(
-        nomeVaga: "Desenvolvedor SAP",
+        nomeVaga: "Desenvolvedor ABAP",
         nomeEmpresa: "Empresa 4",
         caminhoVaga: "telaVaga4"),
     Vaga(

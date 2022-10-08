@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
 
-class OpcoesPerfil {
-  String nomeOpcao, caminhoOpcao;
+class MinhasVagas {
+  String nomeVaga, nomeEmpresa, caminhoVaga;
 
-  OpcoesPerfil({
-    required this.nomeOpcao,
-    required this.caminhoOpcao,
+  MinhasVagas({
+    required this.nomeVaga,
+    required this.nomeEmpresa,
+    required this.caminhoVaga,
   });
 }
 
-class TelaPerfil extends StatelessWidget {
-  const TelaPerfil({super.key});
+class TelaVagaSalva extends StatefulWidget {
+  const TelaVagaSalva({super.key});
 
-  static List<OpcoesPerfil> opcoesPerfil = [
-    OpcoesPerfil(nomeOpcao: 'Meus dados', caminhoOpcao: 'telaDados'),
-    OpcoesPerfil(nomeOpcao: 'Meu currículo', caminhoOpcao: 'telaCV'),
-    OpcoesPerfil(nomeOpcao: 'Vagas Salvas', caminhoOpcao: 'telaVagaSalva'),
+  @override
+  State<TelaVagaSalva> createState() => _TelaVagaSalvaState();
+}
+
+class _TelaVagaSalvaState extends State<TelaVagaSalva> {
+  static List<MinhasVagas> minhasVagas = [
+    MinhasVagas(
+        nomeVaga: 'Desenvolvedor Flutter',
+        nomeEmpresa: 'Empresa 1',
+        caminhoVaga: ''),
+    MinhasVagas(
+        nomeVaga: 'Desenvolvedor React',
+        nomeEmpresa: 'Empresa 2',
+        caminhoVaga: ''),
+    MinhasVagas(
+        nomeVaga: 'Desenvolvedor Angular',
+        nomeEmpresa: 'Empresa 3',
+        caminhoVaga: ''),
+    MinhasVagas(
+        nomeVaga: 'Desenvolvedor ABAP',
+        nomeEmpresa: 'Empresa 4',
+        caminhoVaga: ''),
   ];
 
   @override
@@ -24,7 +43,6 @@ class TelaPerfil extends StatelessWidget {
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
-          title: Text('Perfil'),
           backgroundColor: Colors.white,
           elevation: 0,
           toolbarHeight: 80,
@@ -42,8 +60,8 @@ class TelaPerfil extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
-                        children: opcoesPerfil.map(
-                          (opcao) {
+                        children: minhasVagas.map(
+                          (vaga) {
                             return Card(
                               color: Color.fromRGBO(248, 246, 249, 1),
                               margin: EdgeInsets.only(bottom: 20),
@@ -51,7 +69,7 @@ class TelaPerfil extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(5),
                                 onTap: () {
                                   Navigator.pushNamed(
-                                      context, opcao.caminhoOpcao);
+                                      context, vaga.caminhoVaga);
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.all(20),
@@ -59,14 +77,21 @@ class TelaPerfil extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Row(
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Text(opcao.nomeOpcao,
+                                            Text(vaga.nomeVaga,
                                                 style: TextStyle(
                                                     fontSize: 16,
                                                     color: Colors.black,
                                                     fontWeight:
                                                         FontWeight.bold)),
+                                            Text(vaga.nomeEmpresa,
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: Colors.black,
+                                                )),
                                           ],
                                         ),
                                         Icon(Icons.arrow_forward_ios),
@@ -89,7 +114,7 @@ class TelaPerfil extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(16),
                                 )),
                             child: Icon(
-                              Icons.settings,
+                              Icons.bookmark_remove,
                               color: Colors.white,
                               size: 48,
                             ),
