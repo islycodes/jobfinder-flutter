@@ -1,5 +1,4 @@
 import 'package:estagiotec/pages/view/Vagas/tela_vaga.dart';
-import 'package:estagiotec/pages/view/openContainer.dart';
 import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +34,5 @@ void main() {
         'telaCV': (context) => TelaCV(),
         'telaVagaSalva': (context) => TelaVagaSalva(),
         'telaVaga': (context) => TelaVaga(),
-        'telaTransicao': (context) => Transicao(),
       }));
 }

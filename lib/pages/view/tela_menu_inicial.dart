@@ -1,5 +1,3 @@
-import 'package:animations/animations.dart';
-import 'package:estagiotec/pages/view/openContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -56,6 +54,7 @@ class TelaMenuInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
+
     return Scaffold(
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: false,
@@ -132,9 +131,7 @@ class TelaMenuInicial extends StatelessWidget {
                           Container(
                             margin: EdgeInsets.only(left: 10),
                             child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'telaTransicao');
-                              },
+                              onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                   minimumSize: Size(74, 74),
                                   backgroundColor:
