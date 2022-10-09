@@ -22,19 +22,19 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
     MinhasVagas(
         nomeVaga: 'Desenvolvedor Flutter',
         nomeEmpresa: 'Empresa 1',
-        caminhoVaga: ''),
+        caminhoVaga: "telaVagaBookMark"),
     MinhasVagas(
         nomeVaga: 'Desenvolvedor React',
         nomeEmpresa: 'Empresa 2',
-        caminhoVaga: ''),
+        caminhoVaga: "telaVagaBookMark"),
     MinhasVagas(
         nomeVaga: 'Desenvolvedor Angular',
         nomeEmpresa: 'Empresa 3',
-        caminhoVaga: ''),
+        caminhoVaga: "telaVagaBookMark"),
     MinhasVagas(
         nomeVaga: 'Desenvolvedor ABAP',
         nomeEmpresa: 'Empresa 4',
-        caminhoVaga: ''),
+        caminhoVaga: "telaVagaBookMark"),
   ];
 
   @override
@@ -102,25 +102,6 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
                           },
                         ).toList(),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                minimumSize: Size(74, 74),
-                                backgroundColor: Color.fromRGBO(30, 40, 107, 1),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                )),
-                            child: Icon(
-                              Icons.bookmark_remove,
-                              color: Colors.white,
-                              size: 48,
-                            ),
-                          )
-                        ],
-                      )
                     ],
                   ),
                 ))));

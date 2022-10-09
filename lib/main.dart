@@ -2,6 +2,7 @@ import 'package:estagiotec/pages/view/Vagas/tela_vaga.dart';
 import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/view/Vagas/tela_vagaBookmark.dart';
 import 'pages/view/perfil/tela_vagasalva.dart';
 import 'pages/view/perfil/tela_cv.dart';
 import 'pages/view/perfil/tela_dados.dart';
@@ -33,6 +34,7 @@ void main() {
         'telaDados': (context) => TelaDados(),
         'telaCV': (context) => TelaCV(),
         'telaVagaSalva': (context) => TelaVagaSalva(),
+        'telaVagaBookMark': (context) => TelaVagaBookmark(),
         'telaVaga1': (context) => TelaVaga(),
         'telaVaga2': (context) => TelaVaga(),
         'telaVaga3': (context) => TelaVaga(),

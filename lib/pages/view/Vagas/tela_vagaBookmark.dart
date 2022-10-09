@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'loremIpsum.dart';
 
-class TelaVaga extends StatelessWidget {
+class TelaVagaBookmark extends StatelessWidget {
   final bool isSelected = false;
 
   final bool isInitial = true;
 
-  const TelaVaga({super.key});
+  const TelaVagaBookmark({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +136,7 @@ class TelaVaga extends StatelessWidget {
                           borderRadius: BorderRadius.circular(16),
                         )),
                     child: Icon(
-                      Icons.bookmark_border,
+                      Icons.bookmark_remove,
                       color: Colors.white,
                       size: 48,
                     ),
@@ -145,15 +145,15 @@ class TelaVaga extends StatelessWidget {
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         minimumSize:
-                            Size(MediaQuery.of(context).size.width - 150, 74),
-                        backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                            Size(MediaQuery.of(context).size.width - 130, 74),
+                        backgroundColor: Colors.grey.shade300,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         )),
-                    child: Text('Aplicar',
+                    child: Text('Aplicado',
                         style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: Colors.grey.shade700,
                             fontWeight: FontWeight.bold)),
                   )
                 ],
