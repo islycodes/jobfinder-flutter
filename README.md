@@ -6,7 +6,7 @@ Faculdade de Tecnologia de FATEC Ribeirão Preto (FATEC)
 
 Ribeirão Preto, SP – Brasil
 
-Islyg22@gmail.com, felipeg.bot@gmail.com, rodrigo.plotze@fatec.sp.gov.br, fabricio.henrique@fatec.sp.gov.br
+islyadrielly@gmail.com, felipeg.bot@gmail.com, rodrigo.plotze@fatec.sp.gov.br, fabricio.henrique@fatec.sp.gov.br
 
 _ **Resumo.** Este artigo descreve um projeto desenvolvido a partir da identificação de uma carência de softwares que auxiliem a conexão do estudante que busca estágio e da empresa que necessita de empregados. A partir disso foi pensado a criação de um aplicativo (a princípio apenas mobile) para ajudar o aluno a encontrar as vagas de estágio ofertadas pelas empresas da área de tecnologia da informação. Serão utilizadas a ferramenta de desenvolvimento Flutter e a linguagem de programação Dart. O desenvolvimento do aplicativo foi iniciado e a elaboração deste artigo visa descrever e demonstrar a criação da aplicação._
 
