@@ -1,4 +1,4 @@
-import 'package:estagiotec/pages/view/Vagas/options/descricao.dart';
+import 'package:estagiotec/pages/view/jobs/options/descricao.dart';
 import 'package:flutter/material.dart';
 
 import 'options/contato.dart';
@@ -10,30 +10,30 @@ class Options {
   Options({required this.title, required this.child});
 }
 
-class TelaVagaBookMark extends StatefulWidget {
+class TelaVaga extends StatefulWidget {
   final bool aplicado;
   final bool vagaFavoritada;
 
-  const TelaVagaBookMark(
-      {super.key, this.aplicado = true, this.vagaFavoritada = true});
+  const TelaVaga(
+      {super.key, this.aplicado = false, this.vagaFavoritada = false});
 
   @override
-  State<TelaVagaBookMark> createState() => _TelaVagaBookMarkState(
-      aplicado: aplicado, vagaFavoritada: vagaFavoritada);
+  State<TelaVaga> createState() =>
+      _TelaVagaState(aplicado: aplicado, vagaFavoritada: vagaFavoritada);
 }
 
-class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
-  static List<Options> optionsTelaVagaBookMark = [
+class _TelaVagaState extends State<TelaVaga> {
+  static List<Options> optionsTelaVaga = [
     Options(title: 'Descrição', child: DescricaoOption()),
     Options(title: 'Empresa', child: EmpresaOption()),
     Options(title: 'Contato', child: ContatoOption()),
   ];
 
-  Options opcaoAtiva = optionsTelaVagaBookMark[0];
+  Options opcaoAtiva = optionsTelaVaga[0];
   bool aplicado;
   bool vagaFavoritada;
 
-  _TelaVagaBookMarkState({this.aplicado = true, this.vagaFavoritada = true});
+  _TelaVagaState({this.aplicado = false, this.vagaFavoritada = false});
 
   aplicarVaga() {
     setState(() {
@@ -92,7 +92,7 @@ class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: optionsTelaVagaBookMark
+                        children: optionsTelaVaga
                             .map((opcao) => TextButton(
                                   style: ElevatedButton.styleFrom(
                                       minimumSize: Size(100, 38),
@@ -119,13 +119,10 @@ class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
                       height: 35,
                     ),
                     opcaoAtiva.child,
-                    SizedBox(
-                      height: 50,
-                    ),
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
                       onPressed: () {

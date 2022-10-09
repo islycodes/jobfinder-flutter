@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 
 class Opcoes {
   String nomeOpcao, caminhoOpcao;
@@ -12,7 +12,7 @@ class Opcoes {
 class TelaConfiguracoes extends StatelessWidget {
   const TelaConfiguracoes({super.key});
 
-    static List<Opcoes> opcoes= [
+  static List<Opcoes> opcoes = [
     Opcoes(nomeOpcao: 'Gerenciar notificações', caminhoOpcao: 'telaDados'),
     Opcoes(nomeOpcao: 'Limpar histórico de busca', caminhoOpcao: 'telaCV'),
     Opcoes(nomeOpcao: 'Sobre', caminhoOpcao: 'telaVagaSalva'),
@@ -21,12 +21,12 @@ class TelaConfiguracoes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        return Scaffold(
+    return Scaffold(
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('PERFIL'),
+          title: Text('CONFIGURAÇÕES'),
           titleTextStyle: TextStyle(
               fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           backgroundColor: Colors.white,
@@ -46,7 +46,7 @@ class TelaConfiguracoes extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
-                        children: opcoesPerfil.map(
+                        children: opcoes.map(
                           (opcao) {
                             return Card(
                               color: Color.fromRGBO(248, 246, 249, 1),
@@ -81,27 +81,6 @@ class TelaConfiguracoes extends StatelessWidget {
                           },
                         ).toList(),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, 'telaConfiguracoes');
-                            },
-                            style: ElevatedButton.styleFrom(
-                                minimumSize: Size(74, 74),
-                                backgroundColor: Color.fromRGBO(30, 40, 107, 1),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                )),
-                            child: Icon(
-                              Icons.settings,
-                              color: Colors.white,
-                              size: 48,
-                            ),
-                          )
-                        ],
-                      )
                     ],
                   ),
                 ))));
