@@ -14,11 +14,11 @@ _ **Resumo.** Este artigo descreve um projeto desenvolvido a partir da identific
 
 O projeto consiste em uma aplicação mobile, para estudantes da Faculdade de Tecnologia de Ribeirão Preto usarem como portal de vagas de estágio. As vagas serão publicadas pelos professores e empresas associadas à Faculdade.
 
-1. **Justificativa**
+2. **Justificativa**
 
 O estágio visa ao aprendizado de competências próprias da atividade profissional e à contextualização curricular, objetivando o desenvolvimento do educando para a vida cidadã e para o trabalho. (BRASIL, 2008) A ideia surgiu tendo como base a dificuldade observada nas turmas de Análise e Desenvolvimento de Sistemas da instituição em encontrar estágios na área de Tecnologia da Informação, é de conhecimento de todos, que o mercado de TI está aquecido, há inúmeras vagas de estágio sendo oferecidas, entretanto, por algum motivo desconhecido, os alunos não encontram vagas e os recrutadores não encontram estagiários. Atualmente, há no Microsoft Teams Instituição um canal para o compartilhamento de vagas de estágio, entretanto, não é efetivo por muitas vezes não notificar o aluno quando a vaga é publicada. Além de não haver informações precisas sobre a vaga, também não é um local de fácil acesso para os usuários. E com isso, veio a ideia do projeto, que tem como objetivo resolver essa dissincronia entre as vagas e os candidatos e oferecer aos alunos a oportunidade de ingressar na área, pois muitas vezes se trata de um primeiro emprego, o que acaba tornando a tarefa de cumprir o estágio mais difícil.
 
-1. **Objetivo**
+3. **Objetivo**
 
 O software poderá solucionar o problema de sincronia entre as empresas que oferecem vagas de estágio e os alunos que as procuram. O principal problema é não haver um ambiente que possa ser acessado por ambos para o compartilhamento de vagas de maneira apropriada, inicialmente o público-alvo são os estudantes matriculados no curso supracitado. O portal será alimentado pelos professores da Instituição que atualmente compartilham as vagas de estágio no portal do Microsoft Teams. Os docentes apenas terão a tarefa de publicar o conteúdo no aplicativo, evitando atarefá-los, toda e qualquer comunicação posterior será feita diretamente pelo canal de comunicação disponibilizado pela empresa nas informações da publicação. Dessa forma, o professor não ficará responsável pelo processo de seleção dos candidatos, apenas fazendo o papel de intermediador da empresa para com os alunos.
 
@@ -44,7 +44,7 @@ O código-fonte da aplicação pode ser encontrado no Github através do link: [
 
 O projeto está com a interface gráfica finalizada e sua programação está em andamento.
 
-1. **Referências**
+4. **Referências**
 
 FIREBASE (2021) Documentação do firebase. Disponível em: [https://firebasegoogle.com/docs](https://firebasegoogle.com/docs)/. Acesso em: 16 setembro 2022.
 
