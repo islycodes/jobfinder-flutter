@@ -54,10 +54,21 @@ class TelaMenuInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
+
     return Scaffold(
       backgroundColor: Colors.white,
+      extendBodyBehindAppBar: false,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        toolbarHeight: 80,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+          padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               minHeight: MediaQuery.of(context).size.height,
@@ -65,7 +76,6 @@ class TelaMenuInicial extends StatelessWidget {
             child: Column(children: [
               Container(
                 child: Column(children: [
-                  SizedBox(height: 40),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -78,6 +88,7 @@ class TelaMenuInicial extends StatelessWidget {
                               },
                               child: Row(
                                 children: [
+                                  SizedBox(width: 1),
                                   Icon(Icons.person,
                                       size: 40, color: Colors.grey.shade400),
                                   SizedBox(width: 10),
@@ -89,7 +100,8 @@ class TelaMenuInicial extends StatelessWidget {
                                           style: TextStyle(
                                               fontSize: 18,
                                               color: Colors.black)),
-                                      Text('Curso do usuário - período',
+                                      Text(
+                                          'Análise e Desenvolvimento de Sistemas - período',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Colors.black)),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../components/campoTexto2.dart';
+import '../../../components/campoTexto_semIcone.dart';
 
 class TelaDados extends StatefulWidget {
   const TelaDados({super.key});

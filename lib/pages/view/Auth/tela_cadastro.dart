@@ -57,8 +57,8 @@ class _TelaCadastroState extends State<TelaCadastro> {
                   Form(
                       child: (Column(
                     children: [
-                      campoTexto('Nome', txtNome, Icons.alternate_email),
-                      campoTexto('Email', txtEmail, Icons.email),
+                      campoTexto('Nome', txtNome, Icons.person),
+                      campoTexto('Email', txtEmail, Icons.alternate_email),
                       CampoSenha(rotulo: 'Senha', variavel: txtSenha),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,

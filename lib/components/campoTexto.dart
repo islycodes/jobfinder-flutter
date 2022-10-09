@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 campoTexto(String rotulo, variavel, IconData icone) {
   return Container(
-    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+    margin: EdgeInsets.all(5),
     child: TextFormField(
       cursorColor: Color.fromRGBO(78, 79, 249, 1),
       textAlignVertical: TextAlignVertical.center,
