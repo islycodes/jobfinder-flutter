@@ -19,7 +19,7 @@ class DescricaoOption extends StatelessWidget {
           Text(loremIpsum)
         ]),
         SizedBox(
-          height: 50,
+          height: 30,
         ),
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(

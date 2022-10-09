@@ -24,7 +24,10 @@ class TelaPerfil extends StatelessWidget {
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
-          title: Text('Perfil'),
+          centerTitle: true,
+          title: Text('PERFIL'),
+          titleTextStyle: TextStyle(
+              fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           backgroundColor: Colors.white,
           elevation: 0,
           toolbarHeight: 80,
@@ -81,7 +84,9 @@ class TelaPerfil extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'telaConfiguracoes');
+                            },
                             style: ElevatedButton.styleFrom(
                                 minimumSize: Size(74, 74),
                                 backgroundColor: Color.fromRGBO(30, 40, 107, 1),

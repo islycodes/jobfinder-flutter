@@ -1,50 +1,32 @@
-import 'package:flutter/material.dart';
 
-class MinhasVagas {
-  String nomeVaga, nomeEmpresa, caminhoVaga;
 
-  MinhasVagas({
-    required this.nomeVaga,
-    required this.nomeEmpresa,
-    required this.caminhoVaga,
+class Opcoes {
+  String nomeOpcao, caminhoOpcao;
+
+  Opcoes({
+    required this.nomeOpcao,
+    required this.caminhoOpcao,
   });
 }
 
-class TelaVagaSalva extends StatefulWidget {
-  const TelaVagaSalva({super.key});
+class TelaConfiguracoes extends StatelessWidget {
+  const TelaConfiguracoes({super.key});
 
-  @override
-  State<TelaVagaSalva> createState() => _TelaVagaSalvaState();
-}
-
-class _TelaVagaSalvaState extends State<TelaVagaSalva> {
-  static List<MinhasVagas> minhasVagas = [
-    MinhasVagas(
-        nomeVaga: 'Desenvolvedor Flutter',
-        nomeEmpresa: 'Empresa 1',
-        caminhoVaga: "telaVagaBookMark"),
-    MinhasVagas(
-        nomeVaga: 'Desenvolvedor React',
-        nomeEmpresa: 'Empresa 2',
-        caminhoVaga: "telaVagaBookMark"),
-    MinhasVagas(
-        nomeVaga: 'Desenvolvedor Angular',
-        nomeEmpresa: 'Empresa 3',
-        caminhoVaga: "telaVagaBookMark"),
-    MinhasVagas(
-        nomeVaga: 'Desenvolvedor ABAP',
-        nomeEmpresa: 'Empresa 4',
-        caminhoVaga: "telaVagaBookMark"),
+    static List<Opcoes> opcoes= [
+    Opcoes(nomeOpcao: 'Gerenciar notificações', caminhoOpcao: 'telaDados'),
+    Opcoes(nomeOpcao: 'Limpar histórico de busca', caminhoOpcao: 'telaCV'),
+    Opcoes(nomeOpcao: 'Sobre', caminhoOpcao: 'telaVagaSalva'),
+    Opcoes(nomeOpcao: 'Sair', caminhoOpcao: 'telaVagaSalva'),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+        return Scaffold(
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('VAGAS SALVAS'),
+          title: Text('PERFIL'),
           titleTextStyle: TextStyle(
               fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           backgroundColor: Colors.white,
@@ -64,8 +46,8 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
-                        children: minhasVagas.map(
-                          (vaga) {
+                        children: opcoesPerfil.map(
+                          (opcao) {
                             return Card(
                               color: Color.fromRGBO(248, 246, 249, 1),
                               margin: EdgeInsets.only(bottom: 20),
@@ -73,7 +55,7 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
                                 borderRadius: BorderRadius.circular(5),
                                 onTap: () {
                                   Navigator.pushNamed(
-                                      context, vaga.caminhoVaga);
+                                      context, opcao.caminhoOpcao);
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.all(20),
@@ -81,21 +63,14 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                        Row(
                                           children: [
-                                            Text(vaga.nomeVaga,
+                                            Text(opcao.nomeOpcao,
                                                 style: TextStyle(
                                                     fontSize: 16,
                                                     color: Colors.black,
                                                     fontWeight:
                                                         FontWeight.bold)),
-                                            Text(vaga.nomeEmpresa,
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black,
-                                                )),
                                           ],
                                         ),
                                         Icon(Icons.arrow_forward_ios),
@@ -106,6 +81,27 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
                           },
                         ).toList(),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'telaConfiguracoes');
+                            },
+                            style: ElevatedButton.styleFrom(
+                                minimumSize: Size(74, 74),
+                                backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                )),
+                            child: Icon(
+                              Icons.settings,
+                              color: Colors.white,
+                              size: 48,
+                            ),
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ))));

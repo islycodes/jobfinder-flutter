@@ -45,6 +45,10 @@ class _TelaVagaState extends State<TelaVaga> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: Text('VISUALIZAÇÃO DE VAGA'),
+        titleTextStyle: TextStyle(
+            fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -87,11 +91,11 @@ class _TelaVagaState extends State<TelaVaga> {
                         height: 50,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: optionsTelaVaga
                             .map((opcao) => TextButton(
                                   style: ElevatedButton.styleFrom(
-                                      minimumSize: Size(120, 38),
+                                      minimumSize: Size(100, 38),
                                       backgroundColor:
                                           opcaoAtiva.title == opcao.title
                                               ? Color.fromRGBO(205, 121, 106, 1)
@@ -115,13 +119,10 @@ class _TelaVagaState extends State<TelaVaga> {
                       height: 35,
                     ),
                     opcaoAtiva.child,
-                    SizedBox(
-                      height: 50,
-                    ),
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
                       onPressed: () {

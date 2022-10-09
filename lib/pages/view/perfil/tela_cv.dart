@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TelaCV extends StatefulWidget {
   const TelaCV({super.key});
 
@@ -15,6 +14,10 @@ class _TelaCVState extends State<TelaCV> {
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: false,
       appBar: AppBar(
+        centerTitle: true,
+        title: Text('MEU CURRÍCULO'),
+        titleTextStyle: TextStyle(
+            fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 80,

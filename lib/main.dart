@@ -36,5 +36,6 @@ void main() {
         'telaVagaSalva': (context) => TelaVagaSalva(),
         'telaVaga': (context) => TelaVaga(),
         'telaVagaBookMark': (context) => TelaVagaBookMark(),
+        'telaConfiguracoes':(context) => TelaConfiguracoes(),
       }));
 }

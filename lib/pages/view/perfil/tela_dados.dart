@@ -21,6 +21,10 @@ class _TelaDadosState extends State<TelaDados> {
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: false,
       appBar: AppBar(
+        centerTitle: true,
+        title: Text('MEUS DADOS'),
+        titleTextStyle: TextStyle(
+            fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 80,
