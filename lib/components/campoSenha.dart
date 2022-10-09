@@ -20,34 +20,39 @@ class _CampoSenhaState extends State<CampoSenha> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      keyboardType: TextInputType.visiblePassword,
-      obscureText: _obscured,
-      focusNode: textFieldFocusNode,
-      cursorColor: Color.fromRGBO(78, 79, 249, 1),
-      textAlignVertical: TextAlignVertical.center,
-      style: TextStyle(
-        fontSize: 16,
-        color: Colors.black,
-      ),
-      decoration: InputDecoration(
-        floatingLabelBehavior:
-            FloatingLabelBehavior.never, //Hides label on focus or if filled
-        labelText: this.rotulo,
-        prefixIcon: Icon(
-          Icons.lock,
-          size: 24,
-        ),
-        // contentPadding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-        suffixIcon: GestureDetector(
-          onTap: _toggleObscured,
-          child: Icon(
-            _obscured ? Icons.visibility_rounded : Icons.visibility_off_rounded,
-            size: 24,
+    return Container(
+        margin: EdgeInsets.all(5),
+        child: TextField(
+          keyboardType: TextInputType.visiblePassword,
+          obscureText: _obscured,
+          focusNode: textFieldFocusNode,
+          cursorColor: Color.fromRGBO(78, 79, 249, 1),
+          textAlignVertical: TextAlignVertical.center,
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.black,
           ),
-        ),
-      ),
-    );
+          decoration: InputDecoration(
+            floatingLabelBehavior:
+                FloatingLabelBehavior.never, //Hides label on focus or if filled
+            labelText: this.rotulo,
+
+            prefixIcon: Icon(
+              Icons.lock,
+              size: 24,
+            ),
+            // contentPadding: EdgeInsets.fromLTRB(0, 0, 4, 0),
+            suffixIcon: GestureDetector(
+              onTap: _toggleObscured,
+              child: Icon(
+                _obscured
+                    ? Icons.visibility_rounded
+                    : Icons.visibility_off_rounded,
+                size: 24,
+              ),
+            ),
+          ),
+        ));
   }
 
   void _toggleObscured() {

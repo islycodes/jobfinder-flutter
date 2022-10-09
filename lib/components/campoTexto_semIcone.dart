@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 campoTexto2(String rotulo, variavel) {
   return Container(
-      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      margin: EdgeInsets.all(5),
       child: TextFormField(
           cursorColor: Colors.black,
           textAlignVertical: TextAlignVertical.center,
