@@ -1,3 +1,5 @@
+import 'package:animations/animations.dart';
+import 'package:estagiotec/pages/view/openContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -87,6 +89,7 @@ class TelaMenuInicial extends StatelessWidget {
                               },
                               child: Row(
                                 children: [
+                                  SizedBox(width: 1),
                                   Icon(Icons.person,
                                       size: 40, color: Colors.grey.shade400),
                                   SizedBox(width: 10),
@@ -98,7 +101,8 @@ class TelaMenuInicial extends StatelessWidget {
                                           style: TextStyle(
                                               fontSize: 18,
                                               color: Colors.black)),
-                                      Text('Curso do usuário - período',
+                                      Text(
+                                          'Análise e Desenvolvimento de Sistemas - período',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Colors.black)),
@@ -128,7 +132,9 @@ class TelaMenuInicial extends StatelessWidget {
                           Container(
                             margin: EdgeInsets.only(left: 10),
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, 'telaTransicao');
+                              },
                               style: ElevatedButton.styleFrom(
                                   minimumSize: Size(74, 74),
                                   backgroundColor:
