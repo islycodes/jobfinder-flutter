@@ -10,12 +10,16 @@ class Options {
   Options({required this.title, required this.child});
 }
 
-// ignore: must_be_immutable
 class TelaVaga extends StatefulWidget {
-  const TelaVaga({super.key});
+  final bool aplicado;
+  final bool vagaFavoritada;
+
+  const TelaVaga(
+      {super.key, this.aplicado = false, this.vagaFavoritada = false});
 
   @override
-  State<TelaVaga> createState() => _TelaVagaState();
+  State<TelaVaga> createState() =>
+      _TelaVagaState(aplicado: aplicado, vagaFavoritada: vagaFavoritada);
 }
 
 class _TelaVagaState extends State<TelaVaga> {
@@ -26,6 +30,16 @@ class _TelaVagaState extends State<TelaVaga> {
   ];
 
   Options opcaoAtiva = optionsTelaVaga[0];
+  bool aplicado;
+  bool vagaFavoritada;
+
+  _TelaVagaState({this.aplicado = false, this.vagaFavoritada = false});
+
+  aplicarVaga() {
+    setState(() {
+      aplicado = !aplicado;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +124,9 @@ class _TelaVagaState extends State<TelaVaga> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        favoritarVaga();
+                      },
                       style: ElevatedButton.styleFrom(
                           minimumSize: Size(74, 74),
                           backgroundColor: Color.fromRGBO(205, 121, 106, 1),
@@ -118,24 +134,32 @@ class _TelaVagaState extends State<TelaVaga> {
                             borderRadius: BorderRadius.circular(16),
                           )),
                       child: Icon(
-                        Icons.bookmark_border,
+                        vagaFavoritada
+                            ? Icons.bookmark_remove
+                            : Icons.bookmark_border,
                         color: Colors.white,
                         size: 48,
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        aplicarVaga();
+                      },
                       style: ElevatedButton.styleFrom(
                           minimumSize:
                               Size(MediaQuery.of(context).size.width - 150, 74),
-                          backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                          backgroundColor: aplicado
+                              ? Colors.grey.shade300
+                              : Color.fromRGBO(30, 40, 107, 1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           )),
-                      child: Text('Aplicar',
+                      child: Text(aplicado ? 'Aplicado' : 'Aplicar',
                           style: TextStyle(
                               fontSize: 20,
-                              color: Colors.white,
+                              color: aplicado
+                                  ? Colors.grey.shade700
+                                  : Colors.white,
                               fontWeight: FontWeight.bold)),
                     )
                   ],
@@ -146,6 +170,12 @@ class _TelaVagaState extends State<TelaVaga> {
         ),
       ),
     );
+  }
+
+  favoritarVaga() {
+    setState(() {
+      vagaFavoritada = !vagaFavoritada;
+    });
   }
 
   mudaOpcaoAtiva(Options opcao) {

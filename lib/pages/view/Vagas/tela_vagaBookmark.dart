@@ -1,13 +1,45 @@
+import 'package:estagiotec/pages/view/Vagas/options/descricao.dart';
 import 'package:flutter/material.dart';
 
-import 'loremIpsum.dart';
+import 'options/contato.dart';
+import 'options/empresa.dart';
 
-class TelaVagaBookmark extends StatelessWidget {
-  final bool isSelected = false;
+class Options {
+  final String title;
+  final Widget child;
+  Options({required this.title, required this.child});
+}
 
-  final bool isInitial = true;
+class TelaVagaBookMark extends StatefulWidget {
+  final bool aplicado;
+  final bool vagaFavoritada;
 
-  const TelaVagaBookmark({super.key});
+  const TelaVagaBookMark(
+      {super.key, this.aplicado = true, this.vagaFavoritada = true});
+
+  @override
+  State<TelaVagaBookMark> createState() => _TelaVagaBookMarkState(
+      aplicado: aplicado, vagaFavoritada: vagaFavoritada);
+}
+
+class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
+  static List<Options> optionsTelaVagaBookMark = [
+    Options(title: 'Descrição', child: DescricaoOption()),
+    Options(title: 'Empresa', child: EmpresaOption()),
+    Options(title: 'Contato', child: ContatoOption()),
+  ];
+
+  Options opcaoAtiva = optionsTelaVagaBookMark[0];
+  bool aplicado;
+  bool vagaFavoritada;
+
+  _TelaVagaBookMarkState({this.aplicado = true, this.vagaFavoritada = true});
+
+  aplicarVaga() {
+    setState(() {
+      aplicado = !aplicado;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,147 +53,134 @@ class TelaVagaBookmark extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height,
-            minWidth: MediaQuery.of(context).size.width,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(children: [
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.of(context).size.height,
+              minWidth: MediaQuery.of(context).size.width,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
                 Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(Icons.square_rounded,
-                          size: 140, color: Color.fromRGBO(217, 217, 217, 1)),
-                      Text('Nome da vaga',
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                      Text('Nome da empresa - Modalidade',
-                          style: TextStyle(fontSize: 14, color: Colors.black)),
-                    ]),
-                SizedBox(
-                  height: 50,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    TextButton(
-                      style: isSelected || isInitial
-                          ? ElevatedButton.styleFrom(
-                              minimumSize: Size(120, 38),
-                              backgroundColor: Color.fromRGBO(205, 121, 106, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ))
-                          : null,
-                      child: Text('Descrição',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                      onPressed: () {},
+                    Column(children: [
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.square_rounded,
+                                size: 140,
+                                color: Color.fromRGBO(217, 217, 217, 1)),
+                            Text('Nome da vaga',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold)),
+                            Text('Nome da empresa - Modalidade',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black)),
+                          ]),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: optionsTelaVagaBookMark
+                            .map((opcao) => TextButton(
+                                  style: ElevatedButton.styleFrom(
+                                      minimumSize: Size(120, 38),
+                                      backgroundColor:
+                                          opcaoAtiva.title == opcao.title
+                                              ? Color.fromRGBO(205, 121, 106, 1)
+                                              : Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(16),
+                                      )),
+                                  child: Text(opcao.title,
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold)),
+                                  onPressed: () {
+                                    mudaOpcaoAtiva(opcao);
+                                  },
+                                ))
+                            .toList(),
+                      )
+                    ]),
+                    SizedBox(
+                      height: 35,
                     ),
-                    TextButton(
-                      style: isSelected
-                          ? ElevatedButton.styleFrom(
-                              minimumSize: Size(120, 38),
-                              backgroundColor: Color.fromRGBO(205, 121, 106, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ))
-                          : null,
-                      child: Text('Empresa',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                      onPressed: () {},
-                    ),
-                    TextButton(
-                      style: isSelected
-                          ? ElevatedButton.styleFrom(
-                              minimumSize: Size(120, 38),
-                              backgroundColor: Color.fromRGBO(205, 121, 106, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ))
-                          : null,
-                      child: Text('Contato',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                      onPressed: () {},
+                    opcaoAtiva.child,
+                    SizedBox(
+                      height: 50,
                     ),
                   ],
-                )
-              ]),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  'Informações sobre a vaga',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 15),
-                Text(loremIpsum)
-              ]),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  'Atividades',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 15),
-                Text('• ' + loremIpsum),
-              ]),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: Size(74, 74),
-                        backgroundColor: Color.fromRGBO(205, 121, 106, 1),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        )),
-                    child: Icon(
-                      Icons.bookmark_remove,
-                      color: Colors.white,
-                      size: 48,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        favoritarVaga();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(74, 74),
+                          backgroundColor: Color.fromRGBO(205, 121, 106, 1),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          )),
+                      child: Icon(
+                        vagaFavoritada
+                            ? Icons.bookmark_remove
+                            : Icons.bookmark_border,
+                        color: Colors.white,
+                        size: 48,
+                      ),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        minimumSize:
-                            Size(MediaQuery.of(context).size.width - 130, 74),
-                        backgroundColor: Colors.grey.shade300,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        )),
-                    child: Text('Aplicado',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.grey.shade700,
-                            fontWeight: FontWeight.bold)),
-                  )
-                ],
-              )
-            ],
+                    ElevatedButton(
+                      onPressed: () {
+                        aplicarVaga();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          minimumSize:
+                              Size(MediaQuery.of(context).size.width - 150, 74),
+                          backgroundColor: aplicado
+                              ? Colors.grey.shade300
+                              : Color.fromRGBO(30, 40, 107, 1),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          )),
+                      child: Text(aplicado ? 'Aplicado' : 'Aplicar',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: aplicado
+                                  ? Colors.grey.shade700
+                                  : Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+  favoritarVaga() {
+    setState(() {
+      vagaFavoritada = !vagaFavoritada;
+    });
+  }
+
+  mudaOpcaoAtiva(Options opcao) {
+    setState(() {
+      opcaoAtiva = opcao;
+    });
   }
 }

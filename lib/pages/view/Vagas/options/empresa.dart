@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class EmpresaOption extends StatelessWidget {
   final String informacoesEmpresaText = '''Empresa A S/A
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.''';
 
   const EmpresaOption({super.key});
@@ -21,7 +22,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
           Text(informacoesEmpresaText)
         ]),
         SizedBox(
-          height: 50,
+          height: 25,
         ),
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
