@@ -18,35 +18,35 @@ class TelaMenuInicial extends StatelessWidget {
     Vaga(
         nomeVaga: "Desenvolvedor Flutter",
         nomeEmpresa: "Empresa 1",
-        caminhoVaga: "telaVaga1"),
+        caminhoVaga: "telaVaga"),
     Vaga(
         nomeVaga: "Desenvolvedor React",
         nomeEmpresa: "Empresa 2",
-        caminhoVaga: "telaVaga2"),
+        caminhoVaga: "telaVaga"),
     Vaga(
         nomeVaga: "Desenvolvedor Angular",
         nomeEmpresa: "Empresa 3",
-        caminhoVaga: "telaVaga3"),
+        caminhoVaga: "telaVaga"),
     Vaga(
         nomeVaga: "Desenvolvedor ABAP",
         nomeEmpresa: "Empresa 4",
-        caminhoVaga: "telaVaga4"),
+        caminhoVaga: "telaVaga"),
     Vaga(
         nomeVaga: "Desenvolvedor NodeJS",
         nomeEmpresa: "Empresa 5",
-        caminhoVaga: "telaVaga5"),
+        caminhoVaga: "telaVaga"),
     Vaga(
         nomeVaga: "Desenvolvedor Java",
         nomeEmpresa: "Empresa 6",
-        caminhoVaga: "telaVaga6"),
+        caminhoVaga: "telaVaga"),
     Vaga(
         nomeVaga: "Desenvolvedor Python",
         nomeEmpresa: "Empresa 7",
-        caminhoVaga: "telaVaga7"),
+        caminhoVaga: "telaVaga"),
     Vaga(
         nomeVaga: "Desenvolvedor C#",
         nomeEmpresa: "Empresa 8",
-        caminhoVaga: "telaVaga8"),
+        caminhoVaga: "telaVaga"),
   ];
 
   const TelaMenuInicial({super.key});
@@ -152,7 +152,7 @@ class TelaMenuInicial extends StatelessWidget {
                             return const SizedBox(width: 12);
                           },
                           itemBuilder: (context, index) {
-                            return Container(
+                            return Ink(
                               width: 150,
                               decoration: BoxDecoration(
                                 color: Color.fromRGBO(245, 242, 248, 1),
@@ -163,31 +163,27 @@ class TelaMenuInicial extends StatelessWidget {
                                 onTap: () {
                                   Navigator.pushNamed(context, 'telaVaga');
                                 },
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Nome da vaga',
-                                              style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.bold)),
-                                          Text('Nome da empresa',
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black)),
-                                          Text('Local da vaga',
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black)),
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                                child: Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Nome da vaga',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold)),
+                                      Text('Nome da empresa',
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.black)),
+                                      Text('Local da vaga',
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
                                 ),
                               ),
                             );

@@ -29,140 +29,155 @@ class TelaVaga extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height,
-            minWidth: MediaQuery.of(context).size.width,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(children: [
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.of(context).size.height,
+              minWidth: MediaQuery.of(context).size.width,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(children: [
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.square_rounded,
+                            size: 140, color: Color.fromRGBO(217, 217, 217, 1)),
+                        Text('Nome da vaga',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
+                        Text('Nome da empresa - Modalidade',
+                            style:
+                                TextStyle(fontSize: 14, color: Colors.black)),
+                      ]),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Icon(Icons.square_rounded,
-                          size: 140, color: Color.fromRGBO(217, 217, 217, 1)),
-                      Text('Nome da vaga',
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                      Text('Nome da empresa - Modalidade',
-                          style: TextStyle(fontSize: 14, color: Colors.black)),
-                    ]),
+                      TextButton(
+                        style: isSelected || isInitial
+                            ? ElevatedButton.styleFrom(
+                                minimumSize: Size(120, 38),
+                                backgroundColor:
+                                    Color.fromRGBO(205, 121, 106, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ))
+                            : null,
+                        child: Text('Descrição',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
+                        onPressed: () {},
+                      ),
+                      TextButton(
+                        style: isSelected
+                            ? ElevatedButton.styleFrom(
+                                minimumSize: Size(120, 38),
+                                backgroundColor:
+                                    Color.fromRGBO(205, 121, 106, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ))
+                            : null,
+                        child: Text('Empresa',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
+                        onPressed: () {},
+                      ),
+                      TextButton(
+                        style: isSelected
+                            ? ElevatedButton.styleFrom(
+                                minimumSize: Size(120, 38),
+                                backgroundColor:
+                                    Color.fromRGBO(205, 121, 106, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ))
+                            : null,
+                        child: Text('Contato',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
+                        onPressed: () {},
+                      ),
+                    ],
+                  )
+                ]),
+                SizedBox(
+                  height: 35,
+                ),
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(
+                    'Informações sobre a vaga',
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 15),
+                  Text(loremIpsum)
+                ]),
+                SizedBox(
+                  height: 50,
+                ),
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(
+                    'Atividades',
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 15),
+                  Text('• ' + loremIpsum),
+                ]),
                 SizedBox(
                   height: 50,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TextButton(
-                      style: isSelected || isInitial
-                          ? ElevatedButton.styleFrom(
-                              minimumSize: Size(120, 38),
-                              backgroundColor: Color.fromRGBO(205, 121, 106, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ))
-                          : null,
-                      child: Text('Descrição',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
+                    ElevatedButton(
                       onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(74, 74),
+                          backgroundColor: Color.fromRGBO(205, 121, 106, 1),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          )),
+                      child: Icon(Icons.bookmark_border),
                     ),
-                    TextButton(
-                      style: isSelected
-                          ? ElevatedButton.styleFrom(
-                              minimumSize: Size(120, 38),
-                              backgroundColor: Color.fromRGBO(205, 121, 106, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ))
-                          : null,
-                      child: Text('Empresa',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
+                    ElevatedButton(
                       onPressed: () {},
-                    ),
-                    TextButton(
-                      style: isSelected
-                          ? ElevatedButton.styleFrom(
-                              minimumSize: Size(120, 38),
-                              backgroundColor: Color.fromRGBO(205, 121, 106, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ))
-                          : null,
-                      child: Text('Contato',
+                      style: ElevatedButton.styleFrom(
+                          minimumSize:
+                              Size(MediaQuery.of(context).size.width - 150, 74),
+                          backgroundColor: Color.fromRGBO(78, 79, 249, 1),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          )),
+                      child: Text('Aplicar',
                           style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
+                              fontSize: 24,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold)),
-                      onPressed: () {},
-                    ),
+                    )
                   ],
                 )
-              ]),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  'Informações sobre a vaga',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 15),
-                Text(loremIpsum)
-              ]),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  'Atividades',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 15),
-                Text('• ' + loremIpsum),
-              ]),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: Size(74, 74),
-                        backgroundColor: Color.fromRGBO(205, 121, 106, 1),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        )),
-                    child: Icon(Icons.bookmark_border),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        minimumSize:
-                            Size(MediaQuery.of(context).size.width - 150, 74),
-                        backgroundColor: Color.fromRGBO(78, 79, 249, 1),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        )),
-                    child: Text('Aplicar',
-                        style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold)),
-                  )
-                ],
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ),
