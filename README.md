@@ -1,6 +1,6 @@
 **Estagiotec – Portal mobile de vagas de estágio para Faculdade de Tecnologia de Ribeirão Preto**
 
-**Adrielly Isly, Felipe Gabriel Botelho, Rodrigo Plotze, Fabrício Gustavo Henrique**
+**Adrielly Isly, Felipe Gabriel Botelho, Rodrigo Plotze**
 
 Faculdade de Tecnologia de FATEC Ribeirão Preto (FATEC)
 
