@@ -96,7 +96,7 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(
                                   width: 80,
@@ -109,20 +109,16 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
                                   width: 20,
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      children: [
-                                        Text('Adrielly Isly',
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold)),
-                                        SizedBox(width: 120)
-                                      ],
-                                    ),
+                                    Text('Adrielly Isly',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(width: 120),
                                     Text(
-                                        'Aluna da Fatec de Ribeirão Preto - SP               ',
+                                        'Aluna da Fatec de Ribeirão Preto - SP',
                                         style: TextStyle(
                                             fontSize: 10, color: Colors.black)),
                                   ],
@@ -139,7 +135,7 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(
                                   width: 80,
@@ -152,20 +148,16 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
                                   width: 20,
                                 ),
                                 Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      children: [
-                                        Text('Felipe Botelho',
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold)),
-                                        SizedBox(width: 100)
-                                      ],
-                                    ),
+                                    Text('Felipe Botelho',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(width: 100),
                                     Text(
-                                        'Aluno da Fatec de Ribeirão Preto - SP               ',
+                                        'Aluno da Fatec de Ribeirão Preto - SP',
                                         style: TextStyle(
                                             fontSize: 10, color: Colors.black)),
                                   ],

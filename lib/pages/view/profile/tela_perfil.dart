@@ -25,7 +25,7 @@ class TelaPerfil extends StatelessWidget {
         extendBodyBehindAppBar: false,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('PERFIL'),
+          title: Text('Nome do usuário'),
           titleTextStyle: TextStyle(
               fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           backgroundColor: Colors.white,
@@ -80,6 +80,8 @@ class TelaPerfil extends StatelessWidget {
                           },
                         ).toList(),
                       ),
+                      SizedBox(height: 30),
+                      //botao
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
