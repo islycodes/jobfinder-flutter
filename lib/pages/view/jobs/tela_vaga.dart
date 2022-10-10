@@ -62,7 +62,7 @@ class _TelaVagaState extends State<TelaVaga> {
           padding: EdgeInsets.all(20),
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height,
+              minHeight: MediaQuery.of(context).size.height - 120,
               minWidth: MediaQuery.of(context).size.width,
             ),
             child: Column(
@@ -119,6 +119,9 @@ class _TelaVagaState extends State<TelaVaga> {
                       height: 35,
                     ),
                     opcaoAtiva.child,
+                    SizedBox(
+                      height: 35,
+                    ),
                   ],
                 ),
                 Row(
@@ -145,6 +148,7 @@ class _TelaVagaState extends State<TelaVaga> {
                     ElevatedButton(
                       onPressed: () {
                         aplicarVaga();
+                        caixaDialogo('Vaga Demo', "Você se candidatou à vaga!");
                       },
                       style: ElevatedButton.styleFrom(
                           minimumSize:
@@ -171,6 +175,28 @@ class _TelaVagaState extends State<TelaVaga> {
         ),
       ),
     );
+  }
+
+  caixaDialogo(title, msg) {
+    return aplicado
+        ? showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text(title),
+                content: Text(msg, style: TextStyle(fontSize: 16)),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('Ok'),
+                  ),
+                ],
+              );
+            },
+          )
+        : null;
   }
 
   favoritarVaga() {
