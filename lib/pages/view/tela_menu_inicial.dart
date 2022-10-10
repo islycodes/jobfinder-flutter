@@ -61,16 +61,15 @@ class TelaMenuInicial extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 80,
-        title: Text("Your Title"),
         actions: [
           IconButton(
             color: Colors.grey,
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.menu, size: 28),
             onPressed: () {
               Navigator.pushNamed(context, 'telaPerfil');
             },
           ),
-          // add more IconButton
+          SizedBox(width: 10),
         ],
         leading: Row(
           children: [
