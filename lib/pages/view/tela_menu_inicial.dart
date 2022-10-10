@@ -44,7 +44,7 @@ class TelaMenuInicial extends StatelessWidget {
         nomeEmpresa: "Empresa 7",
         caminhoVaga: "telaVaga"),
     Vaga(
-        nomeVaga: "Desenvolvedor C#",
+        nomeVaga: "Desenvolvedor C++",
         nomeEmpresa: "Empresa 8",
         caminhoVaga: "telaVaga"),
   ];
@@ -54,7 +54,6 @@ class TelaMenuInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
-
     return Scaffold(
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: false,
@@ -62,9 +61,24 @@ class TelaMenuInicial extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 80,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
-          onPressed: () => Navigator.of(context).pop(),
+        title: Text("Your Title"),
+        actions: [
+          IconButton(
+            color: Colors.grey,
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              Navigator.pushNamed(context, 'telaPerfil');
+            },
+          ),
+          // add more IconButton
+        ],
+        leading: Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
+              onPressed: () => Navigator.of(context).pop(),
+            )
+          ],
         ),
       ),
       body: SingleChildScrollView(
@@ -79,46 +93,15 @@ class TelaMenuInicial extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(context, 'telaPerfil');
-                              },
-                              child: Row(
-                                children: [
-                                  SizedBox(width: 1),
-                                  Icon(Icons.person,
-                                      size: 40, color: Colors.grey.shade400),
-                                  SizedBox(width: 10),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Nome do usuário',
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.black)),
-                                      Text(
-                                          'Análise e Desenvolvimento de Sistemas - período',
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black)),
-                                    ],
-                                  ),
-                                ],
-                              ))
-                        ],
+                      SizedBox(height: 20),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        child: Text('Encontre seu Emprego',
+                            style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
                       ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Text('Encontre seu Emprego',
-                          style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
                       SizedBox(
                         height: 25,
                       ),

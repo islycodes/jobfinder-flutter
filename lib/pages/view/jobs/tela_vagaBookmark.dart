@@ -62,7 +62,7 @@ class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
           padding: EdgeInsets.all(20),
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height,
+              minHeight: MediaQuery.of(context).size.height - 120,
               minWidth: MediaQuery.of(context).size.width,
             ),
             child: Column(
@@ -120,12 +120,12 @@ class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
                     ),
                     opcaoAtiva.child,
                     SizedBox(
-                      height: 50,
+                      height: 35,
                     ),
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
                       onPressed: () {
@@ -148,6 +148,7 @@ class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
                     ElevatedButton(
                       onPressed: () {
                         aplicarVaga();
+                        caixaDialogo('Vaga Demo', "Você se candidatou à vaga!");
                       },
                       style: ElevatedButton.styleFrom(
                           minimumSize:
@@ -174,6 +175,28 @@ class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
         ),
       ),
     );
+  }
+
+  caixaDialogo(title, msg) {
+    return aplicado
+        ? showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text(title),
+                content: Text(msg, style: TextStyle(fontSize: 16)),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('Ok'),
+                  ),
+                ],
+              );
+            },
+          )
+        : null;
   }
 
   favoritarVaga() {
