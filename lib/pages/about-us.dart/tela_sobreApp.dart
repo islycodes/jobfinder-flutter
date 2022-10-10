@@ -37,26 +37,113 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
           ),
         ),
         body: SingleChildScrollView(
-            child: Container(
-                padding: EdgeInsets.all(20),
-                child: RichText(
-                  text: TextSpan(
-                    style: defaultStyle,
-                    children: <TextSpan>[
-                      TextSpan(
-                        text:
-                            'Este projeto desenvolvido a partir da identificação de uma carência de softwares que auxiliem a conexão do estudante que busca estágio e da empresa que necessita de empregados. A partir disso foi pensado a criação deste aplicativo para ajudar o aluno a encontrar as vagas de estágio ofertadas pelas empresas na área de tecnologia da informação. Este portal foi desenvolvido em Dart usando o framework flutter. Novas atualizações e maior descrição do projeto pode ser encontrado ',
-                      ),
-                      TextSpan(
-                          text: 'aqui',
-                          style: linkStyle,
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              launchUrl(urlGithub);
-                            }),
-                    ],
+            child: Column(
+          children: [
+            Container(
+              height: (MediaQuery.of(context).size.height) - 450,
+              padding: EdgeInsets.all(20),
+              child: RichText(
+                text: TextSpan(
+                  style: defaultStyle,
+                  children: <TextSpan>[
+                    TextSpan(
+                      text:
+                          'Este projeto desenvolvido a partir da identificação de uma carência de softwares que auxiliem a conexão do estudante que busca estágio e da empresa que necessita de empregados. A partir disso foi pensado a criação deste aplicativo para ajudar o aluno a encontrar as vagas de estágio ofertadas pelas empresas na área de tecnologia da informação. Este portal foi desenvolvido em Dart usando o framework Flutter. Novas atualizações e maior descrição do projeto podem ser encontrados ',
+                    ),
+                    TextSpan(
+                        text: 'aqui',
+                        style: linkStyle,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            launchUrl(urlGithub);
+                          }),
+                  ],
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Desenvolvido por:',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontFamily: "Open Sans",
+                    fontWeight: FontWeight.w700,
                   ),
-                ))));
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Column(
+              children: [
+                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  SizedBox(height: 30),
+                  SizedBox(
+                    width: 85,
+                    height: 85,
+                    child: Image.asset(
+                      "lib/images/adriellyisly-icon.jpeg",
+                    ),
+                  ),
+                ]),
+                Text(
+                  'Adrielly Isly',
+                  style: TextStyle(
+                    fontFamily: 'Open Sans',
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'Aluna da Fatec de Ribeirão Preto - SP',
+                  style: TextStyle(
+                    fontFamily: 'Open Sans',
+                    fontSize: 10,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 85,
+                      height: 85,
+                      child: Image.asset("lib/images/felipebotelho-icon.jpeg"),
+                    ),
+                  ],
+                ),
+                Text(
+                  'Felipe Botelho',
+                  style: TextStyle(
+                    fontFamily: 'Open Sans',
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'Aluno da Fatec de Ribeirão Preto - SP',
+                  style: TextStyle(
+                    fontFamily: 'Open Sans',
+                    fontSize: 10,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                
+              ],
+            ),
+          ],
+        )));
   }
 }
 

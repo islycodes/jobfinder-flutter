@@ -33,7 +33,7 @@ class TelaOtp extends StatelessWidget {
                           width: 300,
                           height: 300,
                           child: Image.asset(
-                              "lib/image/verification-code-icon.png")),
+                              "lib/images/verification-code-icon.png")),
                     ],
                   ),
                   Column(

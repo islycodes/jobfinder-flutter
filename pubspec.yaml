@@ -64,7 +64,7 @@ flutter:
   # assets:
 
   assets:
-    - lib/image/
+    - lib/images/
 
     - family: NotoSansDisplay
       fonts:

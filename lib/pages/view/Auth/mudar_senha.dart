@@ -44,7 +44,7 @@ class _TelaMudarSenhaState extends State<TelaMudarSenha> {
                           width: 300,
                           height: 300,
                           child:
-                              Image.asset("lib/image/change-password-icon.png"),
+                              Image.asset("lib/images/change-password-icon.png"),
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,

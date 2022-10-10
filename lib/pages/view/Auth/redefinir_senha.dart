@@ -30,7 +30,7 @@ class EsqueceuSenha extends StatelessWidget {
                       SizedBox(
                         width: 300,
                         height: 300,
-                        child: Image.asset("lib/image/reset-password-icon.png"),
+                        child: Image.asset("lib/images/reset-password-icon.png"),
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
