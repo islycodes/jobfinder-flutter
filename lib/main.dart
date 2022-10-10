@@ -3,6 +3,9 @@ import 'package:estagiotec/pages/view/jobs/tela_vagaBookmark.dart';
 import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/about-us.dart/tela_sobre.dart';
+import 'pages/settings/historico.dart';
+import 'pages/settings/notificacoes.dart';
 import 'pages/view/Auth/mudar_senha.dart';
 import 'pages/view/Auth/redefinir_senha.dart';
 import 'pages/view/Auth/tela_Otp.dart';
@@ -38,5 +41,8 @@ void main() {
         'telaVaga': (context) => TelaVaga(),
         'telaVagaBookMark': (context) => TelaVagaBookMark(),
         'telaConfiguracoes': (context) => TelaConfiguracoes(),
+        'telaNotificacoes': (context) => TelaNotificacoes(),
+        'telaHistorico': (context) => TelaHistorico(),
+        'telaSobre': (context) => TelaSobre(),
       }));
 }

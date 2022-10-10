@@ -67,6 +67,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
                           Row(
                             children: [
                               Checkbox(
+                                  activeColor: Color.fromRGBO(30, 40, 107, 1),
                                   value: valCheck,
                                   onChanged: (bool? value) {
                                     setState(() {

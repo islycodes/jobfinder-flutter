@@ -13,10 +13,12 @@ class TelaConfiguracoes extends StatelessWidget {
   const TelaConfiguracoes({super.key});
 
   static List<Opcoes> opcoes = [
-    Opcoes(nomeOpcao: 'Gerenciar notificações', caminhoOpcao: 'telaDados'),
-    Opcoes(nomeOpcao: 'Limpar histórico de busca', caminhoOpcao: 'telaCV'),
-    Opcoes(nomeOpcao: 'Sobre', caminhoOpcao: 'telaVagaSalva'),
-    Opcoes(nomeOpcao: 'Sair', caminhoOpcao: 'telaVagaSalva'),
+    Opcoes(
+        nomeOpcao: 'Gerenciar notificações', caminhoOpcao: 'telaNotificacoes'),
+    Opcoes(
+        nomeOpcao: 'Limpar histórico de busca', caminhoOpcao: 'telaHistorico'),
+    Opcoes(nomeOpcao: 'Sobre', caminhoOpcao: 'telaSobre'),
+    Opcoes(nomeOpcao: 'Sair', caminhoOpcao: 'telaLogin'),
   ];
 
   @override

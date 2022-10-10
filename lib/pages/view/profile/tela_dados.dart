@@ -130,7 +130,6 @@ class _TelaDadosState extends State<TelaDados> {
                 SizedBox(
                   height: 165,
                 ),
-
                 //botao
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
