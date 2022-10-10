@@ -125,25 +125,28 @@ class _TelaHistoricoState extends State<TelaHistorico> {
 
             SizedBox(height: 350),
             //botao
+
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(74, 74),
-                      backgroundColor: Color.fromRGBO(30, 40, 107, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      )),
-                  child: Icon(
-                    Icons.done,
-                    color: Colors.white,
-                    size: 48,
-                  ),
-                )
+                valCheck1 || valCheck2
+                    ? ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size(74, 74),
+                            backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            )),
+                        child: Icon(
+                          Icons.done,
+                          color: Colors.white,
+                          size: 48,
+                        ),
+                      )
+                    : Container()
               ],
             )
           ]),
