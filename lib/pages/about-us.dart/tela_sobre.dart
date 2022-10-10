@@ -70,14 +70,17 @@ class TelaSobre extends StatelessWidget {
                                                 style: TextStyle(
                                                     fontSize: 16,
                                                     color: opcao.nomeOpcao ==
-                                                            'Versao 1.0'
+                                                            'Versão 0.1'
                                                         ? Colors.grey
                                                         : Colors.black,
                                                     fontWeight:
                                                         FontWeight.bold)),
                                           ],
                                         ),
-                                        Icon(Icons.arrow_forward_ios),
+                                        opcao.nomeOpcao == 'Versão 0.1'
+                                            ? Icon(Icons.copy,
+                                                color: Colors.grey)
+                                            : Icon(Icons.arrow_forward_ios),
                                       ]),
                                 ),
                               ),
