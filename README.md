@@ -1,4 +1,4 @@
-** Estagiotec – Portal mobile de vagas de estágio para Faculdade de Tecnologia de Ribeirão Preto**
+**Estagiotec – Portal mobile de vagas de estágio para Faculdade de Tecnologia de Ribeirão Preto**
 
 **Adrielly Isly, Felipe Gabriel Botelho, Rodrigo Plotze**
 
