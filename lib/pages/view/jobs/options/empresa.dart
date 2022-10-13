@@ -35,7 +35,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
           SizedBox(height: 15),
         ]),
         Image.asset(
-          "lib/image/maps.png",
+          "lib/images/maps.png",
         ),
       ],
     );
