@@ -1,8 +1,8 @@
-import 'package:estagiotec/components/elevatedButtonGenerator.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/campoSenha.dart';
 import '../../../components/campoTexto.dart';
+import '../../../controller/login_controller.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({Key? key}) : super(key: key);
@@ -83,10 +83,27 @@ class _TelaLoginState extends State<TelaLogin> {
                         ],
                       )
                     ]),
-                    elevatedButtonGenerator(
-                      context,
-                      'Entrar',
-                      'telaMenuInicial',
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          minimumSize: MaterialStatePropertyAll(
+                            Size(371, 66),
+                          ),
+                          backgroundColor: MaterialStatePropertyAll(
+                            Color.fromRGBO(30, 40, 107, 1),
+                          ),
+                          shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16))))),
+
+                      //COMPORTAMENTO
+                      onPressed: () {
+                        LoginController()
+                            .login(context, txtEmail.text, txtSenha.text);
+                      },
+                      //CONTEÚDO
+                      child: Text("Entrar",
+                          style: TextStyle(fontSize: 16, color: Colors.white)),
                     ),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                       Text("Novo aqui?"),

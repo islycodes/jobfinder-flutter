@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "340006003481",
+    "project_id": "estagiotec-app",
+    "storage_bucket": "estagiotec-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340006003481:android:72b304a8161c6311919b88",
+        "android_client_info": {
+          "package_name": "com.example.estagiotec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340006003481-eabmcd5ulrj01vkvbko6v1op6thvf7lj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxfLcvBg0MAVcyYP1AJjOjQahi6Fjll1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340006003481-eabmcd5ulrj01vkvbko6v1op6thvf7lj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
