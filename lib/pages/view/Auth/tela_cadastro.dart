@@ -40,7 +40,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
                   SizedBox(
                     width: 300,
                     height: 300,
-                    child: Image.asset("lib/images/signup-icon.png"),
+                    child: Image.asset("lib/images/login-icon.png"),
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
