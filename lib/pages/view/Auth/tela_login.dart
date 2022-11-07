@@ -48,7 +48,7 @@ class _TelaLoginState extends State<TelaLogin> {
                         SizedBox(
                           width: 300,
                           height: 300,
-                          child: Image.asset("lib/images/login-icon.png"),
+                          child: Image.asset("lib/images/signup-icon.png"),
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
