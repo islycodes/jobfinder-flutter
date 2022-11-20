@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/campoSenha.dart';
 import '../../../components/campoTexto.dart';
+import '../../../controller/login_controller.dart';
 
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({Key? key}) : super(key: key);
@@ -90,7 +91,9 @@ class _TelaCadastroState extends State<TelaCadastro> {
                             borderRadius: BorderRadius.circular(16),
                           )),
                       onPressed: () {
-                        Navigator.pushNamed(context, 'telaLogin');
+                        LoginController().criarConta(context, txtNome.text,
+                            txtEmail.text, txtSenha.text);
+                        // Navigator.pushNamed(context, 'telaLogin');
                       },
                       child: Text(
                         'Cadastrar',

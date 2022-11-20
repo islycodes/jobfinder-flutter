@@ -7,22 +7,25 @@ class CampoSenha extends StatefulWidget {
   const CampoSenha({super.key, required this.rotulo, required this.variavel});
 
   @override
-  State<CampoSenha> createState() => _CampoSenhaState(rotulo: this.rotulo);
+  State<CampoSenha> createState() =>
+      _CampoSenhaState(rotulo: this.rotulo, variavel: this.variavel);
 }
 
 class _CampoSenhaState extends State<CampoSenha> {
   var rotulo;
+  var variavel;
 
   final textFieldFocusNode = FocusNode();
 
   bool _obscured = true;
-  _CampoSenhaState({required this.rotulo});
+  _CampoSenhaState({required this.rotulo, required this.variavel});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.all(5),
-        child: TextField(
+        child: TextFormField(
+          controller: this.variavel,
           keyboardType: TextInputType.visiblePassword,
           obscureText: _obscured,
           focusNode: textFieldFocusNode,

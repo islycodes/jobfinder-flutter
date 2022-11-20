@@ -13,9 +13,11 @@ class LoginController {
         .createUserWithEmailAndPassword(email: email, password: senha)
         .then((res) {
       //Armazenar o nome no Firestore
-      FirebaseFirestore.instance.collection('usuarios').add({
+      FirebaseFirestore.instance.collection('alunos').add({
         "uid": res.user!.uid.toString(),
         "nome": nome,
+        "email": email,
+        "vagas": [],
       });
 
       sucesso(context, 'Usuário criado com sucesso.');
@@ -46,8 +48,7 @@ class LoginController {
   //
   void login(context, email, senha) {
     FirebaseAuth.instance
-        .signInWithEmailAndPassword(
-            email: "admin@gmail.com", password: "admin123")
+        .signInWithEmailAndPassword(email: email, password: senha)
         .then((res) {
       sucesso(context, 'Usuário autenticado com sucesso.');
       Navigator.pushReplacementNamed(context, 'telaMenuInicial');
@@ -69,5 +70,34 @@ class LoginController {
           erro(context, e.code.toString());
       }
     });
+  }
+
+  //
+  // LOGOUT
+  //
+  void logout() {
+    FirebaseAuth.instance.signOut();
+  }
+
+  //
+  // RETORNAR USUÁRIO LOGADO
+  //
+  Future<String> retornarUsuarioLogado() async {
+    var uid = FirebaseAuth.instance.currentUser!.uid;
+    var res;
+    await FirebaseFirestore.instance
+        .collection('alunos')
+        .where('uid', isEqualTo: uid)
+        .get()
+        .then(
+      (q) {
+        if (q.docs.isNotEmpty) {
+          res = q.docs[0].data()['nome'];
+        } else {
+          res = "";
+        }
+      },
+    );
+    return res;
   }
 }
