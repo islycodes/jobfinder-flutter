@@ -72,7 +72,7 @@ class EsqueceuSenha extends StatelessWidget {
                     ],
                   ),
                 ),
-                elevatedButtonGenerator(context, 'Enviar', 'telaOtp'),
+                elevatedButtonGenerator(context, 'Enviar', 'telaLogin'),
               ],
             )
           ],

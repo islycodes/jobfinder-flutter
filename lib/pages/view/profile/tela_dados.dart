@@ -60,7 +60,7 @@ class _TelaDadosState extends State<TelaDados> {
                               ),
                             ],
                           ),
-                          campoTexto2('Digite seu nome', txtEmail),
+                          campoTexto2('Digite seu nome', txtNome),
                           SizedBox(height: 20),
                         ],
                       ),

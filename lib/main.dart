@@ -10,9 +10,7 @@ import 'pages/about-us/tela_sobreApp.dart';
 import 'pages/settings/historico.dart';
 import 'pages/settings/notificacoes.dart';
 import 'pages/settings/tela_configuracoes.dart';
-import 'pages/view/Auth/mudar_senha.dart';
 import 'pages/view/Auth/redefinir_senha.dart';
-import 'pages/view/Auth/tela_Otp.dart';
 import 'pages/view/Auth/tela_cadastro.dart';
 import 'pages/view/Auth/tela_login.dart';
 import 'pages/view/profile/tela_cv.dart';
@@ -39,8 +37,6 @@ Future<void> main() async {
         'telaMenuInicial': (context) => TelaMenuInicial(),
         'telaLogin': (context) => TelaLogin(),
         'telaEsqueceuSenha': (context) => EsqueceuSenha(),
-        'telaOtp': (context) => TelaOtp(),
-        'telaMudarSenha': (context) => TelaMudarSenha(),
         'telaPerfil': (context) => TelaPerfil(),
         'telaDados': (context) => TelaDados(),
         'telaCV': (context) => TelaCV(),
