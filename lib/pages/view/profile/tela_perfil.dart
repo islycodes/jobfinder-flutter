@@ -25,7 +25,7 @@ class TelaPerfil extends StatelessWidget {
         extendBodyBehindAppBar: false,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Nome do usuário'),
+          title: Text('NomedoUsuario'),
           titleTextStyle: TextStyle(
               fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           backgroundColor: Colors.white,
