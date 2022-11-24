@@ -16,10 +16,12 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
     color: Colors.black,
   );
   final Uri urlGithub = Uri(
-      scheme: 'https', host: 'www.github.com', path: 'dricodes/estagiotec_app');
+      scheme: 'https',
+      host: 'www.github.com',
+      path: 'islycodes/estagiotec_app');
 
   final Uri urlGithubAdrielly =
-      Uri(scheme: 'https', host: 'www.github.com', path: 'dricodes');
+      Uri(scheme: 'https', host: 'www.github.com', path: 'islycodes');
 
   final Uri urlGithubFelipe =
       Uri(scheme: 'https', host: 'www.github.com', path: 'felipegbot');
