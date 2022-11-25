@@ -143,45 +143,74 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
               ),
               SizedBox(
                 height: 185,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(width: 12);
-                  },
-                  itemBuilder: (context, index) {
-                    return Ink(
-                      width: 150,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(245, 242, 248, 1),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(16),
-                        onTap: () {
-                          Navigator.pushNamed(context, 'telaVaga');
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Nome da vaga',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)),
-                              Text('Nome da empresa',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.black)),
-                              Text('Local da vaga',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.black)),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
+                child: StreamBuilder<QuerySnapshot>(
+                  stream: vagas.snapshots(),
+                  builder: (context, snapshot) {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.none:
+                        return const Center(
+                          child: Text('Não foi possível conectar.'),
+                        );
+                      case ConnectionState.waiting:
+                        return const Center(child: CircularProgressIndicator());
+                      default:
+                        final dados = snapshot.requireData;
+                        // log(dados.size.toString());
+                        if (dados.size > 0) {
+                          return ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: dados.size,
+                            separatorBuilder: (context, index) {
+                              return const SizedBox(width: 12);
+                            },
+                            itemBuilder: (context, index) {
+                              dynamic vaga = dados.docs[index].data();
+                              String titleVaga = vaga['title'];
+                              String modelVaga = vaga['model'];
+
+                              return Ink(
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(245, 242, 248, 1),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(16),
+                                  onTap: () {
+                                    Navigator.pushNamed(context, 'telaVaga');
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(titleVaga,
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold)),
+                                        Text('Nome da empresa',
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.black)),
+                                        Text(modelVaga,
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.black)),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        } else {
+                          return Center(
+                            child: Text('Nenhuma vaga encontrada.'),
+                          );
+                        }
+                    }
                   },
                 ),
               ),
@@ -220,7 +249,6 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                         dynamic vaga = dados.docs[index].data();
                         String titleVaga = vaga['title'];
                         String descriptionVaga = vaga['description'];
-
                         return Card(
                           color: Color.fromRGBO(245, 242, 248, 1),
                           margin: EdgeInsets.only(bottom: 20),

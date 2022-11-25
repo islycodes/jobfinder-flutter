@@ -7,8 +7,24 @@ class VagasController {
     });
   }
 
+  DocumentReference getEmpresaDaVaga(String empresaId) {
+    return FirebaseFirestore.instance
+        .collection('empresas')
+        .doc(empresaId.split('/')[1]);
+  }
+
   listar() {
-    return FirebaseFirestore.instance.collection('vagas');
-    // .where('active', isEqualTo: true);
+    // dynamic res;
+    // FirebaseFirestore.instance
+    //     .collection('vagas')
+    //     .where('active', isEqualTo: true)
+    //     .get()
+    //     .then((value) {
+    //   print(value.docs[0].data()['company'].path);
+    // });
+
+    return FirebaseFirestore.instance
+        .collection('vagas')
+        .where('active', isEqualTo: true);
   }
 }
