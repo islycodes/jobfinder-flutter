@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable, prefer_typing_uninitialized_variables
 
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ListarVagasVerticalWidget extends StatefulWidget {
-  final tarefas;
-  const ListarVagasVerticalWidget(this.tarefas, {Key? key}) : super(key: key);
+  final vagas;
+  const ListarVagasVerticalWidget(this.vagas, {Key? key}) : super(key: key);
 
   @override
   State<ListarVagasVerticalWidget> createState() =>
@@ -15,12 +17,10 @@ class ListarVagasVerticalWidget extends StatefulWidget {
 class _ListarVagasVerticalWidgetState extends State<ListarVagasVerticalWidget> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        color: Theme.of(context).backgroundColor,
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-        child: StreamBuilder<QuerySnapshot>(
-          stream: widget.tarefas.snapshots(),
+    return Column(
+      children: [
+        StreamBuilder<QuerySnapshot>(
+          stream: widget.vagas.snapshots(),
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
@@ -31,6 +31,7 @@ class _ListarVagasVerticalWidgetState extends State<ListarVagasVerticalWidget> {
                 return const Center(child: CircularProgressIndicator());
               default:
                 final dados = snapshot.requireData;
+                log(dados.size.toString());
                 if (dados.size > 0) {
                   return ListView.builder(
                     itemCount: dados.size,
@@ -95,7 +96,7 @@ class _ListarVagasVerticalWidgetState extends State<ListarVagasVerticalWidget> {
             }
           },
         ),
-      ),
+      ],
     );
   }
 }

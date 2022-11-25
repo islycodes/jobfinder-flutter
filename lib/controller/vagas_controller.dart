@@ -8,8 +8,7 @@ class VagasController {
   }
 
   listar() {
-    return FirebaseFirestore.instance
-        .collection('vagas')
-        .where('ativo', isEqualTo: true);
+    return FirebaseFirestore.instance.collection('vagas');
+    // .where('active', isEqualTo: true);
   }
 }

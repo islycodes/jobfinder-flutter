@@ -1,11 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:estagiotec/controller/vagas_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../components/campoTexto.dart';
 
-class TelaMenuInicial extends StatelessWidget {
-  static const String svgCode =
-      '''<svg width="49" height="47" viewBox="0 0 49 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+const String svgCode =
+    '''<svg width="49" height="47" viewBox="0 0 49 47" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="path-1-inside-1_11_7" fill="white">
 <path d="M6.43663 20.5602L17.685 20.7529L17.6357 23.6275L13.4863 23.5564L13.1966 40.4685L10.197 40.4171L10.4868 23.505L6.38738 23.4348L6.43663 20.5602ZM10.788 5.92218L13.7876 5.97358L13.5848 17.8073L10.5853 17.7559L10.788 5.92218ZM18.9333 15.0235L23.0327 15.0937L23.1862 6.13461L26.1858 6.186L26.0323 15.1451L30.2317 15.2171L30.1824 18.0916L18.8841 17.8981L18.9333 15.0235ZM22.9342 20.8429L25.9338 20.8943L25.5948 40.6809L22.5952 40.6295L22.9342 20.8429ZM31.0467 28.9372L42.2951 29.1299L42.2458 32.0045L38.1464 31.9343L37.9929 40.8934L34.9934 40.842L35.1469 31.8829L30.9975 31.8118L31.0467 28.9372ZM35.5844 6.34703L38.584 6.39842L38.2449 26.1851L35.2454 26.1337L35.5844 6.34703Z"/>
 </mask>
@@ -14,45 +15,63 @@ class TelaMenuInicial extends StatelessWidget {
 </svg>
 ''';
 
-  static List<Vaga> vagasList = [
-    Vaga(
-        nomeVaga: "Desenvolvedor Flutter",
-        nomeEmpresa: "Empresa 1",
-        caminhoVaga: "telaVaga"),
-    Vaga(
-        nomeVaga: "Desenvolvedor React",
-        nomeEmpresa: "Empresa 2",
-        caminhoVaga: "telaVaga"),
-    Vaga(
-        nomeVaga: "Desenvolvedor Angular",
-        nomeEmpresa: "Empresa 3",
-        caminhoVaga: "telaVaga"),
-    Vaga(
-        nomeVaga: "Desenvolvedor ABAP",
-        nomeEmpresa: "Empresa 4",
-        caminhoVaga: "telaVaga"),
-    Vaga(
-        nomeVaga: "Desenvolvedor NodeJS",
-        nomeEmpresa: "Empresa 5",
-        caminhoVaga: "telaVaga"),
-    Vaga(
-        nomeVaga: "Desenvolvedor Java",
-        nomeEmpresa: "Empresa 6",
-        caminhoVaga: "telaVaga"),
-    Vaga(
-        nomeVaga: "Desenvolvedor Python",
-        nomeEmpresa: "Empresa 7",
-        caminhoVaga: "telaVaga"),
-    Vaga(
-        nomeVaga: "Desenvolvedor C++",
-        nomeEmpresa: "Empresa 8",
-        caminhoVaga: "telaVaga"),
-  ];
+List<Vaga> vagasList = [
+  Vaga(
+      nomeVaga: "Desenvolvedor Flutter",
+      nomeEmpresa: "Empresa 1",
+      caminhoVaga: "telaVaga"),
+  Vaga(
+      nomeVaga: "Desenvolvedor React",
+      nomeEmpresa: "Empresa 2",
+      caminhoVaga: "telaVaga"),
+  Vaga(
+      nomeVaga: "Desenvolvedor Angular",
+      nomeEmpresa: "Empresa 3",
+      caminhoVaga: "telaVaga"),
+  Vaga(
+      nomeVaga: "Desenvolvedor ABAP",
+      nomeEmpresa: "Empresa 4",
+      caminhoVaga: "telaVaga"),
+  Vaga(
+      nomeVaga: "Desenvolvedor NodeJS",
+      nomeEmpresa: "Empresa 5",
+      caminhoVaga: "telaVaga"),
+  Vaga(
+      nomeVaga: "Desenvolvedor Java",
+      nomeEmpresa: "Empresa 6",
+      caminhoVaga: "telaVaga"),
+  Vaga(
+      nomeVaga: "Desenvolvedor Python",
+      nomeEmpresa: "Empresa 7",
+      caminhoVaga: "telaVaga"),
+  Vaga(
+      nomeVaga: "Desenvolvedor C++",
+      nomeEmpresa: "Empresa 8",
+      caminhoVaga: "telaVaga"),
+];
 
+class TelaMenuInicial extends StatefulWidget {
   const TelaMenuInicial({super.key});
 
   @override
+  State<TelaMenuInicial> createState() => _TelaMenuInicialState();
+}
+
+class Vaga {
+  String nomeVaga, nomeEmpresa, caminhoVaga;
+
+  Vaga({
+    required this.nomeVaga,
+    required this.nomeEmpresa,
+    required this.caminhoVaga,
+  });
+}
+
+class _TelaMenuInicialState extends State<TelaMenuInicial> {
+  var vagas;
+  @override
   Widget build(BuildContext context) {
+    vagas = VagasController().listar();
     final controller = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
@@ -81,183 +100,202 @@ class TelaMenuInicial extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height,
-            ),
-            child: Column(children: [
-              Container(
-                child: Column(children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 20),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        child: Text('Encontre seu Emprego',
-                            style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Flexible(
-                            child: campoTexto(
-                                'Pesquisar', controller, Icons.search),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 10),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  minimumSize: Size(74, 74),
-                                  backgroundColor:
-                                      Color.fromRGBO(30, 40, 107, 1),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16),
-                                  )),
-                              child: SvgPicture.string(svgCode),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 45,
-                      ),
-                      Text('Vagas em destaque',
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 185,
-                        child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 10,
-                          separatorBuilder: (context, index) {
-                            return const SizedBox(width: 12);
-                          },
-                          itemBuilder: (context, index) {
-                            return Ink(
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(245, 242, 248, 1),
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: InkWell(
-                                borderRadius: BorderRadius.circular(16),
-                                onTap: () {
-                                  Navigator.pushNamed(context, 'telaVaga');
-                                },
-                                child: Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Nome da vaga',
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold)),
-                                      Text('Nome da empresa',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.black)),
-                                      Text('Local da vaga',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.black)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Text('Relacionado ao seu curso',
-                          style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
-                    ],
-                  ),
-                ]),
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+        child: Column(children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Text('Encontre seu Emprego',
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold)),
               ),
               SizedBox(
                 height: 25,
               ),
-              Column(
-                children: vagasList.map((vaga) {
-                  return Card(
-                    color: Color.fromRGBO(245, 242, 248, 1),
-                    margin: EdgeInsets.only(bottom: 20),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(5),
-                      onTap: () {
-                        Navigator.pushNamed(context, vaga.caminhoVaga);
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(Icons.square_rounded,
-                                      size: 48,
-                                      color: Color.fromRGBO(217, 217, 217, 1)),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(vaga.nomeVaga,
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold)),
-                                      Text(vaga.nomeEmpresa,
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.black)),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Icon(Icons.arrow_forward_ios)
-                            ]),
-                      ),
+              Row(
+                children: <Widget>[
+                  Flexible(
+                    child: campoTexto('Pesquisar', controller, Icons.search),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 10),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(74, 74),
+                          backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          )),
+                      child: SvgPicture.string(svgCode),
                     ),
-                  );
-                }).toList(),
+                  )
+                ],
               ),
-            ]),
-          )),
+              SizedBox(
+                height: 45,
+              ),
+              Text('Vagas em destaque',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                height: 185,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(width: 12);
+                  },
+                  itemBuilder: (context, index) {
+                    return Ink(
+                      width: 150,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(245, 242, 248, 1),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(16),
+                        onTap: () {
+                          Navigator.pushNamed(context, 'telaVaga');
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Nome da vaga',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              Text('Nome da empresa',
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.black)),
+                              Text('Local da vaga',
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.black)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Text('Relacionado ao seu curso',
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold)),
+            ],
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          StreamBuilder<QuerySnapshot>(
+            stream: vagas.snapshots(),
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  return const Center(
+                    child: Text('Não foi possível conectar.'),
+                  );
+                case ConnectionState.waiting:
+                  return const Center(child: CircularProgressIndicator());
+                default:
+                  final dados = snapshot.requireData;
+                  // log(dados.size.toString());
+                  if (dados.size > 0) {
+                    return ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemCount: dados.size,
+                      itemBuilder: (context, index) {
+                        dynamic vaga = dados.docs[index].data();
+                        String titleVaga = vaga['title'];
+                        String descriptionVaga = vaga['description'];
+
+                        return Card(
+                          color: Color.fromRGBO(245, 242, 248, 1),
+                          margin: EdgeInsets.only(bottom: 20),
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(5),
+                            onTap: () {
+                              // TODO: Implementar ação ao clicar na vaga
+                              // Navigator.pushNamed(context, vaga.caminhoVaga);
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(Icons.square_rounded,
+                                            size: 48,
+                                            color: Color.fromRGBO(
+                                                217, 217, 217, 1)),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(titleVaga,
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            Text(
+                                                descriptionVaga.length > 30
+                                                    ? '${descriptionVaga.substring(0, 30)}...'
+                                                    : descriptionVaga,
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Icon(Icons.arrow_forward_ios)
+                                  ]),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  } else {
+                    return Center(
+                      child: Text('Nenhuma vaga encontrada.'),
+                    );
+                  }
+              }
+            },
+          )
+        ]),
+      ),
     );
   }
-}
 
-class Vaga {
-  String nomeVaga, nomeEmpresa, caminhoVaga;
-
-  Vaga({
-    required this.nomeVaga,
-    required this.nomeEmpresa,
-    required this.caminhoVaga,
-  });
+  @override
+  void initState() {
+    super.initState();
+    vagas = VagasController().listar();
+  }
 }
