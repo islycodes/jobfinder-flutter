@@ -26,7 +26,7 @@ class TelaInicial extends StatelessWidget {
               Text(
                 'Estagiotec',
                 style: TextStyle(
-                  fontSize: 84,
+                  fontSize: 76,
                   color: Color.fromRGBO(85, 97, 250, 1),
                   fontWeight: FontWeight.w900,
                   fontFamily: 'NotoSansDisplay',
@@ -51,7 +51,7 @@ class TelaInicial extends StatelessWidget {
               Text(
                   'Explore as melhores vagas baseadas\n baseada na sua área de interesse.',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontFamily: 'OpenSans',
                     fontWeight: FontWeight.w400,
                   ))
