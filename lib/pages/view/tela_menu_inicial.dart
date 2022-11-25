@@ -61,6 +61,7 @@ class TelaMenuInicial extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 80,
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             color: Colors.grey,
@@ -71,14 +72,6 @@ class TelaMenuInicial extends StatelessWidget {
           ),
           SizedBox(width: 10),
         ],
-        leading: Row(
-          children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        ),
       ),
       body: SingleChildScrollView(
           padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
