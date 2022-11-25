@@ -28,7 +28,7 @@ class _TelaCVState extends State<TelaCV> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            height: (MediaQuery.of(context).size.height) - 130,
+            height: (MediaQuery.of(context).size.height) - 150,
             child: Padding(
               padding: EdgeInsets.all(20),
               child: Form(
@@ -52,7 +52,7 @@ class _TelaCVState extends State<TelaCV> {
                       ),
                       SizedBox(height: 30),
                       Container(
-                        height: 300,
+                        height: 400,
                         width: 300,
                         decoration: BoxDecoration(
                           color: Color.fromRGBO(242, 241, 244, 1),
@@ -71,7 +71,7 @@ class _TelaCVState extends State<TelaCV> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 40),
                       //botao de upload
                       Column(
                         children: [
