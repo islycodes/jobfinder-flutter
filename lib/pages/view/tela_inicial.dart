@@ -49,7 +49,7 @@ class TelaInicial extends StatelessWidget {
                 height: 160,
               ),
               Text(
-                  'Explore as melhores vagas baseadas\n baseada na sua área de interesse.',
+                  'Explore as melhores vagas baseadas\n na sua área de interesse.',
                   style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'OpenSans',
