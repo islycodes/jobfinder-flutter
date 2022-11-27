@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../components/campoTexto.dart';
+import '../../components/utilsClasses.dart';
 
 const String svgCode =
     '''<svg width="49" height="47" viewBox="0 0 49 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,41 +16,6 @@ const String svgCode =
 </svg>
 ''';
 
-List<Vaga> vagasList = [
-  Vaga(
-      nomeVaga: "Desenvolvedor Flutter",
-      nomeEmpresa: "Empresa 1",
-      caminhoVaga: "telaVaga"),
-  Vaga(
-      nomeVaga: "Desenvolvedor React",
-      nomeEmpresa: "Empresa 2",
-      caminhoVaga: "telaVaga"),
-  Vaga(
-      nomeVaga: "Desenvolvedor Angular",
-      nomeEmpresa: "Empresa 3",
-      caminhoVaga: "telaVaga"),
-  Vaga(
-      nomeVaga: "Desenvolvedor ABAP",
-      nomeEmpresa: "Empresa 4",
-      caminhoVaga: "telaVaga"),
-  Vaga(
-      nomeVaga: "Desenvolvedor NodeJS",
-      nomeEmpresa: "Empresa 5",
-      caminhoVaga: "telaVaga"),
-  Vaga(
-      nomeVaga: "Desenvolvedor Java",
-      nomeEmpresa: "Empresa 6",
-      caminhoVaga: "telaVaga"),
-  Vaga(
-      nomeVaga: "Desenvolvedor Python",
-      nomeEmpresa: "Empresa 7",
-      caminhoVaga: "telaVaga"),
-  Vaga(
-      nomeVaga: "Desenvolvedor C++",
-      nomeEmpresa: "Empresa 8",
-      caminhoVaga: "telaVaga"),
-];
-
 class TelaMenuInicial extends StatefulWidget {
   const TelaMenuInicial({super.key});
 
@@ -57,18 +23,9 @@ class TelaMenuInicial extends StatefulWidget {
   State<TelaMenuInicial> createState() => _TelaMenuInicialState();
 }
 
-class Vaga {
-  String nomeVaga, nomeEmpresa, caminhoVaga;
-
-  Vaga({
-    required this.nomeVaga,
-    required this.nomeEmpresa,
-    required this.caminhoVaga,
-  });
-}
-
 class _TelaMenuInicialState extends State<TelaMenuInicial> {
   var vagas;
+  ValueNotifier<String> nomeEmpresa = ValueNotifier<String>("");
   @override
   Widget build(BuildContext context) {
     vagas = VagasController().listar();
@@ -177,7 +134,16 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                 child: InkWell(
                                   borderRadius: BorderRadius.circular(16),
                                   onTap: () {
-                                    Navigator.pushNamed(context, 'telaVaga');
+                                    Navigator.pushNamed(
+                                      context,
+                                      'telaVaga',
+                                      arguments: Vaga(
+                                          vaga['active'],
+                                          vaga['creation_date'],
+                                          vaga['description'],
+                                          vaga['model'],
+                                          vaga['title']),
+                                    );
                                   },
                                   child: Padding(
                                     padding: EdgeInsets.all(10),
@@ -190,10 +156,19 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                                 fontSize: 18,
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold)),
-                                        Text('Nome da empresa',
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                color: Colors.black)),
+                                        // Text('Nome da empresa',
+                                        //     style: TextStyle(
+                                        //         fontSize: 14,
+                                        //         color: Colors.black)),
+                                        ValueListenableBuilder(
+                                          valueListenable: nomeEmpresa,
+                                          builder: (context, value, _) {
+                                            return Text('$value',
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.black));
+                                          },
+                                        ),
                                         Text(modelVaga,
                                             style: TextStyle(
                                                 fontSize: 14,
@@ -248,15 +223,28 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                       itemBuilder: (context, index) {
                         dynamic vaga = dados.docs[index].data();
                         String titleVaga = vaga['title'];
-                        String descriptionVaga = vaga['description'];
+                        var companyReference =
+                            vaga["company"] as DocumentReference;
+                        final company = companyReference.get();
+                        company.then((value) {
+                          nomeEmpresa.value = value["nome"].toString();
+                        });
                         return Card(
                           color: Color.fromRGBO(245, 242, 248, 1),
                           margin: EdgeInsets.only(bottom: 20),
                           child: InkWell(
                             borderRadius: BorderRadius.circular(5),
                             onTap: () {
-                              // TODO: Implementar ação ao clicar na vaga
-                              // Navigator.pushNamed(context, vaga.caminhoVaga);
+                              Navigator.pushNamed(
+                                context,
+                                'telaVaga',
+                                arguments: Vaga(
+                                    vaga['active'],
+                                    vaga['creation_date'],
+                                    vaga['description'],
+                                    vaga['model'],
+                                    vaga['title']),
+                              );
                             },
                             child: Padding(
                               padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
@@ -283,13 +271,15 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                                     color: Colors.black,
                                                     fontWeight:
                                                         FontWeight.bold)),
-                                            Text(
-                                                descriptionVaga.length > 30
-                                                    ? '${descriptionVaga.substring(0, 30)}...'
-                                                    : descriptionVaga,
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    color: Colors.black)),
+                                            ValueListenableBuilder(
+                                              valueListenable: nomeEmpresa,
+                                              builder: (context, value, _) {
+                                                return Text('$value',
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.black));
+                                              },
+                                            ),
                                           ],
                                         ),
                                       ],

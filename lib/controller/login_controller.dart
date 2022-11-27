@@ -48,7 +48,8 @@ class LoginController {
   //
   void login(context, email, senha) {
     FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: senha)
+        .signInWithEmailAndPassword(
+            email: 'felipe@gmail.com', password: '123123')
         .then((res) {
       sucesso(context, 'Usuário autenticado com sucesso.');
       Navigator.pushReplacementNamed(context, 'telaMenuInicial');

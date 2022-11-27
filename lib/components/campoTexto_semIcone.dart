@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-campoTexto2(String rotulo, variavel) {
+campoTexto2(String rotulo, variavel, {bool readonly = false}) {
   return Container(
       margin: EdgeInsets.all(5),
       child: TextFormField(
+          readOnly: readonly,
           cursorColor: Colors.black,
           textAlignVertical: TextAlignVertical.center,
           controller: variavel,

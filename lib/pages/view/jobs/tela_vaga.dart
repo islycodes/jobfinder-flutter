@@ -1,41 +1,38 @@
-import 'package:estagiotec/pages/view/jobs/options/descricao.dart';
 import 'package:flutter/material.dart';
 
-import 'options/contato.dart';
-import 'options/empresa.dart';
-
-class Options {
-  final String title;
-  final Widget child;
-  Options({required this.title, required this.child});
-}
+import '../../../components/utilsClasses.dart';
+import '../../../main.dart';
+import 'options/descricao.dart';
 
 class TelaVaga extends StatefulWidget {
+  final List<Options> options;
   final bool aplicado;
   final bool vagaFavoritada;
-
-  const TelaVaga(
-      {super.key, this.aplicado = false, this.vagaFavoritada = false});
+  const TelaVaga({
+    super.key,
+    this.aplicado = false,
+    this.options = const [],
+    this.vagaFavoritada = false,
+  });
 
   @override
-  State<TelaVaga> createState() =>
-      _TelaVagaState(aplicado: aplicado, vagaFavoritada: vagaFavoritada);
+  State<TelaVaga> createState() => _TelaVagaState(
+      aplicado: aplicado, vagaFavoritada: vagaFavoritada, options: options);
 }
 
 class _TelaVagaState extends State<TelaVaga> {
-  static List<Options> optionsTelaVaga = [
-    Options(title: 'Descrição', child: DescricaoOption()),
-    Options(title: 'Empresa', child: EmpresaOption()),
-    Options(title: 'Contato', child: ContatoOption()),
-  ];
-
-  Options opcaoAtiva = optionsTelaVaga[0];
   bool aplicado;
+  List<Options> options;
   bool vagaFavoritada;
+  var nomeEmpresa;
+  Options opcaoAtiva = Options(title: '', child: Container());
 
-  _TelaVagaState({this.aplicado = false, this.vagaFavoritada = false});
+  _TelaVagaState(
+      {this.aplicado = false,
+      this.vagaFavoritada = false,
+      this.options = const []});
 
-  aplicarVaga() {
+  void aplicarVaga() {
     setState(() {
       aplicado = !aplicado;
     });
@@ -43,6 +40,10 @@ class _TelaVagaState extends State<TelaVaga> {
 
   @override
   Widget build(BuildContext context) {
+    Vaga vagaAtual = ModalRoute.of(context)!.settings.arguments as Vaga;
+
+    mudaConteudoOpcao(vagaAtual.description);
+    mudaOpcaoAtiva(options[0]);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -199,13 +200,27 @@ class _TelaVagaState extends State<TelaVaga> {
         : null;
   }
 
-  favoritarVaga() {
+  // METHODS
+
+  void favoritarVaga() {
     setState(() {
       vagaFavoritada = !vagaFavoritada;
     });
   }
 
-  mudaOpcaoAtiva(Options opcao) {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void mudaConteudoOpcao(String description) {
+    setState(() {
+      optionsTelaVaga[0] = Options(
+          title: 'Descrição', child: DescricaoOption(description: description));
+    });
+  }
+
+  void mudaOpcaoAtiva(Options opcao) {
     setState(() {
       opcaoAtiva = opcao;
     });

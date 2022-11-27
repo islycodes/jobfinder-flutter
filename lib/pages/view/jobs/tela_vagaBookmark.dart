@@ -24,7 +24,11 @@ class TelaVagaBookMark extends StatefulWidget {
 
 class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
   static List<Options> optionsTelaVagaBookMark = [
-    Options(title: 'Descrição', child: DescricaoOption()),
+    Options(
+        title: 'Descrição',
+        child: DescricaoOption(
+          description: '',
+        )),
     Options(title: 'Empresa', child: EmpresaOption()),
     Options(title: 'Contato', child: ContatoOption()),
   ];
