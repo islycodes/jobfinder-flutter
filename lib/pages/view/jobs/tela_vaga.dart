@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/utilsClasses.dart';
@@ -27,17 +24,15 @@ class TelaVaga extends StatefulWidget {
 }
 
 class _TelaVagaState extends State<TelaVaga> {
-  ValueNotifier<Empresa> empresa =
-      ValueNotifier<Empresa>(Empresa('', '', '', GeoPoint(0, 0)));
-
   bool aplicado;
   bool vagaFavoritada;
   int opcaoAtiva;
 
-  _TelaVagaState(
-      {this.aplicado = false,
-      this.vagaFavoritada = false,
-      this.opcaoAtiva = 0});
+  _TelaVagaState({
+    this.aplicado = false,
+    this.vagaFavoritada = false,
+    this.opcaoAtiva = 0,
+  });
 
   void aplicarVaga() {
     setState(() {
@@ -48,32 +43,25 @@ class _TelaVagaState extends State<TelaVaga> {
   @override
   Widget build(BuildContext context) {
     Vaga vagaAtual = ModalRoute.of(context)!.settings.arguments as Vaga;
-    print(vagaAtual.company);
+
     List<Options> optionsTelaVaga = [
       Options(
           title: 'Descrição',
-          child: DescricaoOption(description: vagaAtual.description)),
+          child: DescricaoOption(
+            description: vagaAtual.description,
+          )),
       Options(
           title: 'Empresa',
-          child: EmpresaOption(description: '', location: GeoPoint(0, 0))),
-      Options(title: 'Contato', child: ContatoOption(contact: '')),
+          child: EmpresaOption(
+              description: vagaAtual.companyDescription,
+              location: vagaAtual.companyAddress)),
+      Options(
+          title: 'Contato',
+          child: ContatoOption(
+            contact: vagaAtual.companyContact,
+          )),
     ];
 
-    ValueListenableBuilder(
-      valueListenable: empresa,
-      builder: (context, value, _) {
-        optionsTelaVaga[1].child = EmpresaOption(
-          description: empresa.value.description,
-          location: empresa.value.location,
-        );
-        optionsTelaVaga[2].child = ContatoOption(
-          contact: empresa.value.contact,
-        );
-        return Container();
-      },
-    );
-
-    // mudaConteudoOpcao(vagaAtual.description);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -114,15 +102,10 @@ class _TelaVagaState extends State<TelaVaga> {
                                     fontSize: 18,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold)),
-                            ValueListenableBuilder(
-                              valueListenable: empresa,
-                              builder: (context, value, _) {
-                                return Text(
-                                    '${empresa.value.name} - ${vagaAtual.model}',
-                                    style: TextStyle(
-                                        fontSize: 14, color: Colors.black));
-                              },
-                            )
+                            Text(
+                                '${vagaAtual.companyName} - ${vagaAtual.model}',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black))
                           ]),
                       SizedBox(
                         height: 50,
@@ -246,7 +229,6 @@ class _TelaVagaState extends State<TelaVaga> {
   }
 
   void mudaOpcaoAtiva(int opcao) {
-    log(opcao.toString());
     setState(() {
       opcaoAtiva = opcao;
     });

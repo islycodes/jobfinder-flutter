@@ -25,7 +25,6 @@ class TelaMenuInicial extends StatefulWidget {
 
 class _TelaMenuInicialState extends State<TelaMenuInicial> {
   var vagas;
-  ValueNotifier<String> nomeEmpresa = ValueNotifier<String>("");
   @override
   Widget build(BuildContext context) {
     vagas = VagasController().listar();
@@ -112,7 +111,6 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                         return const Center(child: CircularProgressIndicator());
                       default:
                         final dados = snapshot.requireData;
-                        // log(dados.size.toString());
                         if (dados.size > 0) {
                           return ListView.separated(
                             scrollDirection: Axis.horizontal,
@@ -124,6 +122,7 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                               dynamic vaga = dados.docs[index].data();
                               String titleVaga = vaga['title'];
                               String modelVaga = vaga['model'];
+                              String nomeEmpresa = vaga['companyName'];
 
                               return Ink(
                                 width: 150,
@@ -139,11 +138,14 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                       'telaVaga',
                                       arguments: Vaga(
                                         vaga['active'],
+                                        vaga['title'],
                                         vaga['creation_date'],
                                         vaga['description'],
                                         vaga['model'],
-                                        vaga['title'],
-                                        vaga['company'],
+                                        vaga['companyName'],
+                                        vaga['companyDescription'],
+                                        vaga['companyContact'],
+                                        vaga['companyAddress'],
                                       ),
                                     );
                                   },
@@ -158,19 +160,10 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                                 fontSize: 18,
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold)),
-                                        // Text('Nome da empresa',
-                                        //     style: TextStyle(
-                                        //         fontSize: 14,
-                                        //         color: Colors.black)),
-                                        ValueListenableBuilder(
-                                          valueListenable: nomeEmpresa,
-                                          builder: (context, value, _) {
-                                            return Text('$value',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    color: Colors.black));
-                                          },
-                                        ),
+                                        Text(nomeEmpresa,
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.black)),
                                         Text(modelVaga,
                                             style: TextStyle(
                                                 fontSize: 14,
@@ -216,7 +209,6 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                   return const Center(child: CircularProgressIndicator());
                 default:
                   final dados = snapshot.requireData;
-                  // log(dados.size.toString());
                   if (dados.size > 0) {
                     return ListView.builder(
                       scrollDirection: Axis.vertical,
@@ -225,12 +217,8 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                       itemBuilder: (context, index) {
                         dynamic vaga = dados.docs[index].data();
                         String titleVaga = vaga['title'];
-                        var companyReference =
-                            vaga["company"] as DocumentReference;
-                        final company = companyReference.get();
-                        company.then((value) {
-                          nomeEmpresa.value = value["nome"].toString();
-                        });
+                        String nomeEmpresa = vaga['companyName'];
+
                         return Card(
                           color: Color.fromRGBO(245, 242, 248, 1),
                           margin: EdgeInsets.only(bottom: 20),
@@ -241,12 +229,16 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                 context,
                                 'telaVaga',
                                 arguments: Vaga(
-                                    vaga['active'],
-                                    vaga['creation_date'],
-                                    vaga['description'],
-                                    vaga['model'],
-                                    vaga['title'],
-                                    vaga['company']),
+                                  vaga['active'],
+                                  vaga['title'],
+                                  vaga['creation_date'],
+                                  vaga['description'],
+                                  vaga['model'],
+                                  vaga['companyName'],
+                                  vaga['companyDescription'],
+                                  vaga['companyContact'],
+                                  vaga['companyAddress'],
+                                ),
                               );
                             },
                             child: Padding(
@@ -274,15 +266,10 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                                     color: Colors.black,
                                                     fontWeight:
                                                         FontWeight.bold)),
-                                            ValueListenableBuilder(
-                                              valueListenable: nomeEmpresa,
-                                              builder: (context, value, _) {
-                                                return Text('$value',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        color: Colors.black));
-                                              },
-                                            ),
+                                            Text(nomeEmpresa,
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.black)),
                                           ],
                                         ),
                                       ],

@@ -1,12 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Empresa {
-  final String name;
-  final String description;
-  final String contact;
-  final GeoPoint location;
+  late final String name;
+  late final String description;
+  late final String contact;
+  late final String location;
 
-  Empresa(this.name, this.description, this.contact, this.location);
+  Empresa(
+    this.name,
+    this.description,
+    this.contact,
+    this.location,
+  );
 }
 
 class Vaga {
@@ -16,7 +21,20 @@ class Vaga {
   final String description;
   final String model;
   final String title;
-  final DocumentReference company;
-  Vaga(this.active, this.creation_date, this.description, this.model,
-      this.title, this.company);
+  final String companyName;
+  final String companyDescription;
+  final String companyContact;
+  final String companyAddress;
+
+  Vaga(
+    this.active,
+    this.title,
+    this.creation_date,
+    this.description,
+    this.model,
+    this.companyName,
+    this.companyDescription,
+    this.companyContact,
+    this.companyAddress,
+  );
 }
