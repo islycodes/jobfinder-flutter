@@ -2,35 +2,34 @@ import 'package:flutter/material.dart';
 
 import '../../../components/utilsClasses.dart';
 import '../../../main.dart';
+import 'options/contato.dart';
 import 'options/descricao.dart';
+import 'options/empresa.dart';
 
 class TelaVaga extends StatefulWidget {
-  final List<Options> options;
   final bool aplicado;
   final bool vagaFavoritada;
   const TelaVaga({
     super.key,
     this.aplicado = false,
-    this.options = const [],
     this.vagaFavoritada = false,
   });
 
   @override
-  State<TelaVaga> createState() => _TelaVagaState(
-      aplicado: aplicado, vagaFavoritada: vagaFavoritada, options: options);
+  State<TelaVaga> createState() =>
+      _TelaVagaState(aplicado: aplicado, vagaFavoritada: vagaFavoritada);
 }
 
 class _TelaVagaState extends State<TelaVaga> {
   bool aplicado;
-  List<Options> options;
   bool vagaFavoritada;
   var nomeEmpresa;
-  Options opcaoAtiva = Options(title: '', child: Container());
+  int opcaoAtiva = 0;
 
-  _TelaVagaState(
-      {this.aplicado = false,
-      this.vagaFavoritada = false,
-      this.options = const []});
+  _TelaVagaState({
+    this.aplicado = false,
+    this.vagaFavoritada = false,
+  });
 
   void aplicarVaga() {
     setState(() {
@@ -42,8 +41,16 @@ class _TelaVagaState extends State<TelaVaga> {
   Widget build(BuildContext context) {
     Vaga vagaAtual = ModalRoute.of(context)!.settings.arguments as Vaga;
 
-    mudaConteudoOpcao(vagaAtual.description);
-    mudaOpcaoAtiva(options[0]);
+    List<Options> optionsTelaVaga = [
+      Options(
+          title: 'Descrição',
+          child: DescricaoOption(description: vagaAtual.description)),
+      Options(title: 'Empresa', child: EmpresaOption()),
+      Options(title: 'Contato', child: ContatoOption()),
+    ];
+
+    // mudaConteudoOpcao(vagaAtual.description);
+    mudaOpcaoAtiva(0);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -97,10 +104,10 @@ class _TelaVagaState extends State<TelaVaga> {
                             .map((opcao) => TextButton(
                                   style: ElevatedButton.styleFrom(
                                       minimumSize: Size(100, 38),
-                                      backgroundColor:
-                                          opcaoAtiva.title == opcao.title
-                                              ? Color.fromRGBO(205, 121, 106, 1)
-                                              : Colors.white,
+                                      backgroundColor: opcaoAtiva ==
+                                              optionsTelaVaga.indexOf(opcao)
+                                          ? Color.fromRGBO(205, 121, 106, 1)
+                                          : Colors.white,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(16),
                                       )),
@@ -110,7 +117,8 @@ class _TelaVagaState extends State<TelaVaga> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold)),
                                   onPressed: () {
-                                    mudaOpcaoAtiva(opcao);
+                                    mudaOpcaoAtiva(
+                                        optionsTelaVaga.indexOf(opcao));
                                   },
                                 ))
                             .toList(),
@@ -119,7 +127,7 @@ class _TelaVagaState extends State<TelaVaga> {
                     SizedBox(
                       height: 35,
                     ),
-                    opcaoAtiva.child,
+                    optionsTelaVaga[opcaoAtiva].child,
                     SizedBox(
                       height: 35,
                     ),
@@ -213,14 +221,14 @@ class _TelaVagaState extends State<TelaVaga> {
     super.initState();
   }
 
-  void mudaConteudoOpcao(String description) {
-    setState(() {
-      optionsTelaVaga[0] = Options(
-          title: 'Descrição', child: DescricaoOption(description: description));
-    });
-  }
+  // void mudaConteudoOpcao(String description) {
+  //   setState(() {
+  //     optionsTelaVaga[0] = Options(
+  //         title: 'Descrição', child: DescricaoOption(description: description));
+  //   });
+  // }
 
-  void mudaOpcaoAtiva(Options opcao) {
+  void mudaOpcaoAtiva(int opcao) {
     setState(() {
       opcaoAtiva = opcao;
     });

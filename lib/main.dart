@@ -1,6 +1,3 @@
-import 'package:estagiotec/pages/view/jobs/options/contato.dart';
-import 'package:estagiotec/pages/view/jobs/options/descricao.dart';
-import 'package:estagiotec/pages/view/jobs/options/empresa.dart';
 import 'package:estagiotec/pages/view/jobs/tela_vaga.dart';
 import 'package:estagiotec/pages/view/jobs/tela_vagaBookmark.dart';
 import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
@@ -44,7 +41,7 @@ Future<void> main() async {
         'telaDados': (context) => TelaDados(),
         'telaCV': (context) => TelaCV(),
         'telaVagaSalva': (context) => TelaVagaSalva(),
-        'telaVaga': (context) => TelaVaga(options: optionsTelaVaga),
+        'telaVaga': (context) => TelaVaga(),
         'telaVagaBookMark': (context) => TelaVagaBookMark(),
         'telaConfiguracoes': (context) => TelaConfiguracoes(),
         'telaNotificacoes': (context) => TelaNotificacoes(),
@@ -53,14 +50,6 @@ Future<void> main() async {
         'telaSobreoAplicativo': (context) => TelaSobreoAplicativo(),
       }));
 }
-
-List<Options> optionsTelaVaga = [
-  Options(
-      title: 'Descrição',
-      child: DescricaoOption(description: 'Descrição da vaga')),
-  Options(title: 'Empresa', child: EmpresaOption()),
-  Options(title: 'Contato', child: ContatoOption()),
-];
 
 class Options {
   final String title;
