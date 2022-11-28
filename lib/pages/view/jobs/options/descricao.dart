@@ -17,9 +17,9 @@ class DescricaoOption extends StatelessWidget {
           SizedBox(height: 15),
           Text(this.description)
         ]),
-        SizedBox(
-          height: 30,
-        ),
+        // SizedBox(
+        //   height: 30,
+        // ),
         // Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         //   Text(
         //     'Atividades',

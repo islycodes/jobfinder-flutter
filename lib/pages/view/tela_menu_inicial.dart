@@ -138,11 +138,13 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                       context,
                                       'telaVaga',
                                       arguments: Vaga(
-                                          vaga['active'],
-                                          vaga['creation_date'],
-                                          vaga['description'],
-                                          vaga['model'],
-                                          vaga['title']),
+                                        vaga['active'],
+                                        vaga['creation_date'],
+                                        vaga['description'],
+                                        vaga['model'],
+                                        vaga['title'],
+                                        vaga['company'],
+                                      ),
                                     );
                                   },
                                   child: Padding(
@@ -243,7 +245,8 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                     vaga['creation_date'],
                                     vaga['description'],
                                     vaga['model'],
-                                    vaga['title']),
+                                    vaga['title'],
+                                    vaga['company']),
                               );
                             },
                             child: Padding(

@@ -53,6 +53,6 @@ Future<void> main() async {
 
 class Options {
   final String title;
-  final Widget child;
+  late final Widget child;
   Options({required this.title, required this.child});
 }

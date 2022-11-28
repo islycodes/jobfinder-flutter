@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/utilsClasses.dart';
@@ -9,27 +12,32 @@ import 'options/empresa.dart';
 class TelaVaga extends StatefulWidget {
   final bool aplicado;
   final bool vagaFavoritada;
-  const TelaVaga({
-    super.key,
-    this.aplicado = false,
-    this.vagaFavoritada = false,
-  });
+  final int opcaoAtiva;
+  const TelaVaga(
+      {super.key,
+      this.aplicado = false,
+      this.vagaFavoritada = false,
+      this.opcaoAtiva = 0});
 
   @override
-  State<TelaVaga> createState() =>
-      _TelaVagaState(aplicado: aplicado, vagaFavoritada: vagaFavoritada);
+  State<TelaVaga> createState() => _TelaVagaState(
+      aplicado: aplicado,
+      vagaFavoritada: vagaFavoritada,
+      opcaoAtiva: opcaoAtiva);
 }
 
 class _TelaVagaState extends State<TelaVaga> {
+  ValueNotifier<Empresa> empresa =
+      ValueNotifier<Empresa>(Empresa('', '', '', GeoPoint(0, 0)));
+
   bool aplicado;
   bool vagaFavoritada;
-  var nomeEmpresa;
-  int opcaoAtiva = 0;
+  int opcaoAtiva;
 
-  _TelaVagaState({
-    this.aplicado = false,
-    this.vagaFavoritada = false,
-  });
+  _TelaVagaState(
+      {this.aplicado = false,
+      this.vagaFavoritada = false,
+      this.opcaoAtiva = 0});
 
   void aplicarVaga() {
     setState(() {
@@ -40,17 +48,32 @@ class _TelaVagaState extends State<TelaVaga> {
   @override
   Widget build(BuildContext context) {
     Vaga vagaAtual = ModalRoute.of(context)!.settings.arguments as Vaga;
-
+    print(vagaAtual.company);
     List<Options> optionsTelaVaga = [
       Options(
           title: 'Descrição',
           child: DescricaoOption(description: vagaAtual.description)),
-      Options(title: 'Empresa', child: EmpresaOption()),
-      Options(title: 'Contato', child: ContatoOption()),
+      Options(
+          title: 'Empresa',
+          child: EmpresaOption(description: '', location: GeoPoint(0, 0))),
+      Options(title: 'Contato', child: ContatoOption(contact: '')),
     ];
 
+    ValueListenableBuilder(
+      valueListenable: empresa,
+      builder: (context, value, _) {
+        optionsTelaVaga[1].child = EmpresaOption(
+          description: empresa.value.description,
+          location: empresa.value.location,
+        );
+        optionsTelaVaga[2].child = ContatoOption(
+          contact: empresa.value.contact,
+        );
+        return Container();
+      },
+    );
+
     // mudaConteudoOpcao(vagaAtual.description);
-    mudaOpcaoAtiva(0);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -86,14 +109,20 @@ class _TelaVagaState extends State<TelaVaga> {
                             Icon(Icons.square_rounded,
                                 size: 140,
                                 color: Color.fromRGBO(217, 217, 217, 1)),
-                            Text('Nome da vaga',
+                            Text(vagaAtual.title,
                                 style: TextStyle(
                                     fontSize: 18,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold)),
-                            Text('Nome da empresa - Modalidade',
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.black)),
+                            ValueListenableBuilder(
+                              valueListenable: empresa,
+                              builder: (context, value, _) {
+                                return Text(
+                                    '${empresa.value.name} - ${vagaAtual.model}',
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.black));
+                              },
+                            )
                           ]),
                       SizedBox(
                         height: 50,
@@ -216,19 +245,8 @@ class _TelaVagaState extends State<TelaVaga> {
     });
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  // void mudaConteudoOpcao(String description) {
-  //   setState(() {
-  //     optionsTelaVaga[0] = Options(
-  //         title: 'Descrição', child: DescricaoOption(description: description));
-  //   });
-  // }
-
   void mudaOpcaoAtiva(int opcao) {
+    log(opcao.toString());
     setState(() {
       opcaoAtiva = opcao;
     });

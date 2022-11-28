@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:estagiotec/pages/view/jobs/options/descricao.dart';
 import 'package:flutter/material.dart';
 
@@ -29,8 +30,14 @@ class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
         child: DescricaoOption(
           description: '',
         )),
-    Options(title: 'Empresa', child: EmpresaOption()),
-    Options(title: 'Contato', child: ContatoOption()),
+    Options(
+        title: 'Empresa',
+        child: EmpresaOption(description: '', location: GeoPoint(0, 0))),
+    Options(
+        title: 'Contato',
+        child: ContatoOption(
+          contact: '',
+        )),
   ];
 
   Options opcaoAtiva = optionsTelaVagaBookMark[0];
