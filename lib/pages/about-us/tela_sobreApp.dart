@@ -79,7 +79,7 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Desenvolvedores',
+                'Autores',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 14,
@@ -127,7 +127,8 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
                                             fontWeight: FontWeight.bold)),
                                     SizedBox(width: 120),
                                     Text(
-                                        'Aluna da Fatec de Ribeirão Preto - SP',
+                                        'Desenvolvedora e Consultora SAP\n' +
+                                            'Gerenciamento de testes, UX/UI e programação do Front-End.',
                                         style: TextStyle(
                                             fontSize: 10, color: Colors.black)),
                                   ],
@@ -166,7 +167,8 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
                                             fontWeight: FontWeight.bold)),
                                     SizedBox(width: 100),
                                     Text(
-                                        'Aluno da Fatec de Ribeirão Preto - SP',
+                                        'Desenvolvedor FullStack Junior\n' +
+                                            'Programação do Back-End e Integração com o Firebase.',
                                         style: TextStyle(
                                             fontSize: 10, color: Colors.black)),
                                   ],
