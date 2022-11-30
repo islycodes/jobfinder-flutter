@@ -12,6 +12,7 @@ class _TelaNotificacoesState extends State<TelaNotificacoes> {
   bool valCheck1 = false;
   bool valCheck2 = false;
   bool valCheck3 = false;
+  bool valCheck4 = false;
 
   @override
   void initState() {
@@ -104,10 +105,10 @@ class _TelaNotificacoesState extends State<TelaNotificacoes> {
                   children: [
                     Checkbox(
                         activeColor: Color.fromRGBO(30, 40, 107, 1),
-                        value: valCheck3,
+                        value: valCheck4,
                         onChanged: (bool? value) {
                           setState(() {
-                            valCheck3 = value!;
+                            valCheck4 = value!;
                           });
                         }),
                     Text('Não quero ser notificado.'),
