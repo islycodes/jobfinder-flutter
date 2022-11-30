@@ -100,6 +100,19 @@ class _TelaNotificacoesState extends State<TelaNotificacoes> {
                     Text('A vaga que eu apliquei for encerrada'),
                   ],
                 ),
+                Row(
+                  children: [
+                    Checkbox(
+                        activeColor: Color.fromRGBO(30, 40, 107, 1),
+                        value: valCheck3,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            valCheck3 = value!;
+                          });
+                        }),
+                    Text('Não quero ser notificado.'),
+                  ],
+                ),
               ]),
               //botao
               Row(
