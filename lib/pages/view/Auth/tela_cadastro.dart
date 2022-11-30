@@ -13,16 +13,10 @@ class TelaCadastro extends StatefulWidget {
 }
 
 class _TelaCadastroState extends State<TelaCadastro> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
   var txtNome = TextEditingController();
+
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
-
   bool valCheck = false;
 
   @override
@@ -93,14 +87,17 @@ class _TelaCadastroState extends State<TelaCadastro> {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           minimumSize: Size(371, 66),
-                          backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                          backgroundColor: valCheck
+                              ? Color.fromRGBO(30, 40, 107, 1)
+                              : Colors.grey.shade400,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           )),
                       onPressed: () {
-                        LoginController().criarConta(context, txtNome.text,
-                            txtEmail.text, txtSenha.text);
-                        // Navigator.pushNamed(context, 'telaLogin');
+                        if (valCheck) {
+                          LoginController().criarConta(context, txtNome.text,
+                              txtEmail.text, txtSenha.text);
+                        }
                       },
                       child: Text(
                         'Cadastrar',
@@ -124,5 +121,11 @@ class _TelaCadastroState extends State<TelaCadastro> {
                 ]),
           ),
         ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }
