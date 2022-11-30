@@ -1,6 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TelaInicial extends StatefulWidget {
   const TelaInicial({super.key});
@@ -10,12 +10,6 @@ class TelaInicial extends StatefulWidget {
 }
 
 class _TelaInicialState extends State<TelaInicial> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,5 +103,11 @@ class _TelaInicialState extends State<TelaInicial> {
                 )),
           ])
         ]));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }

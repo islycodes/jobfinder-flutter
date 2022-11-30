@@ -25,15 +25,8 @@ class TelaMenuInicial extends StatefulWidget {
 }
 
 class _TelaMenuInicialState extends State<TelaMenuInicial> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-
-    vagas = VagasController().listar();
-  }
-
   var vagas;
+
   @override
   Widget build(BuildContext context) {
     vagas = VagasController().listar();
@@ -301,5 +294,13 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
         ]),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+    vagas = VagasController().listar();
   }
 }

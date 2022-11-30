@@ -20,46 +20,23 @@ class TelaPerfil extends StatefulWidget {
 }
 
 class _TelaPerfilState extends State<TelaPerfil> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
   static List<OpcoesPerfil> opcoesPerfil = [
     OpcoesPerfil(nomeOpcao: 'Meus dados', caminhoOpcao: 'telaDados'),
     OpcoesPerfil(nomeOpcao: 'Meu currículo', caminhoOpcao: 'telaCV'),
     OpcoesPerfil(nomeOpcao: 'Vagas Salvas', caminhoOpcao: 'telaVagaSalva'),
   ];
 
+  late Widget appBarTitle;
+
   @override
   Widget build(BuildContext context) {
+    initializeAppBarTitle();
     return Scaffold(
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
           centerTitle: true,
-          title: FutureBuilder<String>(
-            future: LoginController().retornarUsuarioLogado(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
-              } else if (snapshot.connectionState == ConnectionState.done) {
-                if (snapshot.hasError) {
-                  return const Text('Error');
-                } else if (snapshot.hasData) {
-                  return Text(
-                    snapshot.data.toString(),
-                    style: TextStyle(color: Colors.black),
-                  );
-                } else {
-                  return const Text('Empty data');
-                }
-              } else {
-                return Text('State: ${snapshot.connectionState}');
-              }
-            },
-          ),
+          title: appBarTitle,
           titleTextStyle: TextStyle(
               fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           backgroundColor: Colors.white,
@@ -140,5 +117,38 @@ class _TelaPerfilState extends State<TelaPerfil> {
                     ],
                   ),
                 ))));
+  }
+
+  void initializeAppBarTitle() {
+    print("mudei");
+    setState(() {
+      appBarTitle = FutureBuilder<String>(
+        future: LoginController().retornarUsuarioLogado(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator();
+          } else if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return const Text('Error');
+            } else if (snapshot.hasData) {
+              return Text(
+                snapshot.data.toString(),
+                style: TextStyle(color: Colors.black),
+              );
+            } else {
+              return const Text('Empty data');
+            }
+          } else {
+            return Text('State: ${snapshot.connectionState}');
+          }
+        },
+      );
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }
