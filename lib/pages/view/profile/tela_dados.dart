@@ -14,16 +14,10 @@ class TelaDados extends StatefulWidget {
 }
 
 class _TelaDadosState extends State<TelaDados> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
   var txtEmail = TextEditingController(
       text: FirebaseAuth.instance.currentUser!.email ?? '');
-  var vagas;
 
+  var vagas;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -218,6 +212,7 @@ class _TelaDadosState extends State<TelaDados> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     vagas = LoginController().retornarDadosUsuarioLogado();
   }
 }
