@@ -55,6 +55,7 @@ class _TelaInicialState extends State<TelaInicial> {
               ),
               Text(
                   'Explore as melhores vagas baseadas\n na sua área de interesse.',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'OpenSans',
