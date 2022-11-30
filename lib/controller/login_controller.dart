@@ -17,6 +17,8 @@ class LoginController {
         "uid": res.user!.uid.toString(),
         "nome": nome,
         "email": email,
+        "cidade": "",
+        "telefone": "",
         "vagas": [],
       });
 
@@ -48,8 +50,7 @@ class LoginController {
   //
   void login(context, email, senha) {
     FirebaseAuth.instance
-        .signInWithEmailAndPassword(
-            email: 'felipe@gmail.com', password: '123123')
+        .signInWithEmailAndPassword(email: email, password: senha)
         .then((res) {
       sucesso(context, 'Usuário autenticado com sucesso.');
       Navigator.pushReplacementNamed(context, 'telaMenuInicial');
@@ -80,6 +81,13 @@ class LoginController {
     FirebaseAuth.instance.signOut();
   }
 
+  retornarDadosUsuarioLogado() {
+    var uid = FirebaseAuth.instance.currentUser!.uid;
+    return FirebaseFirestore.instance
+        .collection('alunos')
+        .where('uid', isEqualTo: uid);
+  }
+
   //
   // RETORNAR USUÁRIO LOGADO
   //
@@ -100,5 +108,25 @@ class LoginController {
       },
     );
     return res;
+  }
+
+  salvarDadosUsuarioLogado(nome, cidade, telefone) {
+    var uid = FirebaseAuth.instance.currentUser!.uid;
+    FirebaseFirestore.instance
+        .collection('alunos')
+        .where('uid', isEqualTo: uid)
+        .get()
+        .then((q) {
+      if (q.docs.isNotEmpty) {
+        FirebaseFirestore.instance
+            .collection('alunos')
+            .doc(q.docs[0].id)
+            .update({
+          "nome": nome,
+          "cidade": cidade,
+          "telefone": telefone,
+        });
+      }
+    });
   }
 }
