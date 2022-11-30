@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MinhasVagas {
   String nomeVaga, nomeEmpresa, caminhoVaga;
@@ -18,6 +19,12 @@ class TelaVagaSalva extends StatefulWidget {
 }
 
 class _TelaVagaSalvaState extends State<TelaVagaSalva> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   static List<MinhasVagas> minhasVagas = [
     MinhasVagas(
         nomeVaga: 'Desenvolvedor Flutter',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Opcoes {
   String nomeOpcao, caminhoOpcao;
@@ -9,8 +10,19 @@ class Opcoes {
   });
 }
 
-class TelaConfiguracoes extends StatelessWidget {
+class TelaConfiguracoes extends StatefulWidget {
   const TelaConfiguracoes({super.key});
+
+  @override
+  State<TelaConfiguracoes> createState() => _TelaConfiguracoesState();
+}
+
+class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
   static List<Opcoes> opcoes = [
     Opcoes(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Opcoes {
   String nomeOpcao, caminhoOpcao;
@@ -9,8 +10,19 @@ class Opcoes {
   });
 }
 
-class TelaSobre extends StatelessWidget {
+class TelaSobre extends StatefulWidget {
   const TelaSobre({super.key});
+
+  @override
+  State<TelaSobre> createState() => _TelaSobreState();
+}
+
+class _TelaSobreState extends State<TelaSobre> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
   static List<Opcoes> opcoes = [
     Opcoes(nomeOpcao: 'Termos de uso', caminhoOpcao: ''),

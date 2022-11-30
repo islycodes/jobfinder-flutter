@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../components/campoSenha.dart';
 import '../../../components/campoTexto.dart';
@@ -19,6 +20,12 @@ class _TelaLoginState extends State<TelaLogin> {
   //
   // BOTAO
   //
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,4 +127,4 @@ class _TelaLoginState extends State<TelaLogin> {
           ),
         ));
   }
-} 
+}

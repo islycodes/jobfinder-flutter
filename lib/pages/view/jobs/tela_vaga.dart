@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../components/utilsClasses.dart';
 import '../../../main.dart';
@@ -24,6 +25,12 @@ class TelaVaga extends StatefulWidget {
 }
 
 class _TelaVagaState extends State<TelaVaga> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   bool aplicado;
   bool vagaFavoritada;
   int opcaoAtiva;

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TelaSobreoAplicativo extends StatefulWidget {
@@ -10,6 +11,12 @@ class TelaSobreoAplicativo extends StatefulWidget {
 }
 
 class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   static TextStyle linkStyle = TextStyle(color: Colors.blue);
   static TextStyle defaultStyle = TextStyle(
     fontSize: 14,

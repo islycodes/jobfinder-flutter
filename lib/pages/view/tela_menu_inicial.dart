@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:estagiotec/controller/vagas_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../components/campoTexto.dart';
@@ -24,6 +25,14 @@ class TelaMenuInicial extends StatefulWidget {
 }
 
 class _TelaMenuInicialState extends State<TelaMenuInicial> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+
+    vagas = VagasController().listar();
+  }
+
   var vagas;
   @override
   Widget build(BuildContext context) {
@@ -292,11 +301,5 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
         ]),
       ),
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    vagas = VagasController().listar();
   }
 }

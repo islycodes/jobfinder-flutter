@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../components/elevatedButtonGenerator.dart';
 
-class AlteraSenha extends StatelessWidget {
+class AlteraSenha extends StatefulWidget {
+  const AlteraSenha({super.key});
+
+  @override
+  State<AlteraSenha> createState() => _AlteraSenhaState();
+}
+
+class _AlteraSenhaState extends State<AlteraSenha> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

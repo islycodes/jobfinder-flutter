@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TelaNotificacoes extends StatefulWidget {
   const TelaNotificacoes({super.key});
@@ -11,6 +12,12 @@ class _TelaNotificacoesState extends State<TelaNotificacoes> {
   bool valCheck1 = false;
   bool valCheck2 = false;
   bool valCheck3 = false;
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
   @override
   Widget build(BuildContext context) {

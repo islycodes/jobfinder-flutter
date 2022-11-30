@@ -1,5 +1,6 @@
 import 'package:estagiotec/pages/view/jobs/options/descricao.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'options/contato.dart';
 import 'options/empresa.dart';
@@ -23,6 +24,12 @@ class TelaVagaBookMark extends StatefulWidget {
 }
 
 class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   static List<Options> optionsTelaVagaBookMark = [
     Options(
         title: 'Descrição',

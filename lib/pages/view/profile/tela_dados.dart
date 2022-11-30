@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../components/campoTexto_semIcone.dart';
 
@@ -11,6 +12,12 @@ class TelaDados extends StatefulWidget {
 }
 
 class _TelaDadosState extends State<TelaDados> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   var txtNome = TextEditingController(text: 'Nome');
   var txtCidade = TextEditingController();
   var txtTel = TextEditingController();

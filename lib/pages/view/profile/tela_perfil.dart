@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../controller/login_controller.dart';
 
@@ -11,14 +12,25 @@ class OpcoesPerfil {
   });
 }
 
-class TelaPerfil extends StatelessWidget {
+class TelaPerfil extends StatefulWidget {
+  const TelaPerfil({super.key});
+
+  @override
+  State<TelaPerfil> createState() => _TelaPerfilState();
+}
+
+class _TelaPerfilState extends State<TelaPerfil> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   static List<OpcoesPerfil> opcoesPerfil = [
     OpcoesPerfil(nomeOpcao: 'Meus dados', caminhoOpcao: 'telaDados'),
     OpcoesPerfil(nomeOpcao: 'Meu currículo', caminhoOpcao: 'telaCV'),
     OpcoesPerfil(nomeOpcao: 'Vagas Salvas', caminhoOpcao: 'telaVagaSalva'),
   ];
-
-  const TelaPerfil({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TelaHistorico extends StatefulWidget {
   const TelaHistorico({super.key});
@@ -11,6 +12,12 @@ class _TelaHistoricoState extends State<TelaHistorico> {
   bool valCheck1 = false;
   bool valCheck2 = false;
   double _dropdownValue = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
   @override
   Widget build(BuildContext context) {

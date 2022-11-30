@@ -1,8 +1,22 @@
 import 'package:estagiotec/components/campoTexto.dart';
 import 'package:estagiotec/components/elevatedButtonGenerator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class EsqueceuSenha extends StatelessWidget {
+class EsqueceuSenha extends StatefulWidget {
+  const EsqueceuSenha({super.key});
+
+  @override
+  State<EsqueceuSenha> createState() => _EsqueceuSenhaState();
+}
+
+class _EsqueceuSenhaState extends State<EsqueceuSenha> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +44,8 @@ class EsqueceuSenha extends StatelessWidget {
                       SizedBox(
                         width: 300,
                         height: 300,
-                        child: Image.asset("lib/images/reset-password-icon.png"),
+                        child:
+                            Image.asset("lib/images/reset-password-icon.png"),
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,

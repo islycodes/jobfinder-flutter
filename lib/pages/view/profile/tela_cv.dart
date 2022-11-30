@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TelaCV extends StatefulWidget {
   const TelaCV({super.key});
@@ -8,6 +9,12 @@ class TelaCV extends StatefulWidget {
 }
 
 class _TelaCVState extends State<TelaCV> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
