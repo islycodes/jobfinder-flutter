@@ -48,7 +48,7 @@ class _TelaHistoricoState extends State<TelaHistorico> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(' Remover dados de navegação',
+                    Text(' Remover dados armazenados',
                         style: TextStyle(
                             fontSize: 14,
                             color: Colors.black,
