@@ -219,7 +219,7 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                       final dados = snapshot.requireData;
                       if (dados.size > 0) {
                         return ListView.builder(
-                          scrollDirection: Axis.vertical,
+                          controller: ScrollController(),
                           shrinkWrap: true,
                           itemCount: dados.size,
                           itemBuilder: (context, index) {
