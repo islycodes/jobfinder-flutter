@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ContatoOption extends StatelessWidget {
-  const ContatoOption({super.key});
+  final String contact;
+  const ContatoOption({required this.contact});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +18,7 @@ class ContatoOption extends StatelessWidget {
                 fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 15),
-          Text('''Email: lorem@ipsum.com
-    
-Telefone: (16) 9 0000 0000''')
+          Text(this.contact)
         ],
       ),
     );

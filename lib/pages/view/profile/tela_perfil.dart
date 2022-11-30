@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../controller/login_controller.dart';
+
 class OpcoesPerfil {
   String nomeOpcao, caminhoOpcao;
 
@@ -10,13 +12,13 @@ class OpcoesPerfil {
 }
 
 class TelaPerfil extends StatelessWidget {
-  const TelaPerfil({super.key});
-
   static List<OpcoesPerfil> opcoesPerfil = [
     OpcoesPerfil(nomeOpcao: 'Meus dados', caminhoOpcao: 'telaDados'),
     OpcoesPerfil(nomeOpcao: 'Meu currículo', caminhoOpcao: 'telaCV'),
     OpcoesPerfil(nomeOpcao: 'Vagas Salvas', caminhoOpcao: 'telaVagaSalva'),
   ];
+
+  const TelaPerfil({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,27 @@ class TelaPerfil extends StatelessWidget {
         extendBodyBehindAppBar: false,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('NomedoUsuario'),
+          title: FutureBuilder<String>(
+            future: LoginController().retornarUsuarioLogado(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              } else if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasError) {
+                  return const Text('Error');
+                } else if (snapshot.hasData) {
+                  return Text(
+                    snapshot.data.toString(),
+                    style: TextStyle(color: Colors.black),
+                  );
+                } else {
+                  return const Text('Empty data');
+                }
+              } else {
+                return Text('State: ${snapshot.connectionState}');
+              }
+            },
+          ),
           titleTextStyle: TextStyle(
               fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           backgroundColor: Colors.white,

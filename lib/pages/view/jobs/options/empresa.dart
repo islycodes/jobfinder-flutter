@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
+// Placemark placemarks = await placemarkFromCoordinates(this.location.latitude, this.location.longitude);
 class EmpresaOption extends StatelessWidget {
-  final String informacoesEmpresaText = '''Empresa A S/A
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.''';
-
-  const EmpresaOption({super.key});
-
+  final String description;
+  final String location;
+  const EmpresaOption({required this.description, required this.location});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +17,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 15),
-          Text(informacoesEmpresaText)
+          Text(this.description)
         ]),
         SizedBox(
           height: 25,
@@ -31,12 +29,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 15),
-          Text('Lorem ipsum dolor, 359 - São Paulo, Brazil'),
-          SizedBox(height: 15),
+          Text(this.location.toString()),
         ]),
-        Image.asset(
-          "lib/images/maps.png",
-        ),
       ],
     );
   }

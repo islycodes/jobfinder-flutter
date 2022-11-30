@@ -50,3 +50,9 @@ Future<void> main() async {
         'telaSobreoAplicativo': (context) => TelaSobreoAplicativo(),
       }));
 }
+
+class Options {
+  final String title;
+  late final Widget child;
+  Options({required this.title, required this.child});
+}

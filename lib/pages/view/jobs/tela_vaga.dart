@@ -1,41 +1,40 @@
-import 'package:estagiotec/pages/view/jobs/options/descricao.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/utilsClasses.dart';
+import '../../../main.dart';
 import 'options/contato.dart';
+import 'options/descricao.dart';
 import 'options/empresa.dart';
-
-class Options {
-  final String title;
-  final Widget child;
-  Options({required this.title, required this.child});
-}
 
 class TelaVaga extends StatefulWidget {
   final bool aplicado;
   final bool vagaFavoritada;
-
+  final int opcaoAtiva;
   const TelaVaga(
-      {super.key, this.aplicado = false, this.vagaFavoritada = false});
+      {super.key,
+      this.aplicado = false,
+      this.vagaFavoritada = false,
+      this.opcaoAtiva = 0});
 
   @override
-  State<TelaVaga> createState() =>
-      _TelaVagaState(aplicado: aplicado, vagaFavoritada: vagaFavoritada);
+  State<TelaVaga> createState() => _TelaVagaState(
+      aplicado: aplicado,
+      vagaFavoritada: vagaFavoritada,
+      opcaoAtiva: opcaoAtiva);
 }
 
 class _TelaVagaState extends State<TelaVaga> {
-  static List<Options> optionsTelaVaga = [
-    Options(title: 'Descrição', child: DescricaoOption()),
-    Options(title: 'Empresa', child: EmpresaOption()),
-    Options(title: 'Contato', child: ContatoOption()),
-  ];
-
-  Options opcaoAtiva = optionsTelaVaga[0];
   bool aplicado;
   bool vagaFavoritada;
+  int opcaoAtiva;
 
-  _TelaVagaState({this.aplicado = false, this.vagaFavoritada = false});
+  _TelaVagaState({
+    this.aplicado = false,
+    this.vagaFavoritada = false,
+    this.opcaoAtiva = 0,
+  });
 
-  aplicarVaga() {
+  void aplicarVaga() {
     setState(() {
       aplicado = !aplicado;
     });
@@ -43,6 +42,26 @@ class _TelaVagaState extends State<TelaVaga> {
 
   @override
   Widget build(BuildContext context) {
+    Vaga vagaAtual = ModalRoute.of(context)!.settings.arguments as Vaga;
+
+    List<Options> optionsTelaVaga = [
+      Options(
+          title: 'Descrição',
+          child: DescricaoOption(
+            description: vagaAtual.description,
+          )),
+      Options(
+          title: 'Empresa',
+          child: EmpresaOption(
+              description: vagaAtual.companyDescription,
+              location: vagaAtual.companyAddress)),
+      Options(
+          title: 'Contato',
+          child: ContatoOption(
+            contact: vagaAtual.companyContact,
+          )),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -78,14 +97,15 @@ class _TelaVagaState extends State<TelaVaga> {
                             Icon(Icons.square_rounded,
                                 size: 140,
                                 color: Color.fromRGBO(217, 217, 217, 1)),
-                            Text('Nome da vaga',
+                            Text(vagaAtual.title,
                                 style: TextStyle(
                                     fontSize: 18,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold)),
-                            Text('Nome da empresa - Modalidade',
+                            Text(
+                                '${vagaAtual.companyName} - ${vagaAtual.model}',
                                 style: TextStyle(
-                                    fontSize: 14, color: Colors.black)),
+                                    fontSize: 14, color: Colors.black))
                           ]),
                       SizedBox(
                         height: 50,
@@ -96,10 +116,10 @@ class _TelaVagaState extends State<TelaVaga> {
                             .map((opcao) => TextButton(
                                   style: ElevatedButton.styleFrom(
                                       minimumSize: Size(100, 38),
-                                      backgroundColor:
-                                          opcaoAtiva.title == opcao.title
-                                              ? Color.fromRGBO(205, 121, 106, 1)
-                                              : Colors.white,
+                                      backgroundColor: opcaoAtiva ==
+                                              optionsTelaVaga.indexOf(opcao)
+                                          ? Color.fromRGBO(205, 121, 106, 1)
+                                          : Colors.white,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(16),
                                       )),
@@ -109,7 +129,8 @@ class _TelaVagaState extends State<TelaVaga> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold)),
                                   onPressed: () {
-                                    mudaOpcaoAtiva(opcao);
+                                    mudaOpcaoAtiva(
+                                        optionsTelaVaga.indexOf(opcao));
                                   },
                                 ))
                             .toList(),
@@ -118,7 +139,7 @@ class _TelaVagaState extends State<TelaVaga> {
                     SizedBox(
                       height: 35,
                     ),
-                    opcaoAtiva.child,
+                    optionsTelaVaga[opcaoAtiva].child,
                     SizedBox(
                       height: 35,
                     ),
@@ -199,13 +220,15 @@ class _TelaVagaState extends State<TelaVaga> {
         : null;
   }
 
-  favoritarVaga() {
+  // METHODS
+
+  void favoritarVaga() {
     setState(() {
       vagaFavoritada = !vagaFavoritada;
     });
   }
 
-  mudaOpcaoAtiva(Options opcao) {
+  void mudaOpcaoAtiva(int opcao) {
     setState(() {
       opcaoAtiva = opcao;
     });

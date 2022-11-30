@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable, prefer_typing_uninitialized_variables
 
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +29,6 @@ class _ListarVagasVerticalWidgetState extends State<ListarVagasVerticalWidget> {
                 return const Center(child: CircularProgressIndicator());
               default:
                 final dados = snapshot.requireData;
-                log(dados.size.toString());
                 if (dados.size > 0) {
                   return ListView.builder(
                     itemCount: dados.size,

@@ -14,17 +14,12 @@ class VagasController {
   }
 
   listar() {
-    // dynamic res;
-    // FirebaseFirestore.instance
-    //     .collection('vagas')
-    //     .where('active', isEqualTo: true)
-    //     .get()
-    //     .then((value) {
-    //   print(value.docs[0].data()['company'].path);
-    // });
-
     return FirebaseFirestore.instance
         .collection('vagas')
         .where('active', isEqualTo: true);
+  }
+
+  DocumentReference listarPorId(String vagaId) {
+    return FirebaseFirestore.instance.collection('vagas').doc(vagaId);
   }
 }

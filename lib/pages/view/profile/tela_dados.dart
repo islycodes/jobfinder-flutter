@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/campoTexto_semIcone.dart';
@@ -10,10 +11,11 @@ class TelaDados extends StatefulWidget {
 }
 
 class _TelaDadosState extends State<TelaDados> {
-  var txtNome = TextEditingController();
+  var txtNome = TextEditingController(text: 'Nome');
   var txtCidade = TextEditingController();
   var txtTel = TextEditingController();
-  var txtEmail = TextEditingController();
+  var txtEmail = TextEditingController(
+      text: FirebaseAuth.instance.currentUser!.email ?? '');
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +129,8 @@ class _TelaDadosState extends State<TelaDados> {
                                   ),
                                 ],
                               ),
-                              campoTexto2('Digite seu email', txtEmail),
+                              campoTexto2('Digite seu email', txtEmail,
+                                  readonly: true),
                             ],
                           ),
                         ],
