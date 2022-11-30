@@ -1,13 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../../components/utilsClasses.dart';
+
 class MinhasVagas {
-  String nomeVaga, nomeEmpresa, caminhoVaga;
+  String nomeVaga, nomeEmpresa;
 
   MinhasVagas({
     required this.nomeVaga,
     required this.nomeEmpresa,
-    required this.caminhoVaga,
   });
 }
 
@@ -19,29 +21,11 @@ class TelaVagaSalva extends StatefulWidget {
 }
 
 class _TelaVagaSalvaState extends State<TelaVagaSalva> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
   static List<MinhasVagas> minhasVagas = [
     MinhasVagas(
-        nomeVaga: 'Desenvolvedor Flutter',
-        nomeEmpresa: 'Empresa 1',
-        caminhoVaga: "telaVagaBookMark"),
-    MinhasVagas(
-        nomeVaga: 'Desenvolvedor React',
-        nomeEmpresa: 'Empresa 2',
-        caminhoVaga: "telaVagaBookMark"),
-    MinhasVagas(
-        nomeVaga: 'Desenvolvedor Angular',
-        nomeEmpresa: 'Empresa 3',
-        caminhoVaga: "telaVagaBookMark"),
-    MinhasVagas(
-        nomeVaga: 'Desenvolvedor ABAP',
-        nomeEmpresa: 'Empresa 4',
-        caminhoVaga: "telaVagaBookMark"),
+      nomeVaga: 'Dev Flutter',
+      nomeEmpresa: 'Empresa ABC',
+    ),
   ];
 
   @override
@@ -80,7 +64,21 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
                                 borderRadius: BorderRadius.circular(5),
                                 onTap: () {
                                   Navigator.pushNamed(
-                                      context, vaga.caminhoVaga);
+                                    context,
+                                    'telaVaga',
+                                    arguments: Vaga(
+                                      "asdasdasdasd",
+                                      true,
+                                      'Dev Flutter',
+                                      new Timestamp(1, 1),
+                                      "Esta é a descrição de uma vaga de estágio para estudantes que gostem de Flutter :D",
+                                      'Remoto',
+                                      "Empresa ABC",
+                                      'Essa é uma empresa que oferece estágio para estudantes que cursem ADS :D',
+                                      '16988332255',
+                                      'Avenida Rio Parnaiba, 777',
+                                    ),
+                                  );
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.all(20),
@@ -116,5 +114,11 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
                     ],
                   ),
                 ))));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }
