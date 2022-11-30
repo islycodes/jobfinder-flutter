@@ -15,8 +15,8 @@ class Empresa {
 }
 
 class Vaga {
+  final String id;
   final bool active;
-
   final Timestamp creation_date;
   final String description;
   final String model;
@@ -27,6 +27,7 @@ class Vaga {
   final String companyAddress;
 
   Vaga(
+    this.id,
     this.active,
     this.title,
     this.creation_date,

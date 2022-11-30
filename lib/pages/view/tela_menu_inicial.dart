@@ -126,11 +126,28 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                   return const SizedBox(width: 12);
                                 },
                                 itemBuilder: (context, index) {
+                                  ValueNotifier<String> nomeEmpresa =
+                                      ValueNotifier<String>("");
                                   dynamic vaga = dados.docs[index].data();
                                   String titleVaga = vaga['title'];
                                   String modelVaga = vaga['model'];
-                                  String nomeEmpresa = vaga['companyName'];
+                                  String companyDescription = " ";
+                                  String companyContact = " ";
+                                  String companyAddress = " ";
 
+                                  var companyReference =
+                                      vaga["company"] as DocumentReference;
+                                  final company = companyReference.get();
+                                  company.then((value) {
+                                    nomeEmpresa.value =
+                                        value["name"].toString();
+                                    companyDescription =
+                                        value["description"].toString();
+                                    companyContact =
+                                        value["contact"].toString();
+                                    companyAddress =
+                                        value["address"].toString();
+                                  });
                                   return Ink(
                                     width: 150,
                                     decoration: BoxDecoration(
@@ -144,15 +161,16 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                           context,
                                           'telaVaga',
                                           arguments: Vaga(
+                                            dados.docs[index].id,
                                             vaga['active'],
                                             vaga['title'],
                                             vaga['creation_date'],
                                             vaga['description'],
                                             vaga['model'],
-                                            vaga['companyName'],
-                                            vaga['companyDescription'],
-                                            vaga['companyContact'],
-                                            vaga['companyAddress'],
+                                            nomeEmpresa.value,
+                                            companyDescription,
+                                            companyContact,
+                                            companyAddress,
                                           ),
                                         );
                                       },
@@ -168,10 +186,15 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                                     color: Colors.black,
                                                     fontWeight:
                                                         FontWeight.bold)),
-                                            Text(nomeEmpresa,
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    color: Colors.black)),
+                                            ValueListenableBuilder(
+                                              valueListenable: nomeEmpresa,
+                                              builder: (context, value, _) {
+                                                return Text('$value',
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.black));
+                                              },
+                                            ),
                                             Text(modelVaga,
                                                 style: TextStyle(
                                                     fontSize: 14,
@@ -223,10 +246,27 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                           shrinkWrap: true,
                           itemCount: dados.size,
                           itemBuilder: (context, index) {
+                            ValueNotifier<String> nomeEmpresa =
+                                ValueNotifier<String>("");
                             dynamic vaga = dados.docs[index].data();
+                            vaga["company"].get().then((value) {
+                              print(value["name"]);
+                            });
                             String titleVaga = vaga['title'];
-                            String nomeEmpresa = vaga['companyName'];
+                            String companyDescription = " ";
+                            String companyContact = " ";
+                            String companyAddress = " ";
 
+                            var companyReference =
+                                vaga["company"] as DocumentReference;
+                            final company = companyReference.get();
+                            company.then((value) {
+                              nomeEmpresa.value = value["name"].toString();
+                              companyDescription =
+                                  value["description"].toString();
+                              companyContact = value["contact"].toString();
+                              companyAddress = value["address"].toString();
+                            });
                             return Card(
                               color: Color.fromRGBO(245, 242, 248, 1),
                               margin: EdgeInsets.only(bottom: 20),
@@ -237,15 +277,16 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                     context,
                                     'telaVaga',
                                     arguments: Vaga(
+                                      dados.docs[index].id,
                                       vaga['active'],
                                       vaga['title'],
                                       vaga['creation_date'],
                                       vaga['description'],
                                       vaga['model'],
-                                      vaga['companyName'],
-                                      vaga['companyDescription'],
-                                      vaga['companyContact'],
-                                      vaga['companyAddress'],
+                                      nomeEmpresa.value,
+                                      companyDescription,
+                                      companyContact,
+                                      companyAddress,
                                     ),
                                   );
                                 },
@@ -274,10 +315,16 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                                         color: Colors.black,
                                                         fontWeight:
                                                             FontWeight.bold)),
-                                                Text(nomeEmpresa,
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        color: Colors.black)),
+                                                ValueListenableBuilder(
+                                                  valueListenable: nomeEmpresa,
+                                                  builder: (context, value, _) {
+                                                    return Text('$value',
+                                                        style: TextStyle(
+                                                            fontSize: 14,
+                                                            color:
+                                                                Colors.black));
+                                                  },
+                                                ),
                                               ],
                                             ),
                                           ],

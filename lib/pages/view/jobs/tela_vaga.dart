@@ -25,16 +25,10 @@ class TelaVaga extends StatefulWidget {
 }
 
 class _TelaVagaState extends State<TelaVaga> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
   bool aplicado;
+
   bool vagaFavoritada;
   int opcaoAtiva;
-
   _TelaVagaState({
     this.aplicado = false,
     this.vagaFavoritada = false,
@@ -176,7 +170,8 @@ class _TelaVagaState extends State<TelaVaga> {
                     ElevatedButton(
                       onPressed: () {
                         aplicarVaga();
-                        caixaDialogo('Vaga Demo', "Você se candidatou à vaga!");
+                        caixaDialogo('Vaga ${vagaAtual.title}',
+                            "Você se candidatou à vaga!");
                       },
                       style: ElevatedButton.styleFrom(
                           minimumSize:
@@ -233,6 +228,12 @@ class _TelaVagaState extends State<TelaVaga> {
     setState(() {
       vagaFavoritada = !vagaFavoritada;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 
   void mudaOpcaoAtiva(int opcao) {
