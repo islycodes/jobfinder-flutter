@@ -11,13 +11,8 @@ class TelaSobreoAplicativo extends StatefulWidget {
 }
 
 class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
   static TextStyle linkStyle = TextStyle(color: Colors.blue);
+
   static TextStyle defaultStyle = TextStyle(
     fontSize: 14,
     color: Colors.black,
@@ -26,7 +21,6 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
       scheme: 'https',
       host: 'www.github.com',
       path: 'islycodes/estagiotec_app');
-
   final Uri urlGithubAdrielly =
       Uri(scheme: 'https', host: 'www.github.com', path: 'islycodes');
 
@@ -128,7 +122,7 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
                                     SizedBox(width: 120),
                                     Text(
                                         'Desenvolvedora e Consultora SAP\n' +
-                                            'Gerenciamento de testes, UX/UI e programação do Front-End.',
+                                            'Gerência dos testes, UX/UI e programação do Front-End.',
                                         style: TextStyle(
                                             fontSize: 10, color: Colors.black)),
                                   ],
@@ -177,5 +171,11 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
             ],
           ),
         ])));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }
