@@ -31,234 +31,134 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
   Widget build(BuildContext context) {
     vagas = VagasController().listar();
     final controller = TextEditingController();
-    return Scaffold(
-      backgroundColor: Colors.white,
-      extendBodyBehindAppBar: false,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        toolbarHeight: 80,
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            color: Colors.grey,
-            icon: Icon(Icons.menu, size: 28),
-            onPressed: () {
-              Navigator.pushNamed(context, 'telaPerfil');
-            },
-          ),
-          SizedBox(width: 10),
-        ],
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
-        child: Column(children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                child: Text('Encontre seu Emprego',
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold)),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Row(
-                children: <Widget>[
-                  Flexible(
-                    child: campoTexto('Pesquisar', controller, Icons.search),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 10),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(74, 74),
-                          backgroundColor: Color.fromRGBO(30, 40, 107, 1),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          )),
-                      child: SvgPicture.string(svgCode),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 45,
-              ),
-              Text('Vagas em destaque',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold)),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 185,
-                child: StreamBuilder<QuerySnapshot>(
-                  stream: vagas.snapshots(),
-                  builder: (context, snapshot) {
-                    switch (snapshot.connectionState) {
-                      case ConnectionState.none:
-                        return const Center(
-                          child: Text('Não foi possível conectar.'),
-                        );
-                      case ConnectionState.waiting:
-                        return const Center(child: CircularProgressIndicator());
-                      default:
-                        final dados = snapshot.requireData;
-                        if (dados.size > 0) {
-                          return ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: dados.size,
-                            separatorBuilder: (context, index) {
-                              return const SizedBox(width: 12);
-                            },
-                            itemBuilder: (context, index) {
-                              dynamic vaga = dados.docs[index].data();
-                              String titleVaga = vaga['title'];
-                              String modelVaga = vaga['model'];
-                              String nomeEmpresa = vaga['companyName'];
 
-                              return Ink(
-                                width: 150,
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(245, 242, 248, 1),
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(16),
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      'telaVaga',
-                                      arguments: Vaga(
-                                        vaga['active'],
-                                        vaga['title'],
-                                        vaga['creation_date'],
-                                        vaga['description'],
-                                        vaga['model'],
-                                        vaga['companyName'],
-                                        vaga['companyDescription'],
-                                        vaga['companyContact'],
-                                        vaga['companyAddress'],
-                                      ),
-                                    );
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(titleVaga,
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold)),
-                                        Text(nomeEmpresa,
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                color: Colors.black)),
-                                        Text(modelVaga,
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                color: Colors.black)),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        } else {
-                          return Center(
-                            child: Text('Nenhuma vaga encontrada.'),
-                          );
-                        }
-                    }
-                  },
-                ),
+    return new WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          extendBodyBehindAppBar: false,
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            toolbarHeight: 80,
+            automaticallyImplyLeading: false,
+            actions: [
+              IconButton(
+                color: Colors.grey,
+                icon: Icon(Icons.menu, size: 28),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'telaPerfil');
+                },
               ),
-              SizedBox(
-                height: 40,
-              ),
-              Text('Relacionado ao seu curso',
-                  style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold)),
+              SizedBox(width: 10),
             ],
           ),
-          SizedBox(
-            height: 25,
-          ),
-          StreamBuilder<QuerySnapshot>(
-            stream: vagas.snapshots(),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                  return const Center(
-                    child: Text('Não foi possível conectar.'),
-                  );
-                case ConnectionState.waiting:
-                  return const Center(child: CircularProgressIndicator());
-                default:
-                  final dados = snapshot.requireData;
-                  if (dados.size > 0) {
-                    return ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      itemCount: dados.size,
-                      itemBuilder: (context, index) {
-                        dynamic vaga = dados.docs[index].data();
-                        String titleVaga = vaga['title'];
-                        String nomeEmpresa = vaga['companyName'];
+          body: SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+            child: Column(children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child: Text('Encontre seu Emprego',
+                        style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold)),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Flexible(
+                        child:
+                            campoTexto('Pesquisar', controller, Icons.search),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              minimumSize: Size(74, 74),
+                              backgroundColor: Color.fromRGBO(30, 40, 107, 1),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              )),
+                          child: SvgPicture.string(svgCode),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 45,
+                  ),
+                  Text('Vagas em destaque',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 185,
+                    child: StreamBuilder<QuerySnapshot>(
+                      stream: vagas.snapshots(),
+                      builder: (context, snapshot) {
+                        switch (snapshot.connectionState) {
+                          case ConnectionState.none:
+                            return const Center(
+                              child: Text('Não foi possível conectar.'),
+                            );
+                          case ConnectionState.waiting:
+                            return const Center(
+                                child: CircularProgressIndicator());
+                          default:
+                            final dados = snapshot.requireData;
+                            if (dados.size > 0) {
+                              return ListView.separated(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: dados.size,
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(width: 12);
+                                },
+                                itemBuilder: (context, index) {
+                                  dynamic vaga = dados.docs[index].data();
+                                  String titleVaga = vaga['title'];
+                                  String modelVaga = vaga['model'];
+                                  String nomeEmpresa = vaga['companyName'];
 
-                        return Card(
-                          color: Color.fromRGBO(245, 242, 248, 1),
-                          margin: EdgeInsets.only(bottom: 20),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                'telaVaga',
-                                arguments: Vaga(
-                                  vaga['active'],
-                                  vaga['title'],
-                                  vaga['creation_date'],
-                                  vaga['description'],
-                                  vaga['model'],
-                                  vaga['companyName'],
-                                  vaga['companyDescription'],
-                                  vaga['companyContact'],
-                                  vaga['companyAddress'],
-                                ),
-                              );
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
-                              child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(Icons.square_rounded,
-                                            size: 48,
-                                            color: Color.fromRGBO(
-                                                217, 217, 217, 1)),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Column(
+                                  return Ink(
+                                    width: 150,
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(245, 242, 248, 1),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: InkWell(
+                                      borderRadius: BorderRadius.circular(16),
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          'telaVaga',
+                                          arguments: Vaga(
+                                            vaga['active'],
+                                            vaga['title'],
+                                            vaga['creation_date'],
+                                            vaga['description'],
+                                            vaga['model'],
+                                            vaga['companyName'],
+                                            vaga['companyDescription'],
+                                            vaga['companyContact'],
+                                            vaga['companyAddress'],
+                                          ),
+                                        );
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.all(10),
+                                        child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
@@ -272,28 +172,134 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
                                                 style: TextStyle(
                                                     fontSize: 14,
                                                     color: Colors.black)),
+                                            Text(modelVaga,
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.black)),
                                           ],
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                    Icon(Icons.arrow_forward_ios)
-                                  ]),
-                            ),
-                          ),
-                        );
+                                  );
+                                },
+                              );
+                            } else {
+                              return Center(
+                                child: Text('Nenhuma vaga encontrada.'),
+                              );
+                            }
+                        }
                       },
-                    );
-                  } else {
-                    return Center(
-                      child: Text('Nenhuma vaga encontrada.'),
-                    );
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Text('Relacionado ao seu curso',
+                      style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              StreamBuilder<QuerySnapshot>(
+                stream: vagas.snapshots(),
+                builder: (context, snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.none:
+                      return const Center(
+                        child: Text('Não foi possível conectar.'),
+                      );
+                    case ConnectionState.waiting:
+                      return const Center(child: CircularProgressIndicator());
+                    default:
+                      final dados = snapshot.requireData;
+                      if (dados.size > 0) {
+                        return ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          itemCount: dados.size,
+                          itemBuilder: (context, index) {
+                            dynamic vaga = dados.docs[index].data();
+                            String titleVaga = vaga['title'];
+                            String nomeEmpresa = vaga['companyName'];
+
+                            return Card(
+                              color: Color.fromRGBO(245, 242, 248, 1),
+                              margin: EdgeInsets.only(bottom: 20),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(5),
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    'telaVaga',
+                                    arguments: Vaga(
+                                      vaga['active'],
+                                      vaga['title'],
+                                      vaga['creation_date'],
+                                      vaga['description'],
+                                      vaga['model'],
+                                      vaga['companyName'],
+                                      vaga['companyDescription'],
+                                      vaga['companyContact'],
+                                      vaga['companyAddress'],
+                                    ),
+                                  );
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB(10, 13, 25, 13),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(Icons.square_rounded,
+                                                size: 48,
+                                                color: Color.fromRGBO(
+                                                    217, 217, 217, 1)),
+                                            SizedBox(
+                                              width: 20,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(titleVaga,
+                                                    style: TextStyle(
+                                                        fontSize: 18,
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                                Text(nomeEmpresa,
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.black)),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        Icon(Icons.arrow_forward_ios)
+                                      ]),
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      } else {
+                        return Center(
+                          child: Text('Nenhuma vaga encontrada.'),
+                        );
+                      }
                   }
-              }
-            },
-          )
-        ]),
-      ),
-    );
+                },
+              )
+            ]),
+          ),
+        ));
   }
 
   @override

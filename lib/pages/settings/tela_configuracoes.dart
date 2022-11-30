@@ -18,19 +18,13 @@ class TelaConfiguracoes extends StatefulWidget {
 }
 
 class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
   static List<Opcoes> opcoes = [
     Opcoes(
         nomeOpcao: 'Gerenciar notificações', caminhoOpcao: 'telaNotificacoes'),
     Opcoes(
         nomeOpcao: 'Limpar histórico de busca', caminhoOpcao: 'telaHistorico'),
     Opcoes(nomeOpcao: 'Sobre', caminhoOpcao: 'telaSobre'),
-    Opcoes(nomeOpcao: 'Sair', caminhoOpcao: 'telaLogin'),
+    Opcoes(nomeOpcao: 'Sair', caminhoOpcao: 'telaInicial'),
   ];
 
   @override
@@ -68,8 +62,15 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(5),
                                 onTap: () {
-                                  Navigator.pushNamed(
-                                      context, opcao.caminhoOpcao);
+                                  if (opcao.nomeOpcao == "Sair") {
+                                    Navigator.pushNamed(
+                                        context, opcao.caminhoOpcao,
+                                        arguments: true);
+                                  } else {
+                                    Navigator.pushNamed(
+                                        context, opcao.caminhoOpcao,
+                                        arguments: false);
+                                  }
                                 },
                                 child: Padding(
                                   padding: EdgeInsets.all(20),
@@ -98,5 +99,11 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                     ],
                   ),
                 ))));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }

@@ -16,17 +16,6 @@ class _TelaLoginState extends State<TelaLogin> {
   //Atributos
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
-
-  //
-  // BOTAO
-  //
-
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,5 +115,11 @@ class _TelaLoginState extends State<TelaLogin> {
             ),
           ),
         ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }
