@@ -27,6 +27,9 @@ Future<void> main() async {
   );
   SystemChrome.setEnabledSystemUIMode(
       SystemUiMode.leanBack); //oculta a status bar do Android
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Estagiotec',
