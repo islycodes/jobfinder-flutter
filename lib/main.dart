@@ -3,6 +3,7 @@ import 'package:estagiotec/pages/view/jobs/tela_vagaBookmark.dart';
 import 'package:estagiotec/pages/view/tela_menu_inicial.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'firebase_options.dart';
 import 'pages/about-us/tela_sobre.dart';
@@ -24,6 +25,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.leanBack); //oculta a status bar do Android
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Estagiotec',
