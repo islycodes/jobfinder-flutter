@@ -38,8 +38,10 @@ class _TelaMenuInicialState extends State<TelaMenuInicial> {
           backgroundColor: Colors.white,
           extendBodyBehindAppBar: false,
           appBar: AppBar(
-          SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack); //oculta a status bar do Android
-  ),
+            systemOverlayStyle: SystemUiOverlayStyle(
+              // Status bar color
+              statusBarColor: Colors.white,
+            ),
             backgroundColor: Colors.white,
             elevation: 0,
             toolbarHeight: 80,
