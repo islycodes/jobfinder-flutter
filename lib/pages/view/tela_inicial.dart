@@ -108,6 +108,10 @@ class _TelaInicialState extends State<TelaInicial> {
                 backgroundColor: Colors.white,
                 extendBodyBehindAppBar: true,
                 appBar: AppBar(
+                  systemOverlayStyle: SystemUiOverlayStyle(
+                    // Status bar color
+                    statusBarColor: Colors.white,
+                  ),
                   backgroundColor: Colors.white,
                   toolbarHeight: 80,
                   elevation: 0,

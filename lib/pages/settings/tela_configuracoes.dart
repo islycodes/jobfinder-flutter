@@ -33,6 +33,10 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            // Status bar color
+            statusBarColor: Colors.white,
+          ),
           centerTitle: true,
           title: Text('CONFIGURAÇÕES'),
           titleTextStyle: TextStyle(

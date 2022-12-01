@@ -34,6 +34,10 @@ class _TelaVagaSalvaState extends State<TelaVagaSalva> {
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            // Status bar color
+            statusBarColor: Colors.white,
+          ),
           centerTitle: true,
           title: Text('VAGAS SALVAS'),
           titleTextStyle: TextStyle(

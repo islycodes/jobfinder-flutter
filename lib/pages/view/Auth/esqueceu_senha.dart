@@ -21,6 +21,11 @@ class _AlteraSenhaState extends State<AlteraSenha> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+        // Status bar color
+        statusBarColor: Colors.white,
+      )),
       body: Container(
         padding: EdgeInsets.only(top: 60, left: 40, right: 40),
         child: ListView(

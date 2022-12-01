@@ -25,6 +25,10 @@ class _TelaCadastroState extends State<TelaCadastro> {
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            // Status bar color
+            statusBarColor: Colors.white,
+          ),
           backgroundColor: Colors.white,
           elevation: 0,
           toolbarHeight: 80,

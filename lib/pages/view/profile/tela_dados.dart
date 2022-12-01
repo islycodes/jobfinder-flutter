@@ -24,6 +24,10 @@ class _TelaDadosState extends State<TelaDados> {
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            // Status bar color
+            statusBarColor: Colors.white,
+          ),
           centerTitle: true,
           title: Text('MEUS DADOS'),
           titleTextStyle: TextStyle(

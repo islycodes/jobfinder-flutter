@@ -25,6 +25,10 @@ class _TelaHistoricoState extends State<TelaHistorico> {
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            // Status bar color
+            statusBarColor: Colors.white,
+          ),
           centerTitle: true,
           title: Text('LIMPAR HISTÓRICO'),
           titleTextStyle: TextStyle(

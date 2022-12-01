@@ -33,6 +33,10 @@ class _TelaSobreoAplicativoState extends State<TelaSobreoAplicativo> {
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: false,
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            // Status bar color
+            statusBarColor: Colors.white,
+          ),
           centerTitle: true,
           title: Text('SOBRE O APLICATIVO'),
           titleTextStyle: TextStyle(

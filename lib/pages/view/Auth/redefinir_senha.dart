@@ -23,6 +23,10 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          // Status bar color
+          statusBarColor: Colors.white,
+        ),
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 80,

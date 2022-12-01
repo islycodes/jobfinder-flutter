@@ -61,6 +61,10 @@ class _TelaVagaBookMarkState extends State<TelaVagaBookMark> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          // Status bar color
+          statusBarColor: Colors.white,
+        ),
         centerTitle: true,
         title: Text('VISUALIZAÇÃO DE VAGA'),
         titleTextStyle: TextStyle(
